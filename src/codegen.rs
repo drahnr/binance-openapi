@@ -4372,7 +4372,7 @@ pub mod types {
             value.clone()
         }
     }
-    ///AssetConvertTransferQueryByPageAccountType
+    ///AssetConvertTransferPagedAccountType
     ///
     /// <details><summary>JSON schema</summary>
     ///
@@ -4398,19 +4398,19 @@ pub mod types {
         PartialOrd,
         Serialize
     )]
-    pub enum AssetConvertTransferQueryByPageAccountType {
+    pub enum AssetConvertTransferPagedAccountType {
         #[serde(rename = "MAIN")]
         Main,
         #[serde(rename = "CARD")]
         Card,
     }
-    impl From<&AssetConvertTransferQueryByPageAccountType>
-    for AssetConvertTransferQueryByPageAccountType {
-        fn from(value: &AssetConvertTransferQueryByPageAccountType) -> Self {
+    impl From<&AssetConvertTransferPagedAccountType>
+    for AssetConvertTransferPagedAccountType {
+        fn from(value: &AssetConvertTransferPagedAccountType) -> Self {
             value.clone()
         }
     }
-    impl ToString for AssetConvertTransferQueryByPageAccountType {
+    impl ToString for AssetConvertTransferPagedAccountType {
         fn to_string(&self) -> String {
             match *self {
                 Self::Main => "MAIN".to_string(),
@@ -4418,7 +4418,7 @@ pub mod types {
             }
         }
     }
-    impl std::str::FromStr for AssetConvertTransferQueryByPageAccountType {
+    impl std::str::FromStr for AssetConvertTransferPagedAccountType {
         type Err = self::error::ConversionError;
         fn from_str(value: &str) -> Result<Self, self::error::ConversionError> {
             match value {
@@ -4428,25 +4428,25 @@ pub mod types {
             }
         }
     }
-    impl std::convert::TryFrom<&str> for AssetConvertTransferQueryByPageAccountType {
+    impl std::convert::TryFrom<&str> for AssetConvertTransferPagedAccountType {
         type Error = self::error::ConversionError;
         fn try_from(value: &str) -> Result<Self, self::error::ConversionError> {
             value.parse()
         }
     }
-    impl std::convert::TryFrom<&String> for AssetConvertTransferQueryByPageAccountType {
+    impl std::convert::TryFrom<&String> for AssetConvertTransferPagedAccountType {
         type Error = self::error::ConversionError;
         fn try_from(value: &String) -> Result<Self, self::error::ConversionError> {
             value.parse()
         }
     }
-    impl std::convert::TryFrom<String> for AssetConvertTransferQueryByPageAccountType {
+    impl std::convert::TryFrom<String> for AssetConvertTransferPagedAccountType {
         type Error = self::error::ConversionError;
         fn try_from(value: String) -> Result<Self, self::error::ConversionError> {
             value.parse()
         }
     }
-    ///AssetConvertTransferQueryByPageResponse
+    ///AssetConvertTransferPagedResponse
     ///
     /// <details><summary>JSON schema</summary>
     ///
@@ -4546,17 +4546,16 @@ pub mod types {
     /// ```
     /// </details>
     #[derive(Clone, Debug, Deserialize, Serialize)]
-    pub struct AssetConvertTransferQueryByPageResponse {
-        pub rows: Vec<AssetConvertTransferQueryByPageResponseRowsItem>,
+    pub struct AssetConvertTransferPagedResponse {
+        pub rows: Vec<AssetConvertTransferPagedResponseRowsItem>,
         pub total: i32,
     }
-    impl From<&AssetConvertTransferQueryByPageResponse>
-    for AssetConvertTransferQueryByPageResponse {
-        fn from(value: &AssetConvertTransferQueryByPageResponse) -> Self {
+    impl From<&AssetConvertTransferPagedResponse> for AssetConvertTransferPagedResponse {
+        fn from(value: &AssetConvertTransferPagedResponse) -> Self {
             value.clone()
         }
     }
-    ///AssetConvertTransferQueryByPageResponseRowsItem
+    ///AssetConvertTransferPagedResponseRowsItem
     ///
     /// <details><summary>JSON schema</summary>
     ///
@@ -4637,7 +4636,7 @@ pub mod types {
     /// ```
     /// </details>
     #[derive(Clone, Debug, Deserialize, Serialize)]
-    pub struct AssetConvertTransferQueryByPageResponseRowsItem {
+    pub struct AssetConvertTransferPagedResponseRowsItem {
         #[serde(rename = "accountType")]
         pub account_type: String,
         #[serde(rename = "deductedAmount")]
@@ -4655,9 +4654,9 @@ pub mod types {
         #[serde(rename = "type")]
         pub type_: i64,
     }
-    impl From<&AssetConvertTransferQueryByPageResponseRowsItem>
-    for AssetConvertTransferQueryByPageResponseRowsItem {
-        fn from(value: &AssetConvertTransferQueryByPageResponseRowsItem) -> Self {
+    impl From<&AssetConvertTransferPagedResponseRowsItem>
+    for AssetConvertTransferPagedResponseRowsItem {
+        fn from(value: &AssetConvertTransferPagedResponseRowsItem) -> Self {
             value.clone()
         }
     }
@@ -11005,7 +11004,7 @@ pub mod types {
             value.clone()
         }
     }
-    ///CapitalDepositHisrecResponseItem
+    ///CapitalDepositHistoryRecResponseItem
     ///
     /// <details><summary>JSON schema</summary>
     ///
@@ -11101,7 +11100,7 @@ pub mod types {
     /// ```
     /// </details>
     #[derive(Clone, Debug, Deserialize, Serialize)]
-    pub struct CapitalDepositHisrecResponseItem {
+    pub struct CapitalDepositHistoryRecResponseItem {
         pub address: String,
         #[serde(rename = "addressTag")]
         pub address_tag: String,
@@ -11121,8 +11120,9 @@ pub mod types {
         #[serde(rename = "unlockConfirm")]
         pub unlock_confirm: String,
     }
-    impl From<&CapitalDepositHisrecResponseItem> for CapitalDepositHisrecResponseItem {
-        fn from(value: &CapitalDepositHisrecResponseItem) -> Self {
+    impl From<&CapitalDepositHistoryRecResponseItem>
+    for CapitalDepositHistoryRecResponseItem {
+        fn from(value: &CapitalDepositHistoryRecResponseItem) -> Self {
             value.clone()
         }
     }
@@ -11338,8 +11338,7 @@ pub mod types {
     ///    "status",
     ///    "transactionFee",
     ///    "transferType",
-    ///    "txId",
-    ///    "withdrawOrderId"
+    ///    "txId"
     ///  ],
     ///  "properties": {
     ///    "address": {
@@ -11453,8 +11452,12 @@ pub mod types {
         #[serde(rename = "txId")]
         pub tx_id: String,
         ///will not be returned if there's no withdrawOrderId for this withdraw.
-        #[serde(rename = "withdrawOrderId")]
-        pub withdraw_order_id: String,
+        #[serde(
+            rename = "withdrawOrderId",
+            default,
+            skip_serializing_if = "Option::is_none"
+        )]
+        pub withdraw_order_id: Option<String>,
     }
     impl From<&CapitalWithdrawHistoryResponseItem>
     for CapitalWithdrawHistoryResponseItem {
@@ -56335,7 +56338,7 @@ Sends a `GET` request to `/api/v3/ping`
                 reqwest::header::HeaderValue::from_static("application/json"),
             )
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -56366,7 +56369,7 @@ Sends a `GET` request to `/api/v3/time`
                 reqwest::header::HeaderValue::from_static("application/json"),
             )
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -56417,7 +56420,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -56465,7 +56468,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -56510,7 +56513,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -56560,7 +56563,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -56627,7 +56630,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -56691,7 +56694,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -56754,7 +56757,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -56794,7 +56797,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -56851,7 +56854,7 @@ If none provided, the default is FULL
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -56902,7 +56905,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -56953,7 +56956,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -57023,7 +57026,7 @@ Units cannot be combined (e.g. 1d2h is not allowed)
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -57053,13 +57056,11 @@ Arguments:
 - `quote_order_qty`: Quote quantity
 - `recv_window`: The value cannot be greater than 60000
 - `side`
-- `signature`: Signature
 - `stop_price`: Used with STOP_LOSS, STOP_LOSS_LIMIT, TAKE_PROFIT, and TAKE_PROFIT_LIMIT orders.
 - `strategy_id`
 - `strategy_type`: The value cannot be less than 1000000.
 - `symbol`: Trading symbol, e.g. BNBUSDT
 - `time_in_force`: Order time in force
-- `timestamp`: UTC timestamp in ms
 - `trailing_delta`: Used with STOP_LOSS, STOP_LOSS_LIMIT, TAKE_PROFIT, and TAKE_PROFIT_LIMIT orders.
 - `type_`: Order type
 */
@@ -57073,13 +57074,11 @@ Arguments:
         quote_order_qty: Option<f64>,
         recv_window: Option<i64>,
         side: types::OrderTestSide,
-        signature: &'a str,
         stop_price: Option<f64>,
         strategy_id: Option<i64>,
         strategy_type: Option<i64>,
         symbol: &'a str,
         time_in_force: Option<types::OrderTestTimeInForce>,
-        timestamp: i64,
         trailing_delta: Option<f64>,
         type_: types::OrderTestType,
     ) -> Result<
@@ -57087,7 +57086,7 @@ Arguments:
         Error<types::Error>,
     > {
         let url = format!("{}/api/v3/order/test", self.baseurl,);
-        let mut query = Vec::with_capacity(17usize);
+        let mut query = Vec::with_capacity(15usize);
         if let Some(v) = &iceberg_qty {
             query.push(("icebergQty", v.to_string()));
         }
@@ -57110,7 +57109,6 @@ Arguments:
             query.push(("recvWindow", v.to_string()));
         }
         query.push(("side", side.to_string()));
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &stop_price {
             query.push(("stopPrice", v.to_string()));
         }
@@ -57124,7 +57122,6 @@ Arguments:
         if let Some(v) = &time_in_force {
             query.push(("timeInForce", v.to_string()));
         }
-        query.push(("timestamp", timestamp.to_string()));
         if let Some(v) = &trailing_delta {
             query.push(("trailingDelta", v.to_string()));
         }
@@ -57139,7 +57136,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -57169,21 +57166,17 @@ Arguments:
 - `order_id`: Order id
 - `orig_client_order_id`: Order id from client
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `symbol`: Trading symbol, e.g. BNBUSDT
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn query_order<'a>(
         &'a self,
         order_id: Option<i64>,
         orig_client_order_id: Option<&'a str>,
         recv_window: Option<i64>,
-        signature: &'a str,
         symbol: &'a str,
-        timestamp: i64,
     ) -> Result<ResponseValue<types::OrderDetails>, Error<types::Error>> {
         let url = format!("{}/api/v3/order", self.baseurl,);
-        let mut query = Vec::with_capacity(6usize);
+        let mut query = Vec::with_capacity(4usize);
         if let Some(v) = &order_id {
             query.push(("orderId", v.to_string()));
         }
@@ -57193,9 +57186,7 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         query.push(("symbol", symbol.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -57206,7 +57197,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -57254,13 +57245,11 @@ Arguments:
 - `recv_window`: The value cannot be greater than 60000
 - `self_trade_prevention_mode`: The allowed enums is dependent on what is configured on the symbol. The possible supported values are EXPIRE_TAKER, EXPIRE_MAKER, EXPIRE_BOTH, NONE.
 - `side`
-- `signature`: Signature
 - `stop_price`: Used with STOP_LOSS, STOP_LOSS_LIMIT, TAKE_PROFIT, and TAKE_PROFIT_LIMIT orders.
 - `strategy_id`
 - `strategy_type`: The value cannot be less than 1000000.
 - `symbol`: Trading symbol, e.g. BNBUSDT
 - `time_in_force`: Order time in force
-- `timestamp`: UTC timestamp in ms
 - `trailing_delta`: Used with STOP_LOSS, STOP_LOSS_LIMIT, TAKE_PROFIT, and TAKE_PROFIT_LIMIT orders.
 - `type_`: Order type
 */
@@ -57275,18 +57264,16 @@ Arguments:
         recv_window: Option<i64>,
         self_trade_prevention_mode: Option<types::PlaceNewOrderSelfTradePreventionMode>,
         side: types::PlaceNewOrderSide,
-        signature: &'a str,
         stop_price: Option<f64>,
         strategy_id: Option<i64>,
         strategy_type: Option<i64>,
         symbol: &'a str,
         time_in_force: Option<types::PlaceNewOrderTimeInForce>,
-        timestamp: i64,
         trailing_delta: Option<f64>,
         type_: types::PlaceNewOrderType,
     ) -> Result<ResponseValue<types::PlaceNewOrderResponse>, Error<types::Error>> {
         let url = format!("{}/api/v3/order", self.baseurl,);
-        let mut query = Vec::with_capacity(18usize);
+        let mut query = Vec::with_capacity(16usize);
         if let Some(v) = &iceberg_qty {
             query.push(("icebergQty", v.to_string()));
         }
@@ -57312,7 +57299,6 @@ Arguments:
             query.push(("selfTradePreventionMode", v.to_string()));
         }
         query.push(("side", side.to_string()));
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &stop_price {
             query.push(("stopPrice", v.to_string()));
         }
@@ -57326,7 +57312,6 @@ Arguments:
         if let Some(v) = &time_in_force {
             query.push(("timeInForce", v.to_string()));
         }
-        query.push(("timestamp", timestamp.to_string()));
         if let Some(v) = &trailing_delta {
             query.push(("trailingDelta", v.to_string()));
         }
@@ -57341,7 +57326,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -57372,9 +57357,7 @@ Arguments:
 - `order_id`: Order id
 - `orig_client_order_id`: Order id from client
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `symbol`: Trading symbol, e.g. BNBUSDT
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn cancel_order<'a>(
         &'a self,
@@ -57383,12 +57366,10 @@ Arguments:
         order_id: Option<i64>,
         orig_client_order_id: Option<&'a str>,
         recv_window: Option<i64>,
-        signature: &'a str,
         symbol: &'a str,
-        timestamp: i64,
     ) -> Result<ResponseValue<types::Order>, Error<types::Error>> {
         let url = format!("{}/api/v3/order", self.baseurl,);
-        let mut query = Vec::with_capacity(8usize);
+        let mut query = Vec::with_capacity(6usize);
         if let Some(v) = &cancel_restrictions {
             query.push(("cancelRestrictions", v.to_string()));
         }
@@ -57404,9 +57385,7 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         query.push(("symbol", symbol.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -57417,7 +57396,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -57460,13 +57439,11 @@ Arguments:
 - `recv_window`: The value cannot be greater than 60000
 - `self_trade_prevention_mode`: The allowed enums is dependent on what is configured on the symbol. The possible supported values are EXPIRE_TAKER, EXPIRE_MAKER, EXPIRE_BOTH, NONE.
 - `side`
-- `signature`: Signature
 - `stop_price`: Used with STOP_LOSS, STOP_LOSS_LIMIT, TAKE_PROFIT, and TAKE_PROFIT_LIMIT orders.
 - `strategy_id`
 - `strategy_type`: The value cannot be less than 1000000.
 - `symbol`: Trading symbol, e.g. BNBUSDT
 - `time_in_force`: Order time in force
-- `timestamp`: UTC timestamp in ms
 - `trailing_delta`: Used with STOP_LOSS, STOP_LOSS_LIMIT, TAKE_PROFIT, and TAKE_PROFIT_LIMIT orders.
 - `type_`: Order type
 */
@@ -57486,18 +57463,16 @@ Arguments:
         recv_window: Option<i64>,
         self_trade_prevention_mode: Option<types::ReplaceOrderSelfTradePreventionMode>,
         side: types::ReplaceOrderSide,
-        signature: &'a str,
         stop_price: Option<f64>,
         strategy_id: Option<i64>,
         strategy_type: Option<i64>,
         symbol: &'a str,
         time_in_force: Option<types::ReplaceOrderTimeInForce>,
-        timestamp: i64,
         trailing_delta: Option<f64>,
         type_: types::ReplaceOrderType,
     ) -> Result<ResponseValue<types::ReplaceOrderResponse>, Error<types::Error>> {
         let url = format!("{}/api/v3/order/cancelReplace", self.baseurl,);
-        let mut query = Vec::with_capacity(23usize);
+        let mut query = Vec::with_capacity(21usize);
         if let Some(v) = &cancel_new_client_order_id {
             query.push(("cancelNewClientOrderId", v.to_string()));
         }
@@ -57536,7 +57511,6 @@ Arguments:
             query.push(("selfTradePreventionMode", v.to_string()));
         }
         query.push(("side", side.to_string()));
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &stop_price {
             query.push(("stopPrice", v.to_string()));
         }
@@ -57550,7 +57524,6 @@ Arguments:
         if let Some(v) = &time_in_force {
             query.push(("timeInForce", v.to_string()));
         }
-        query.push(("timestamp", timestamp.to_string()));
         if let Some(v) = &trailing_delta {
             query.push(("trailingDelta", v.to_string()));
         }
@@ -57565,7 +57538,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -57592,27 +57565,21 @@ Sends a `GET` request to `/api/v3/openOrders`
 
 Arguments:
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `symbol`: Trading symbol, e.g. BNBUSDT
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn list_open_orders<'a>(
         &'a self,
         recv_window: Option<i64>,
-        signature: &'a str,
         symbol: Option<&'a str>,
-        timestamp: i64,
     ) -> Result<ResponseValue<Vec<types::OrderDetails>>, Error<types::Error>> {
         let url = format!("{}/api/v3/openOrders", self.baseurl,);
-        let mut query = Vec::with_capacity(4usize);
+        let mut query = Vec::with_capacity(2usize);
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &symbol {
             query.push(("symbol", v.to_string()));
         }
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -57623,7 +57590,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -57649,28 +57616,22 @@ Sends a `DELETE` request to `/api/v3/openOrders`
 
 Arguments:
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `symbol`: Trading symbol, e.g. BNBUSDT
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn cancel_open_orders<'a>(
         &'a self,
         recv_window: Option<i64>,
-        signature: &'a str,
         symbol: &'a str,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<Vec<types::CancelOpenOrdersResponseItem>>,
         Error<types::Error>,
     > {
         let url = format!("{}/api/v3/openOrders", self.baseurl,);
-        let mut query = Vec::with_capacity(4usize);
+        let mut query = Vec::with_capacity(2usize);
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         query.push(("symbol", symbol.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -57681,7 +57642,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -57713,10 +57674,8 @@ Arguments:
 - `limit`: Default 500; max 1000.
 - `order_id`: Order id
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `start_time`: UTC timestamp in ms
 - `symbol`: Trading symbol, e.g. BNBUSDT
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn all_orders<'a>(
         &'a self,
@@ -57724,13 +57683,11 @@ Arguments:
         limit: Option<i32>,
         order_id: Option<i64>,
         recv_window: Option<i64>,
-        signature: &'a str,
         start_time: Option<i64>,
         symbol: &'a str,
-        timestamp: i64,
     ) -> Result<ResponseValue<Vec<types::OrderDetails>>, Error<types::Error>> {
         let url = format!("{}/api/v3/allOrders", self.baseurl,);
-        let mut query = Vec::with_capacity(8usize);
+        let mut query = Vec::with_capacity(6usize);
         if let Some(v) = &end_time {
             query.push(("endTime", v.to_string()));
         }
@@ -57743,12 +57700,10 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &start_time {
             query.push(("startTime", v.to_string()));
         }
         query.push(("symbol", symbol.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -57759,7 +57714,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -57803,7 +57758,6 @@ Arguments:
 - `recv_window`: The value cannot be greater than 60000
 - `self_trade_prevention_mode`: The allowed enums is dependent on what is configured on the symbol. The possible supported values are EXPIRE_TAKER, EXPIRE_MAKER, EXPIRE_BOTH, NONE.
 - `side`
-- `signature`: Signature
 - `stop_client_order_id`: A unique Id for the stop loss/stop loss limit leg
 - `stop_iceberg_qty`
 - `stop_limit_price`: If provided, stopLimitTimeInForce is required.
@@ -57812,7 +57766,6 @@ Arguments:
 - `stop_strategy_id`
 - `stop_strategy_type`
 - `symbol`: Trading symbol, e.g. BNBUSDT
-- `timestamp`: UTC timestamp in ms
 - `trailing_delta`
 */
     pub async fn place_order_oco<'a>(
@@ -57828,7 +57781,6 @@ Arguments:
         recv_window: Option<i64>,
         self_trade_prevention_mode: Option<types::PlaceOrderOcoSelfTradePreventionMode>,
         side: types::PlaceOrderOcoSide,
-        signature: &'a str,
         stop_client_order_id: Option<&'a str>,
         stop_iceberg_qty: Option<f64>,
         stop_limit_price: Option<f64>,
@@ -57837,11 +57789,10 @@ Arguments:
         stop_strategy_id: Option<i64>,
         stop_strategy_type: Option<i64>,
         symbol: &'a str,
-        timestamp: i64,
         trailing_delta: Option<f64>,
     ) -> Result<ResponseValue<types::PlaceOrderOcoResponse>, Error<types::Error>> {
         let url = format!("{}/api/v3/order/oco", self.baseurl,);
-        let mut query = Vec::with_capacity(22usize);
+        let mut query = Vec::with_capacity(20usize);
         if let Some(v) = &limit_client_order_id {
             query.push(("limitClientOrderId", v.to_string()));
         }
@@ -57869,7 +57820,6 @@ Arguments:
             query.push(("selfTradePreventionMode", v.to_string()));
         }
         query.push(("side", side.to_string()));
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &stop_client_order_id {
             query.push(("stopClientOrderId", v.to_string()));
         }
@@ -57890,7 +57840,6 @@ Arguments:
             query.push(("stopStrategyType", v.to_string()));
         }
         query.push(("symbol", symbol.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         if let Some(v) = &trailing_delta {
             query.push(("trailingDelta", v.to_string()));
         }
@@ -57904,7 +57853,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -57931,19 +57880,15 @@ Arguments:
 - `order_list_id`: Order list id
 - `orig_client_order_id`: Order id from client
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn order_list<'a>(
         &'a self,
         order_list_id: Option<i64>,
         orig_client_order_id: Option<&'a str>,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<ResponseValue<types::OrderListResponse>, Error<types::Error>> {
         let url = format!("{}/api/v3/orderList", self.baseurl,);
-        let mut query = Vec::with_capacity(5usize);
+        let mut query = Vec::with_capacity(3usize);
         if let Some(v) = &order_list_id {
             query.push(("orderListId", v.to_string()));
         }
@@ -57953,8 +57898,6 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -57965,7 +57908,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -57995,9 +57938,7 @@ Arguments:
 - `new_client_order_id`: Used to uniquely identify this cancel. Automatically generated by default
 - `order_list_id`: Order list id
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `symbol`: Trading symbol, e.g. BNBUSDT
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn delete_order_list<'a>(
         &'a self,
@@ -58005,12 +57946,10 @@ Arguments:
         new_client_order_id: Option<&'a str>,
         order_list_id: Option<i64>,
         recv_window: Option<i64>,
-        signature: &'a str,
         symbol: &'a str,
-        timestamp: i64,
     ) -> Result<ResponseValue<types::OcoOrder>, Error<types::Error>> {
         let url = format!("{}/api/v3/orderList", self.baseurl,);
-        let mut query = Vec::with_capacity(7usize);
+        let mut query = Vec::with_capacity(5usize);
         if let Some(v) = &list_client_order_id {
             query.push(("listClientOrderId", v.to_string()));
         }
@@ -58023,9 +57962,7 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         query.push(("symbol", symbol.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -58036,7 +57973,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -58064,9 +58001,7 @@ Arguments:
 - `from_id`: Trade id to fetch from. Default gets most recent trades.
 - `limit`: Default 500; max 1000.
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `start_time`: UTC timestamp in ms
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn all_order_list<'a>(
         &'a self,
@@ -58074,15 +58009,13 @@ Arguments:
         from_id: Option<i64>,
         limit: Option<i32>,
         recv_window: Option<i64>,
-        signature: &'a str,
         start_time: Option<i64>,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<Vec<types::AllOrderListResponseItem>>,
         Error<types::Error>,
     > {
         let url = format!("{}/api/v3/allOrderList", self.baseurl,);
-        let mut query = Vec::with_capacity(7usize);
+        let mut query = Vec::with_capacity(5usize);
         if let Some(v) = &end_time {
             query.push(("endTime", v.to_string()));
         }
@@ -58095,11 +58028,9 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &start_time {
             query.push(("startTime", v.to_string()));
         }
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -58110,7 +58041,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -58133,25 +58064,19 @@ Sends a `GET` request to `/api/v3/openOrderList`
 
 Arguments:
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn open_order_list<'a>(
         &'a self,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<Vec<types::OpenOrderListResponseItem>>,
         Error<types::Error>,
     > {
         let url = format!("{}/api/v3/openOrderList", self.baseurl,);
-        let mut query = Vec::with_capacity(3usize);
+        let mut query = Vec::with_capacity(1usize);
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -58162,7 +58087,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -58192,12 +58117,10 @@ Arguments:
 - `recv_window`: The value cannot be greater than 60000
 - `self_trade_prevention_mode`: The allowed enums is dependent on what is configured on the symbol. The possible supported values are EXPIRE_TAKER, EXPIRE_MAKER, EXPIRE_BOTH, NONE.
 - `side`
-- `signature`: Signature
 - `strategy_id`
 - `strategy_type`: The value cannot be less than 1000000.
 - `symbol`: Trading symbol, e.g. BNBUSDT
 - `time_in_force`: Order time in force
-- `timestamp`: UTC timestamp in ms
 - `type_`: Order type
 */
     pub async fn sor_order<'a>(
@@ -58210,16 +58133,14 @@ Arguments:
         recv_window: Option<i64>,
         self_trade_prevention_mode: Option<types::SorOrderSelfTradePreventionMode>,
         side: types::SorOrderSide,
-        signature: &'a str,
         strategy_id: Option<i64>,
         strategy_type: Option<i64>,
         symbol: &'a str,
         time_in_force: Option<types::SorOrderTimeInForce>,
-        timestamp: i64,
         type_: types::SorOrderType,
     ) -> Result<ResponseValue<types::SorOrderResponse>, Error<types::Error>> {
         let url = format!("{}/api/v3/sor/order", self.baseurl,);
-        let mut query = Vec::with_capacity(15usize);
+        let mut query = Vec::with_capacity(13usize);
         if let Some(v) = &iceberg_qty {
             query.push(("icebergQty", v.to_string()));
         }
@@ -58240,7 +58161,6 @@ Arguments:
             query.push(("selfTradePreventionMode", v.to_string()));
         }
         query.push(("side", side.to_string()));
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &strategy_id {
             query.push(("strategyId", v.to_string()));
         }
@@ -58251,7 +58171,6 @@ Arguments:
         if let Some(v) = &time_in_force {
             query.push(("timeInForce", v.to_string()));
         }
-        query.push(("timestamp", timestamp.to_string()));
         query.push(("type", type_.to_string()));
         #[allow(unused_mut)]
         let mut request = self
@@ -58263,7 +58182,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -58294,12 +58213,10 @@ Arguments:
 - `recv_window`: The value cannot be greater than 60000
 - `self_trade_prevention_mode`: The allowed enums is dependent on what is configured on the symbol. The possible supported values are EXPIRE_TAKER, EXPIRE_MAKER, EXPIRE_BOTH, NONE.
 - `side`
-- `signature`: Signature
 - `strategy_id`
 - `strategy_type`: The value cannot be less than 1000000.
 - `symbol`: Trading symbol, e.g. BNBUSDT
 - `time_in_force`: Order time in force
-- `timestamp`: UTC timestamp in ms
 - `type_`: Order type
 */
     pub async fn sor_order_test<'a>(
@@ -58312,19 +58229,17 @@ Arguments:
         recv_window: Option<i64>,
         self_trade_prevention_mode: Option<types::SorOrderTestSelfTradePreventionMode>,
         side: types::SorOrderTestSide,
-        signature: &'a str,
         strategy_id: Option<i64>,
         strategy_type: Option<i64>,
         symbol: &'a str,
         time_in_force: Option<types::SorOrderTestTimeInForce>,
-        timestamp: i64,
         type_: types::SorOrderTestType,
     ) -> Result<
         ResponseValue<serde_json::Map<String, serde_json::Value>>,
         Error<types::Error>,
     > {
         let url = format!("{}/api/v3/sor/order/test", self.baseurl,);
-        let mut query = Vec::with_capacity(15usize);
+        let mut query = Vec::with_capacity(13usize);
         if let Some(v) = &iceberg_qty {
             query.push(("icebergQty", v.to_string()));
         }
@@ -58345,7 +58260,6 @@ Arguments:
             query.push(("selfTradePreventionMode", v.to_string()));
         }
         query.push(("side", side.to_string()));
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &strategy_id {
             query.push(("strategyId", v.to_string()));
         }
@@ -58356,7 +58270,6 @@ Arguments:
         if let Some(v) = &time_in_force {
             query.push(("timeInForce", v.to_string()));
         }
-        query.push(("timestamp", timestamp.to_string()));
         query.push(("type", type_.to_string()));
         #[allow(unused_mut)]
         let mut request = self
@@ -58368,7 +58281,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -58393,22 +58306,16 @@ Sends a `GET` request to `/api/v3/account`
 
 Arguments:
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn account<'a>(
         &'a self,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<ResponseValue<types::Account>, Error<types::Error>> {
         let url = format!("{}/api/v3/account", self.baseurl,);
-        let mut query = Vec::with_capacity(3usize);
+        let mut query = Vec::with_capacity(1usize);
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -58419,7 +58326,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -58467,10 +58374,8 @@ Arguments:
 - `limit`: Default 500; max 1000.
 - `order_id`: This can only be used in combination with symbol.
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `start_time`: UTC timestamp in ms
 - `symbol`: Trading symbol, e.g. BNBUSDT
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn my_trades<'a>(
         &'a self,
@@ -58479,13 +58384,11 @@ Arguments:
         limit: Option<i32>,
         order_id: Option<i64>,
         recv_window: Option<i64>,
-        signature: &'a str,
         start_time: Option<i64>,
         symbol: &'a str,
-        timestamp: i64,
     ) -> Result<ResponseValue<Vec<types::MyTrade>>, Error<types::Error>> {
         let url = format!("{}/api/v3/myTrades", self.baseurl,);
-        let mut query = Vec::with_capacity(9usize);
+        let mut query = Vec::with_capacity(7usize);
         if let Some(v) = &end_time {
             query.push(("endTime", v.to_string()));
         }
@@ -58501,12 +58404,10 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &start_time {
             query.push(("startTime", v.to_string()));
         }
         query.push(("symbol", symbol.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -58517,7 +58418,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -58542,25 +58443,19 @@ Sends a `GET` request to `/api/v3/rateLimit/order`
 
 Arguments:
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn rate_limit_order<'a>(
         &'a self,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<Vec<types::RateLimitOrderResponseItem>>,
         Error<types::Error>,
     > {
         let url = format!("{}/api/v3/rateLimit/order", self.baseurl,);
-        let mut query = Vec::with_capacity(3usize);
+        let mut query = Vec::with_capacity(1usize);
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -58571,7 +58466,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -58614,9 +58509,7 @@ Arguments:
 - `order_id`: Order id
 - `prevented_match_id`
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `symbol`: Trading symbol, e.g. BNBUSDT
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn my_prevented_matches<'a>(
         &'a self,
@@ -58625,15 +58518,13 @@ Arguments:
         order_id: Option<i64>,
         prevented_match_id: Option<i64>,
         recv_window: Option<i64>,
-        signature: &'a str,
         symbol: &'a str,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<Vec<types::MyPreventedMatchesResponseItem>>,
         Error<types::Error>,
     > {
         let url = format!("{}/api/v3/myPreventedMatches", self.baseurl,);
-        let mut query = Vec::with_capacity(8usize);
+        let mut query = Vec::with_capacity(6usize);
         if let Some(v) = &from_prevented_match_id {
             query.push(("fromPreventedMatchId", v.to_string()));
         }
@@ -58649,9 +58540,7 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         query.push(("symbol", symbol.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -58662,7 +58551,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -58703,10 +58592,8 @@ Arguments:
 - `limit`: Default 500; max 1000.
 - `order_id`: Order id
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `start_time`: UTC timestamp in ms
 - `symbol`: Trading symbol, e.g. BNBUSDT
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn my_allocations<'a>(
         &'a self,
@@ -58715,16 +58602,14 @@ Arguments:
         limit: Option<i32>,
         order_id: Option<i64>,
         recv_window: Option<i64>,
-        signature: &'a str,
         start_time: Option<i64>,
         symbol: &'a str,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<Vec<types::MyAllocationsResponseItem>>,
         Error<types::Error>,
     > {
         let url = format!("{}/api/v3/myAllocations", self.baseurl,);
-        let mut query = Vec::with_capacity(9usize);
+        let mut query = Vec::with_capacity(7usize);
         if let Some(v) = &end_time {
             query.push(("endTime", v.to_string()));
         }
@@ -58740,12 +58625,10 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &start_time {
             query.push(("startTime", v.to_string()));
         }
         query.push(("symbol", symbol.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -58756,7 +58639,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -58787,10 +58670,8 @@ Arguments:
 - `current`: Current querying page. Start from 1. Default:1
 - `end_time`: UTC timestamp in ms
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `size`: Default:10 Max:100
 - `start_time`: UTC timestamp in ms
-- `timestamp`: UTC timestamp in ms
 - `type_`
 */
     pub async fn get_margin_transfer<'a>(
@@ -58800,14 +58681,12 @@ Arguments:
         current: Option<i32>,
         end_time: Option<i64>,
         recv_window: Option<i64>,
-        signature: &'a str,
         size: Option<i32>,
         start_time: Option<i64>,
-        timestamp: i64,
         type_: Option<types::GetMarginTransferType>,
     ) -> Result<ResponseValue<types::GetMarginTransferResponse>, Error<types::Error>> {
         let url = format!("{}/sapi/v1/margin/transfer", self.baseurl,);
-        let mut query = Vec::with_capacity(10usize);
+        let mut query = Vec::with_capacity(8usize);
         if let Some(v) = &archived {
             query.push(("archived", v.to_string()));
         }
@@ -58823,14 +58702,12 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &size {
             query.push(("size", v.to_string()));
         }
         if let Some(v) = &start_time {
             query.push(("startTime", v.to_string()));
         }
-        query.push(("timestamp", timestamp.to_string()));
         if let Some(v) = &type_ {
             query.push(("type", v.to_string()));
         }
@@ -58844,7 +58721,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -58871,8 +58748,6 @@ Arguments:
 - `amount`
 - `asset`
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 - `type_`: * `1` - transfer from main account to margin account
 * `2` - transfer from margin account to main account
 */
@@ -58881,19 +58756,15 @@ Arguments:
         amount: f64,
         asset: &'a str,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
         type_: i64,
     ) -> Result<ResponseValue<types::Transaction>, Error<types::Error>> {
         let url = format!("{}/sapi/v1/margin/transfer", self.baseurl,);
-        let mut query = Vec::with_capacity(6usize);
+        let mut query = Vec::with_capacity(4usize);
         query.push(("amount", amount.to_string()));
         query.push(("asset", asset.to_string()));
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         query.push(("type", type_.to_string()));
         #[allow(unused_mut)]
         let mut request = self
@@ -58905,7 +58776,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -58938,10 +58809,8 @@ Arguments:
 - `end_time`: UTC timestamp in ms
 - `isolated_symbol`: Isolated symbol
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `size`: Default:10 Max:100
 - `start_time`: UTC timestamp in ms
-- `timestamp`: UTC timestamp in ms
 - `tx_id`: the tranId in  `POST /sapi/v1/margin/loan`
 */
     pub async fn query_margin_loan_record<'a>(
@@ -58952,17 +58821,15 @@ Arguments:
         end_time: Option<i64>,
         isolated_symbol: Option<&'a str>,
         recv_window: Option<i64>,
-        signature: &'a str,
         size: Option<i32>,
         start_time: Option<i64>,
-        timestamp: i64,
         tx_id: Option<i64>,
     ) -> Result<
         ResponseValue<types::QueryMarginLoanRecordResponse>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/margin/loan", self.baseurl,);
-        let mut query = Vec::with_capacity(11usize);
+        let mut query = Vec::with_capacity(9usize);
         if let Some(v) = &archived {
             query.push(("archived", v.to_string()));
         }
@@ -58979,14 +58846,12 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &size {
             query.push(("size", v.to_string()));
         }
         if let Some(v) = &start_time {
             query.push(("startTime", v.to_string()));
         }
-        query.push(("timestamp", timestamp.to_string()));
         if let Some(v) = &tx_id {
             query.push(("txId", v.to_string()));
         }
@@ -59000,7 +58865,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -59032,9 +58897,7 @@ Arguments:
 - `is_isolated`: * `TRUE` - For isolated margin
 * `FALSE` - Default, not for isolated margin
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `symbol`: Trading symbol, e.g. BNBUSDT
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn apply_for_margin_loan<'a>(
         &'a self,
@@ -59042,12 +58905,10 @@ Arguments:
         asset: &'a str,
         is_isolated: Option<types::ApplyForMarginLoanIsIsolated>,
         recv_window: Option<i64>,
-        signature: &'a str,
         symbol: Option<&'a str>,
-        timestamp: i64,
     ) -> Result<ResponseValue<types::Transaction>, Error<types::Error>> {
         let url = format!("{}/sapi/v1/margin/loan", self.baseurl,);
-        let mut query = Vec::with_capacity(7usize);
+        let mut query = Vec::with_capacity(5usize);
         query.push(("amount", amount.to_string()));
         query.push(("asset", asset.to_string()));
         if let Some(v) = &is_isolated {
@@ -59056,11 +58917,9 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &symbol {
             query.push(("symbol", v.to_string()));
         }
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -59071,7 +58930,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -59104,10 +58963,8 @@ Arguments:
 - `end_time`: UTC timestamp in ms
 - `isolated_symbol`: Isolated symbol
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `size`: Default:10 Max:100
 - `start_time`: UTC timestamp in ms
-- `timestamp`: UTC timestamp in ms
 - `tx_id`: the tranId in  `POST /sapi/v1/margin/repay`
 */
     pub async fn query_margin_repay<'a>(
@@ -59118,14 +58975,12 @@ Arguments:
         end_time: Option<i64>,
         isolated_symbol: Option<&'a str>,
         recv_window: Option<i64>,
-        signature: &'a str,
         size: Option<i32>,
         start_time: Option<i64>,
-        timestamp: i64,
         tx_id: Option<i64>,
     ) -> Result<ResponseValue<types::QueryMarginRepayResponse>, Error<types::Error>> {
         let url = format!("{}/sapi/v1/margin/repay", self.baseurl,);
-        let mut query = Vec::with_capacity(11usize);
+        let mut query = Vec::with_capacity(9usize);
         if let Some(v) = &archived {
             query.push(("archived", v.to_string()));
         }
@@ -59142,14 +58997,12 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &size {
             query.push(("size", v.to_string()));
         }
         if let Some(v) = &start_time {
             query.push(("startTime", v.to_string()));
         }
-        query.push(("timestamp", timestamp.to_string()));
         if let Some(v) = &tx_id {
             query.push(("txId", v.to_string()));
         }
@@ -59163,7 +59016,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -59195,9 +59048,7 @@ Arguments:
 - `is_isolated`: * `TRUE` - For isolated margin
 * `FALSE` - Default, not for isolated margin
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `symbol`: Trading symbol, e.g. BNBUSDT
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn margin_repay<'a>(
         &'a self,
@@ -59205,12 +59056,10 @@ Arguments:
         asset: &'a str,
         is_isolated: Option<types::MarginRepayIsIsolated>,
         recv_window: Option<i64>,
-        signature: &'a str,
         symbol: Option<&'a str>,
-        timestamp: i64,
     ) -> Result<ResponseValue<types::Transaction>, Error<types::Error>> {
         let url = format!("{}/sapi/v1/margin/repay", self.baseurl,);
-        let mut query = Vec::with_capacity(7usize);
+        let mut query = Vec::with_capacity(5usize);
         query.push(("amount", amount.to_string()));
         query.push(("asset", asset.to_string()));
         if let Some(v) = &is_isolated {
@@ -59219,11 +59068,9 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &symbol {
             query.push(("symbol", v.to_string()));
         }
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -59234,7 +59081,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -59273,7 +59120,7 @@ Sends a `GET` request to `/sapi/v1/margin/asset`
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -59311,7 +59158,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -59346,7 +59193,7 @@ Sends a `GET` request to `/sapi/v1/margin/allAssets`
                 reqwest::header::HeaderValue::from_static("application/json"),
             )
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -59381,7 +59228,7 @@ Sends a `GET` request to `/sapi/v1/margin/allPairs`
                 reqwest::header::HeaderValue::from_static("application/json"),
             )
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -59419,7 +59266,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -59446,9 +59293,7 @@ Arguments:
 - `order_id`: Order id
 - `orig_client_order_id`: Order id from client
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `symbol`: Trading symbol, e.g. BNBUSDT
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn margin_order<'a>(
         &'a self,
@@ -59456,12 +59301,10 @@ Arguments:
         order_id: Option<i64>,
         orig_client_order_id: Option<&'a str>,
         recv_window: Option<i64>,
-        signature: &'a str,
         symbol: &'a str,
-        timestamp: i64,
     ) -> Result<ResponseValue<types::MarginOrderDetail>, Error<types::Error>> {
         let url = format!("{}/sapi/v1/margin/order", self.baseurl,);
-        let mut query = Vec::with_capacity(7usize);
+        let mut query = Vec::with_capacity(5usize);
         if let Some(v) = &is_isolated {
             query.push(("isIsolated", v.to_string()));
         }
@@ -59474,9 +59317,7 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         query.push(("symbol", symbol.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -59487,7 +59328,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -59524,11 +59365,9 @@ Arguments:
 - `self_trade_prevention_mode`: The allowed enums is dependent on what is configured on the symbol. The possible supported values are EXPIRE_TAKER, EXPIRE_MAKER, EXPIRE_BOTH, NONE.
 - `side`
 - `side_effect_type`: Default `NO_SIDE_EFFECT`
-- `signature`: Signature
 - `stop_price`: Used with STOP_LOSS, STOP_LOSS_LIMIT, TAKE_PROFIT, and TAKE_PROFIT_LIMIT orders.
 - `symbol`: Trading symbol, e.g. BNBUSDT
 - `time_in_force`: Order time in force
-- `timestamp`: UTC timestamp in ms
 - `type_`: Order type
 */
     pub async fn post_margin_order<'a>(
@@ -59547,15 +59386,13 @@ Arguments:
         >,
         side: types::PostMarginOrderSide,
         side_effect_type: Option<types::PostMarginOrderSideEffectType>,
-        signature: &'a str,
         stop_price: Option<f64>,
         symbol: &'a str,
         time_in_force: Option<types::PostMarginOrderTimeInForce>,
-        timestamp: i64,
         type_: types::PostMarginOrderType,
     ) -> Result<ResponseValue<types::PostMarginOrderResponse>, Error<types::Error>> {
         let url = format!("{}/sapi/v1/margin/order", self.baseurl,);
-        let mut query = Vec::with_capacity(18usize);
+        let mut query = Vec::with_capacity(16usize);
         query.push(("autoRepayAtCancel", auto_repay_at_cancel.to_string()));
         if let Some(v) = &iceberg_qty {
             query.push(("icebergQty", v.to_string()));
@@ -59586,7 +59423,6 @@ Arguments:
         if let Some(v) = &side_effect_type {
             query.push(("sideEffectType", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &stop_price {
             query.push(("stopPrice", v.to_string()));
         }
@@ -59594,7 +59430,6 @@ Arguments:
         if let Some(v) = &time_in_force {
             query.push(("timeInForce", v.to_string()));
         }
-        query.push(("timestamp", timestamp.to_string()));
         query.push(("type", type_.to_string()));
         #[allow(unused_mut)]
         let mut request = self
@@ -59606,7 +59441,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -59638,9 +59473,7 @@ Arguments:
 - `order_id`: Order id
 - `orig_client_order_id`: Order id from client
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `symbol`: Trading symbol, e.g. BNBUSDT
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn cancel_margin_order<'a>(
         &'a self,
@@ -59649,12 +59482,10 @@ Arguments:
         order_id: Option<i64>,
         orig_client_order_id: Option<&'a str>,
         recv_window: Option<i64>,
-        signature: &'a str,
         symbol: &'a str,
-        timestamp: i64,
     ) -> Result<ResponseValue<types::MarginOrder>, Error<types::Error>> {
         let url = format!("{}/sapi/v1/margin/order", self.baseurl,);
-        let mut query = Vec::with_capacity(8usize);
+        let mut query = Vec::with_capacity(6usize);
         if let Some(v) = &is_isolated {
             query.push(("isIsolated", v.to_string()));
         }
@@ -59670,9 +59501,7 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         query.push(("symbol", symbol.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -59683,7 +59512,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -59720,10 +59549,8 @@ Arguments:
 - `end_time`: UTC timestamp in ms
 - `isolated_symbol`: Isolated symbol
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `size`: Default:10 Max:100
 - `start_time`: UTC timestamp in ms
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn margin_interest_history<'a>(
         &'a self,
@@ -59733,16 +59560,14 @@ Arguments:
         end_time: Option<i64>,
         isolated_symbol: Option<&'a str>,
         recv_window: Option<i64>,
-        signature: &'a str,
         size: Option<i32>,
         start_time: Option<i64>,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<types::MarginInterestHistoryResponse>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/margin/interestHistory", self.baseurl,);
-        let mut query = Vec::with_capacity(10usize);
+        let mut query = Vec::with_capacity(8usize);
         if let Some(v) = &archived {
             query.push(("archived", v.to_string()));
         }
@@ -59761,14 +59586,12 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &size {
             query.push(("size", v.to_string()));
         }
         if let Some(v) = &start_time {
             query.push(("startTime", v.to_string()));
         }
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -59779,7 +59602,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -59807,10 +59630,8 @@ Arguments:
 - `end_time`: UTC timestamp in ms
 - `isolated_symbol`: Isolated symbol
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `size`: Default:10 Max:100
 - `start_time`: UTC timestamp in ms
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn margin_force_liquidation_rec<'a>(
         &'a self,
@@ -59818,16 +59639,14 @@ Arguments:
         end_time: Option<i64>,
         isolated_symbol: Option<&'a str>,
         recv_window: Option<i64>,
-        signature: &'a str,
         size: Option<i32>,
         start_time: Option<i64>,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<types::MarginForceLiquidationRecResponse>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/margin/forceLiquidationRec", self.baseurl,);
-        let mut query = Vec::with_capacity(8usize);
+        let mut query = Vec::with_capacity(6usize);
         if let Some(v) = &current {
             query.push(("current", v.to_string()));
         }
@@ -59840,14 +59659,12 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &size {
             query.push(("size", v.to_string()));
         }
         if let Some(v) = &start_time {
             query.push(("startTime", v.to_string()));
         }
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -59858,7 +59675,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -59881,22 +59698,16 @@ Sends a `GET` request to `/sapi/v1/margin/account`
 
 Arguments:
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn margin_account<'a>(
         &'a self,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<ResponseValue<types::MarginAccountResponse>, Error<types::Error>> {
         let url = format!("{}/sapi/v1/margin/account", self.baseurl,);
-        let mut query = Vec::with_capacity(3usize);
+        let mut query = Vec::with_capacity(1usize);
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -59907,7 +59718,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -59936,31 +59747,25 @@ Arguments:
 - `is_isolated`: * `TRUE` - For isolated margin
 * `FALSE` - Default, not for isolated margin
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `symbol`: Trading symbol, e.g. BNBUSDT
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn margin_open_orders<'a>(
         &'a self,
         is_isolated: Option<types::MarginOpenOrdersIsIsolated>,
         recv_window: Option<i64>,
-        signature: &'a str,
         symbol: Option<&'a str>,
-        timestamp: i64,
     ) -> Result<ResponseValue<Vec<types::MarginOrderDetail>>, Error<types::Error>> {
         let url = format!("{}/sapi/v1/margin/openOrders", self.baseurl,);
-        let mut query = Vec::with_capacity(5usize);
+        let mut query = Vec::with_capacity(3usize);
         if let Some(v) = &is_isolated {
             query.push(("isIsolated", v.to_string()));
         }
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &symbol {
             query.push(("symbol", v.to_string()));
         }
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -59971,7 +59776,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -60000,32 +59805,26 @@ Arguments:
 - `is_isolated`: * `TRUE` - For isolated margin
 * `FALSE` - Default, not for isolated margin
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `symbol`: Trading symbol, e.g. BNBUSDT
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn margin_cancel_orders<'a>(
         &'a self,
         is_isolated: Option<types::MarginCancelOrdersIsIsolated>,
         recv_window: Option<i64>,
-        signature: &'a str,
         symbol: &'a str,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<Vec<types::MarginCancelOrdersResponseItem>>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/margin/openOrders", self.baseurl,);
-        let mut query = Vec::with_capacity(5usize);
+        let mut query = Vec::with_capacity(3usize);
         if let Some(v) = &is_isolated {
             query.push(("isIsolated", v.to_string()));
         }
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         query.push(("symbol", symbol.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -60036,7 +59835,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -60069,10 +59868,8 @@ Arguments:
 - `limit`: Default 500; max 1000.
 - `order_id`: Order id
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `start_time`: UTC timestamp in ms
 - `symbol`: Trading symbol, e.g. BNBUSDT
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn margin_query_all_orders<'a>(
         &'a self,
@@ -60081,13 +59878,11 @@ Arguments:
         limit: Option<i32>,
         order_id: Option<i64>,
         recv_window: Option<i64>,
-        signature: &'a str,
         start_time: Option<i64>,
         symbol: &'a str,
-        timestamp: i64,
     ) -> Result<ResponseValue<Vec<types::MarginOrderDetail>>, Error<types::Error>> {
         let url = format!("{}/sapi/v1/margin/allOrders", self.baseurl,);
-        let mut query = Vec::with_capacity(9usize);
+        let mut query = Vec::with_capacity(7usize);
         if let Some(v) = &end_time {
             query.push(("endTime", v.to_string()));
         }
@@ -60103,12 +59898,10 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &start_time {
             query.push(("startTime", v.to_string()));
         }
         query.push(("symbol", symbol.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -60119,7 +59912,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -60164,14 +59957,12 @@ Arguments:
 - `self_trade_prevention_mode`: The allowed enums is dependent on what is configured on the symbol. The possible supported values are EXPIRE_TAKER, EXPIRE_MAKER, EXPIRE_BOTH, NONE.
 - `side`
 - `side_effect_type`: Default `NO_SIDE_EFFECT`
-- `signature`: Signature
 - `stop_client_order_id`: A unique Id for the stop loss/stop loss limit leg
 - `stop_iceberg_qty`
 - `stop_limit_price`: If provided, stopLimitTimeInForce is required.
 - `stop_limit_time_in_force`
 - `stop_price`
 - `symbol`: Trading symbol, e.g. BNBUSDT
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn send_margin_query_oco<'a>(
         &'a self,
@@ -60188,17 +59979,15 @@ Arguments:
         >,
         side: types::SendMarginQueryOcoSide,
         side_effect_type: Option<types::SendMarginQueryOcoSideEffectType>,
-        signature: &'a str,
         stop_client_order_id: Option<&'a str>,
         stop_iceberg_qty: Option<f64>,
         stop_limit_price: Option<f64>,
         stop_limit_time_in_force: Option<types::SendMarginQueryOcoStopLimitTimeInForce>,
         stop_price: f64,
         symbol: &'a str,
-        timestamp: i64,
     ) -> Result<ResponseValue<types::SendMarginQueryOcoResponse>, Error<types::Error>> {
         let url = format!("{}/sapi/v1/margin/order/oco", self.baseurl,);
-        let mut query = Vec::with_capacity(19usize);
+        let mut query = Vec::with_capacity(17usize);
         if let Some(v) = &is_isolated {
             query.push(("isIsolated", v.to_string()));
         }
@@ -60226,7 +60015,6 @@ Arguments:
         if let Some(v) = &side_effect_type {
             query.push(("sideEffectType", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &stop_client_order_id {
             query.push(("stopClientOrderId", v.to_string()));
         }
@@ -60241,7 +60029,6 @@ Arguments:
         }
         query.push(("stopPrice", stop_price.to_string()));
         query.push(("symbol", symbol.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -60252,7 +60039,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -60283,9 +60070,7 @@ Arguments:
 - `order_list_id`: Order list id
 - `orig_client_order_id`: Order id from client
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `symbol`: Mandatory for isolated margin, not supported for cross margin
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn margin_order_list<'a>(
         &'a self,
@@ -60293,12 +60078,10 @@ Arguments:
         order_list_id: Option<i64>,
         orig_client_order_id: Option<&'a str>,
         recv_window: Option<i64>,
-        signature: &'a str,
         symbol: Option<&'a str>,
-        timestamp: i64,
     ) -> Result<ResponseValue<types::MarginOrderListResponse>, Error<types::Error>> {
         let url = format!("{}/sapi/v1/margin/orderList", self.baseurl,);
-        let mut query = Vec::with_capacity(7usize);
+        let mut query = Vec::with_capacity(5usize);
         if let Some(v) = &is_isolated {
             query.push(("isIsolated", v.to_string()));
         }
@@ -60311,11 +60094,9 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &symbol {
             query.push(("symbol", v.to_string()));
         }
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -60326,7 +60107,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -60359,9 +60140,7 @@ Arguments:
 - `new_client_order_id`: Used to uniquely identify this cancel. Automatically generated by default
 - `order_list_id`: Order list id
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `symbol`: Trading symbol, e.g. BNBUSDT
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn cancel_margin_order_oco<'a>(
         &'a self,
@@ -60370,12 +60149,10 @@ Arguments:
         new_client_order_id: Option<&'a str>,
         order_list_id: Option<i64>,
         recv_window: Option<i64>,
-        signature: &'a str,
         symbol: &'a str,
-        timestamp: i64,
     ) -> Result<ResponseValue<types::MarginOcoOrder>, Error<types::Error>> {
         let url = format!("{}/sapi/v1/margin/orderList", self.baseurl,);
-        let mut query = Vec::with_capacity(8usize);
+        let mut query = Vec::with_capacity(6usize);
         if let Some(v) = &is_isolated {
             query.push(("isIsolated", v.to_string()));
         }
@@ -60391,9 +60168,7 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         query.push(("symbol", symbol.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -60404,7 +60179,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -60434,10 +60209,8 @@ Arguments:
 * `FALSE` - Default, not for isolated margin
 - `limit`: Default Value: 500; Max Value: 1000
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `start_time`: UTC timestamp in ms
 - `symbol`: Mandatory for isolated margin, not supported for cross margin
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn margin_all_order_list<'a>(
         &'a self,
@@ -60446,16 +60219,14 @@ Arguments:
         is_isolated: Option<types::MarginAllOrderListIsIsolated>,
         limit: Option<i32>,
         recv_window: Option<i64>,
-        signature: &'a str,
         start_time: Option<i64>,
         symbol: Option<&'a str>,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<Vec<types::MarginAllOrderListResponseItem>>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/margin/allOrderList", self.baseurl,);
-        let mut query = Vec::with_capacity(9usize);
+        let mut query = Vec::with_capacity(7usize);
         if let Some(v) = &end_time {
             query.push(("endTime", v.to_string()));
         }
@@ -60471,14 +60242,12 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &start_time {
             query.push(("startTime", v.to_string()));
         }
         if let Some(v) = &symbol {
             query.push(("symbol", v.to_string()));
         }
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -60489,7 +60258,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -60514,34 +60283,28 @@ Arguments:
 - `is_isolated`: * `TRUE` - For isolated margin
 * `FALSE` - Default, not for isolated margin
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `symbol`: Mandatory for isolated margin, not supported for cross margin
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn margin_open_order_list<'a>(
         &'a self,
         is_isolated: Option<types::MarginOpenOrderListIsIsolated>,
         recv_window: Option<i64>,
-        signature: &'a str,
         symbol: Option<&'a str>,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<Vec<types::MarginOpenOrderListResponseItem>>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/margin/openOrderList", self.baseurl,);
-        let mut query = Vec::with_capacity(5usize);
+        let mut query = Vec::with_capacity(3usize);
         if let Some(v) = &is_isolated {
             query.push(("isIsolated", v.to_string()));
         }
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &symbol {
             query.push(("symbol", v.to_string()));
         }
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -60552,7 +60315,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -60582,10 +60345,8 @@ Arguments:
 * `FALSE` - Default, not for isolated margin
 - `limit`: Default 500; max 1000.
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `start_time`: UTC timestamp in ms
 - `symbol`: Trading symbol, e.g. BNBUSDT
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn margin_my_trades<'a>(
         &'a self,
@@ -60594,13 +60355,11 @@ Arguments:
         is_isolated: Option<types::MarginMyTradesIsIsolated>,
         limit: Option<i32>,
         recv_window: Option<i64>,
-        signature: &'a str,
         start_time: Option<i64>,
         symbol: &'a str,
-        timestamp: i64,
     ) -> Result<ResponseValue<Vec<types::MarginTrade>>, Error<types::Error>> {
         let url = format!("{}/sapi/v1/margin/myTrades", self.baseurl,);
-        let mut query = Vec::with_capacity(9usize);
+        let mut query = Vec::with_capacity(7usize);
         if let Some(v) = &end_time {
             query.push(("endTime", v.to_string()));
         }
@@ -60616,12 +60375,10 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &start_time {
             query.push(("startTime", v.to_string()));
         }
         query.push(("symbol", symbol.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -60632,7 +60389,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -60660,19 +60417,15 @@ Arguments:
 - `asset`
 - `isolated_symbol`: Isolated symbol
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn margin_max_borrowable<'a>(
         &'a self,
         asset: &'a str,
         isolated_symbol: Option<&'a str>,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<ResponseValue<types::MarginMaxBorrowableResponse>, Error<types::Error>> {
         let url = format!("{}/sapi/v1/margin/maxBorrowable", self.baseurl,);
-        let mut query = Vec::with_capacity(5usize);
+        let mut query = Vec::with_capacity(3usize);
         query.push(("asset", asset.to_string()));
         if let Some(v) = &isolated_symbol {
             query.push(("isolatedSymbol", v.to_string()));
@@ -60680,8 +60433,6 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -60692,7 +60443,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -60719,22 +60470,18 @@ Arguments:
 - `asset`
 - `isolated_symbol`: Isolated symbol
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn margin_max_transferable<'a>(
         &'a self,
         asset: &'a str,
         isolated_symbol: Option<&'a str>,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<types::MarginMaxTransferableResponse>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/margin/maxTransferable", self.baseurl,);
-        let mut query = Vec::with_capacity(5usize);
+        let mut query = Vec::with_capacity(3usize);
         query.push(("asset", asset.to_string()));
         if let Some(v) = &isolated_symbol {
             query.push(("isolatedSymbol", v.to_string()));
@@ -60742,8 +60489,6 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -60754,7 +60499,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -60780,24 +60525,18 @@ Sends a `GET` request to `/sapi/v1/margin/tradeCoeff`
 Arguments:
 - `email`: Email Address
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn margin_trade_coeff<'a>(
         &'a self,
         email: &'a str,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<ResponseValue<types::MarginTradeCoeffResponse>, Error<types::Error>> {
         let url = format!("{}/sapi/v1/margin/tradeCoeff", self.baseurl,);
-        let mut query = Vec::with_capacity(4usize);
+        let mut query = Vec::with_capacity(2usize);
         query.push(("email", email.to_string()));
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -60808,7 +60547,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -60834,11 +60573,9 @@ Arguments:
 - `current`: Current querying page. Start from 1. Default:1
 - `end_time`: UTC timestamp in ms
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `size`: Default:10 Max:100
 - `start_time`: UTC timestamp in ms
 - `symbol`: Trading symbol, e.g. BNBUSDT
-- `timestamp`: UTC timestamp in ms
 - `type_`
 */
     pub async fn query_margin_isolated_transfer<'a>(
@@ -60847,15 +60584,13 @@ Arguments:
         current: Option<i32>,
         end_time: Option<i64>,
         recv_window: Option<i64>,
-        signature: &'a str,
         size: Option<i32>,
         start_time: Option<i64>,
         symbol: &'a str,
-        timestamp: i64,
         type_: Option<types::QueryMarginIsolatedTransferType>,
     ) -> Result<ResponseValue<types::MarginTransferDetails>, Error<types::Error>> {
         let url = format!("{}/sapi/v1/margin/isolated/transfer", self.baseurl,);
-        let mut query = Vec::with_capacity(10usize);
+        let mut query = Vec::with_capacity(8usize);
         if let Some(v) = &asset {
             query.push(("asset", v.to_string()));
         }
@@ -60868,7 +60603,6 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &size {
             query.push(("size", v.to_string()));
         }
@@ -60876,7 +60610,6 @@ Arguments:
             query.push(("startTime", v.to_string()));
         }
         query.push(("symbol", symbol.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         if let Some(v) = &type_ {
             query.push(("type", v.to_string()));
         }
@@ -60890,7 +60623,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -60915,9 +60648,7 @@ Arguments:
 - `amount`
 - `asset`
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `symbol`: Trading symbol, e.g. BNBUSDT
-- `timestamp`: UTC timestamp in ms
 - `trans_from`
 - `trans_to`
 */
@@ -60926,9 +60657,7 @@ Arguments:
         amount: f64,
         asset: &'a str,
         recv_window: Option<i64>,
-        signature: &'a str,
         symbol: &'a str,
-        timestamp: i64,
         trans_from: types::PostMarginIsolatedTransferTransFrom,
         trans_to: types::PostMarginIsolatedTransferTransTo,
     ) -> Result<
@@ -60936,15 +60665,13 @@ Arguments:
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/margin/isolated/transfer", self.baseurl,);
-        let mut query = Vec::with_capacity(8usize);
+        let mut query = Vec::with_capacity(6usize);
         query.push(("amount", amount.to_string()));
         query.push(("asset", asset.to_string()));
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         query.push(("symbol", symbol.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         query.push(("transFrom", trans_from.to_string()));
         query.push(("transTo", trans_to.to_string()));
         #[allow(unused_mut)]
@@ -60957,7 +60684,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -60983,27 +60710,21 @@ Sends a `GET` request to `/sapi/v1/margin/isolated/account`
 
 Arguments:
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `symbols`: Max 5 symbols can be sent; separated by ','
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn query_margin_isolated_account<'a>(
         &'a self,
         recv_window: Option<i64>,
-        signature: &'a str,
         symbols: Option<&'a str>,
-        timestamp: i64,
     ) -> Result<ResponseValue<types::IsolatedMarginAccountInfo>, Error<types::Error>> {
         let url = format!("{}/sapi/v1/margin/isolated/account", self.baseurl,);
-        let mut query = Vec::with_capacity(4usize);
+        let mut query = Vec::with_capacity(2usize);
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &symbols {
             query.push(("symbols", v.to_string()));
         }
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -61014,7 +60735,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -61039,28 +60760,22 @@ Sends a `POST` request to `/sapi/v1/margin/isolated/account`
 
 Arguments:
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `symbol`: Trading symbol, e.g. BNBUSDT
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn post_margin_isolated_account<'a>(
         &'a self,
         recv_window: Option<i64>,
-        signature: &'a str,
         symbol: &'a str,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<types::PostMarginIsolatedAccountResponse>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/margin/isolated/account", self.baseurl,);
-        let mut query = Vec::with_capacity(4usize);
+        let mut query = Vec::with_capacity(2usize);
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         query.push(("symbol", symbol.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -61071,7 +60786,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -61096,28 +60811,22 @@ Sends a `DELETE` request to `/sapi/v1/margin/isolated/account`
 
 Arguments:
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `symbol`: Trading symbol, e.g. BNBUSDT
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn disable_isolated_margin_account<'a>(
         &'a self,
         recv_window: Option<i64>,
-        signature: &'a str,
         symbol: &'a str,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<types::DisableIsolatedMarginAccountResponse>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/margin/isolated/account", self.baseurl,);
-        let mut query = Vec::with_capacity(4usize);
+        let mut query = Vec::with_capacity(2usize);
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         query.push(("symbol", symbol.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -61128,7 +60837,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -61153,25 +60862,19 @@ Sends a `GET` request to `/sapi/v1/margin/isolated/accountLimit`
 
 Arguments:
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn margin_isolated_account_limit<'a>(
         &'a self,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<types::MarginIsolatedAccountLimitResponse>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/margin/isolated/accountLimit", self.baseurl,);
-        let mut query = Vec::with_capacity(3usize);
+        let mut query = Vec::with_capacity(1usize);
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -61182,7 +60885,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -61205,25 +60908,19 @@ Sends a `GET` request to `/sapi/v1/margin/isolated/pair`
 
 Arguments:
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `symbol`: Trading symbol, e.g. BNBUSDT
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn margin_isolated_pair<'a>(
         &'a self,
         recv_window: Option<i64>,
-        signature: &'a str,
         symbol: &'a str,
-        timestamp: i64,
     ) -> Result<ResponseValue<types::MarginIsolatedPairResponse>, Error<types::Error>> {
         let url = format!("{}/sapi/v1/margin/isolated/pair", self.baseurl,);
-        let mut query = Vec::with_capacity(4usize);
+        let mut query = Vec::with_capacity(2usize);
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         query.push(("symbol", symbol.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -61234,7 +60931,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -61257,25 +60954,19 @@ Sends a `GET` request to `/sapi/v1/margin/isolated/allPairs`
 
 Arguments:
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn margin_isolated_all_pairs<'a>(
         &'a self,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<Vec<types::MarginIsolatedAllPairsResponseItem>>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/margin/isolated/allPairs", self.baseurl,);
-        let mut query = Vec::with_capacity(3usize);
+        let mut query = Vec::with_capacity(1usize);
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -61286,7 +60977,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -61309,22 +61000,16 @@ Sends a `GET` request to `/sapi/v1/bnbBurn`
 
 Arguments:
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn query_toggle_bnb_burn_status<'a>(
         &'a self,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<ResponseValue<types::BnbBurnStatus>, Error<types::Error>> {
         let url = format!("{}/sapi/v1/bnbBurn", self.baseurl,);
-        let mut query = Vec::with_capacity(3usize);
+        let mut query = Vec::with_capacity(1usize);
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -61335,7 +61020,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -61361,31 +61046,25 @@ Sends a `POST` request to `/sapi/v1/bnbBurn`
 Arguments:
 - `interest_bnb_burn`: Determines whether to use BNB to pay for margin loan's interest
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `spot_bnb_burn`: Determines whether to use BNB to pay for trading fees on SPOT
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn toggle_bnb_burn<'a>(
         &'a self,
         interest_bnb_burn: Option<types::ToggleBnbBurnInterestBnbBurn>,
         recv_window: Option<i64>,
-        signature: &'a str,
         spot_bnb_burn: Option<types::ToggleBnbBurnSpotBnbBurn>,
-        timestamp: i64,
     ) -> Result<ResponseValue<types::BnbBurnStatus>, Error<types::Error>> {
         let url = format!("{}/sapi/v1/bnbBurn", self.baseurl,);
-        let mut query = Vec::with_capacity(5usize);
+        let mut query = Vec::with_capacity(3usize);
         if let Some(v) = &interest_bnb_burn {
             query.push(("interestBNBBurn", v.to_string()));
         }
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &spot_bnb_burn {
             query.push(("spotBNBBurn", v.to_string()));
         }
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -61396,7 +61075,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -61423,9 +61102,7 @@ Arguments:
 - `asset`
 - `end_time`: UTC timestamp in ms
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `start_time`: UTC timestamp in ms
-- `timestamp`: UTC timestamp in ms
 - `vip_level`: Defaults to user's vip level
 */
     pub async fn margin_interest_rate_history<'a>(
@@ -61433,16 +61110,14 @@ Arguments:
         asset: &'a str,
         end_time: Option<i64>,
         recv_window: Option<i64>,
-        signature: &'a str,
         start_time: Option<i64>,
-        timestamp: i64,
         vip_level: Option<i32>,
     ) -> Result<
         ResponseValue<Vec<types::MarginInterestRateHistoryResponseItem>>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/margin/interestRateHistory", self.baseurl,);
-        let mut query = Vec::with_capacity(7usize);
+        let mut query = Vec::with_capacity(5usize);
         query.push(("asset", asset.to_string()));
         if let Some(v) = &end_time {
             query.push(("endTime", v.to_string()));
@@ -61450,11 +61125,9 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &start_time {
             query.push(("startTime", v.to_string()));
         }
-        query.push(("timestamp", timestamp.to_string()));
         if let Some(v) = &vip_level {
             query.push(("vipLevel", v.to_string()));
         }
@@ -61468,7 +61141,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -61494,31 +61167,25 @@ Sends a `GET` request to `/sapi/v1/margin/crossMarginData`
 Arguments:
 - `coin`: Coin name
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 - `vip_level`: Defaults to user's vip level
 */
     pub async fn margin_cross_margin_data<'a>(
         &'a self,
         coin: Option<&'a str>,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
         vip_level: Option<i32>,
     ) -> Result<
         ResponseValue<Vec<types::MarginCrossMarginDataResponseItem>>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/margin/crossMarginData", self.baseurl,);
-        let mut query = Vec::with_capacity(5usize);
+        let mut query = Vec::with_capacity(3usize);
         if let Some(v) = &coin {
             query.push(("coin", v.to_string()));
         }
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         if let Some(v) = &vip_level {
             query.push(("vipLevel", v.to_string()));
         }
@@ -61532,7 +61199,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -61557,32 +61224,26 @@ Sends a `GET` request to `/sapi/v1/margin/isolatedMarginData`
 
 Arguments:
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `symbol`: Trading symbol, e.g. BNBUSDT
-- `timestamp`: UTC timestamp in ms
 - `vip_level`: Defaults to user's vip level
 */
     pub async fn margin_isolated_margin_data<'a>(
         &'a self,
         recv_window: Option<i64>,
-        signature: &'a str,
         symbol: Option<&'a str>,
-        timestamp: i64,
         vip_level: Option<i32>,
     ) -> Result<
         ResponseValue<Vec<types::MarginIsolatedMarginDataResponseItem>>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/margin/isolatedMarginData", self.baseurl,);
-        let mut query = Vec::with_capacity(5usize);
+        let mut query = Vec::with_capacity(3usize);
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &symbol {
             query.push(("symbol", v.to_string()));
         }
-        query.push(("timestamp", timestamp.to_string()));
         if let Some(v) = &vip_level {
             query.push(("vipLevel", v.to_string()));
         }
@@ -61596,7 +61257,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -61621,33 +61282,27 @@ Sends a `GET` request to `/sapi/v1/margin/isolatedMarginTier`
 
 Arguments:
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `symbol`: Trading symbol, e.g. BNBUSDT
 - `tier`: All margin tier data will be returned if tier is omitted
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn margin_isolated_margin_tier<'a>(
         &'a self,
         recv_window: Option<i64>,
-        signature: &'a str,
         symbol: &'a str,
         tier: Option<&'a str>,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<Vec<types::MarginIsolatedMarginTierResponseItem>>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/margin/isolatedMarginTier", self.baseurl,);
-        let mut query = Vec::with_capacity(5usize);
+        let mut query = Vec::with_capacity(3usize);
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         query.push(("symbol", symbol.to_string()));
         if let Some(v) = &tier {
             query.push(("tier", v.to_string()));
         }
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -61658,7 +61313,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -61685,34 +61340,28 @@ Arguments:
 - `is_isolated`: * `TRUE` - For isolated margin
 * `FALSE` - Default, not for isolated margin
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `symbol`: isolated symbol, mandatory for isolated margin
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn margin_rate_limit_order<'a>(
         &'a self,
         is_isolated: Option<&'a str>,
         recv_window: Option<i64>,
-        signature: &'a str,
         symbol: Option<&'a str>,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<Vec<types::MarginRateLimitOrderResponseItem>>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/margin/rateLimit/order", self.baseurl,);
-        let mut query = Vec::with_capacity(5usize);
+        let mut query = Vec::with_capacity(3usize);
         if let Some(v) = &is_isolated {
             query.push(("isIsolated", v.to_string()));
         }
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &symbol {
             query.push(("symbol", v.to_string()));
         }
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -61723,7 +61372,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -61749,31 +61398,25 @@ Sends a `GET` request to `/sapi/v1/margin/dribblet`
 Arguments:
 - `end_time`: UTC timestamp in ms
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `start_time`: UTC timestamp in ms
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn margin_dribblet<'a>(
         &'a self,
         end_time: Option<i64>,
         recv_window: Option<i64>,
-        signature: &'a str,
         start_time: Option<i64>,
-        timestamp: i64,
     ) -> Result<ResponseValue<types::MarginDribbletResponse>, Error<types::Error>> {
         let url = format!("{}/sapi/v1/margin/dribblet", self.baseurl,);
-        let mut query = Vec::with_capacity(5usize);
+        let mut query = Vec::with_capacity(3usize);
         if let Some(v) = &end_time {
             query.push(("endTime", v.to_string()));
         }
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &start_time {
             query.push(("startTime", v.to_string()));
         }
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -61784,7 +61427,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -61823,7 +61466,7 @@ Sends a `GET` request to `/sapi/v1/margin/crossMarginCollateralRatio`
                 reqwest::header::HeaderValue::from_static("application/json"),
             )
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -61845,25 +61488,19 @@ Sends a `GET` request to `/sapi/v1/margin/exchange-small-liability`
 
 Arguments:
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn margin_exchange_small_liability<'a>(
         &'a self,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<Vec<types::MarginExchangeSmallLiabilityResponseItem>>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/margin/exchange-small-liability", self.baseurl,);
-        let mut query = Vec::with_capacity(3usize);
+        let mut query = Vec::with_capacity(1usize);
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -61874,7 +61511,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -61901,20 +61538,16 @@ Arguments:
 - `current`: Current querying page. Start from 1. Default:1
 - `end_time`: UTC timestamp in ms
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `size`: Default:10 Max:100
 - `start_time`: UTC timestamp in ms
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn margin_exchange_small_liability_history<'a>(
         &'a self,
         current: Option<i32>,
         end_time: Option<i64>,
         recv_window: Option<i64>,
-        signature: &'a str,
         size: Option<i32>,
         start_time: Option<i64>,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<types::MarginExchangeSmallLiabilityHistoryResponse>,
         Error<types::Error>,
@@ -61922,7 +61555,7 @@ Arguments:
         let url = format!(
             "{}/sapi/v1/margin/exchange-small-liability-history", self.baseurl,
         );
-        let mut query = Vec::with_capacity(7usize);
+        let mut query = Vec::with_capacity(5usize);
         if let Some(v) = &current {
             query.push(("current", v.to_string()));
         }
@@ -61932,14 +61565,12 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &size {
             query.push(("size", v.to_string()));
         }
         if let Some(v) = &start_time {
             query.push(("startTime", v.to_string()));
         }
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -61950,7 +61581,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -61977,22 +61608,18 @@ Arguments:
 - `assets`: List of assets, separated by commas, up to 20
 - `is_isolated`: for isolated margin or not, "TRUE", "FALSE"
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn margin_next_hourly_interest_rate<'a>(
         &'a self,
         assets: Option<&'a str>,
         is_isolated: Option<types::MarginNextHourlyInterestRateIsIsolated>,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<Vec<types::MarginNextHourlyInterestRateResponseItem>>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/margin/next-hourly-interest-rate", self.baseurl,);
-        let mut query = Vec::with_capacity(5usize);
+        let mut query = Vec::with_capacity(3usize);
         if let Some(v) = &assets {
             query.push(("assets", v.to_string()));
         }
@@ -62002,8 +61629,6 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -62014,7 +61639,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -62043,10 +61668,8 @@ Arguments:
 - `from_id`: If fromId is set, the data with id > fromId will be returned. Otherwise the latest data will be returned
 - `limit`: The number of data items returned each time is limited. Default 500; Max 1000.
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `start_time`: Only supports querying the data of the last 90 days
 - `symbol`: Required when querying isolated data
-- `timestamp`: UTC timestamp in ms
 - `type_`
 */
     pub async fn margin_capital_flow<'a>(
@@ -62056,17 +61679,15 @@ Arguments:
         from_id: Option<i64>,
         limit: Option<i64>,
         recv_window: Option<i64>,
-        signature: &'a str,
         start_time: Option<i64>,
         symbol: Option<&'a str>,
-        timestamp: i64,
         type_: Option<types::MarginCapitalFlowType>,
     ) -> Result<
         ResponseValue<Vec<types::MarginCapitalFlowResponseItem>>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/margin/capital-flow", self.baseurl,);
-        let mut query = Vec::with_capacity(10usize);
+        let mut query = Vec::with_capacity(8usize);
         if let Some(v) = &asset {
             query.push(("asset", v.to_string()));
         }
@@ -62082,14 +61703,12 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &start_time {
             query.push(("startTime", v.to_string()));
         }
         if let Some(v) = &symbol {
             query.push(("symbol", v.to_string()));
         }
-        query.push(("timestamp", timestamp.to_string()));
         if let Some(v) = &type_ {
             query.push(("type", v.to_string()));
         }
@@ -62103,7 +61722,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -62128,25 +61747,19 @@ Sends a `GET` request to `/sapi/v1/margin/delist-schedule`
 
 Arguments:
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn margin_delist_schedule<'a>(
         &'a self,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<Vec<types::MarginDelistScheduleResponseItem>>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/margin/delist-schedule", self.baseurl,);
-        let mut query = Vec::with_capacity(3usize);
+        let mut query = Vec::with_capacity(1usize);
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -62157,7 +61770,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -62180,24 +61793,16 @@ Weight(UID): 50
 
 Sends a `GET` request to `/sapi/v1/margin/available-inventory`
 
-Arguments:
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
-- `type_`
 */
     pub async fn margin_available_inventory<'a>(
         &'a self,
-        signature: &'a str,
-        timestamp: i64,
         type_: types::MarginAvailableInventoryType,
     ) -> Result<
         ResponseValue<types::MarginAvailableInventoryResponse>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/margin/available-inventory", self.baseurl,);
-        let mut query = Vec::with_capacity(3usize);
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
+        let mut query = Vec::with_capacity(1usize);
         query.push(("type", type_.to_string()));
         #[allow(unused_mut)]
         let mut request = self
@@ -62209,7 +61814,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -62232,29 +61837,20 @@ Weight(UID): 3000
 
 Sends a `POST` request to `/sapi/v1/margin/manual-liquidation`
 
-Arguments:
-- `signature`: Signature
-- `symbol`
-- `timestamp`: UTC timestamp in ms
-- `type_`
 */
     pub async fn margin_manual_liquidation<'a>(
         &'a self,
-        signature: &'a str,
         symbol: Option<&'a str>,
-        timestamp: i64,
         type_: types::MarginManualLiquidationType,
     ) -> Result<
         ResponseValue<Vec<types::MarginManualLiquidationResponseItem>>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/margin/manual-liquidation", self.baseurl,);
-        let mut query = Vec::with_capacity(4usize);
-        query.push(("signature", signature.to_string()));
+        let mut query = Vec::with_capacity(2usize);
         if let Some(v) = &symbol {
             query.push(("symbol", v.to_string()));
         }
-        query.push(("timestamp", timestamp.to_string()));
         query.push(("type", type_.to_string()));
         #[allow(unused_mut)]
         let mut request = self
@@ -62266,7 +61862,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -62291,22 +61887,16 @@ Sends a `GET` request to `/sapi/v1/margin/dust`
 
 Arguments:
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn margin_dust<'a>(
         &'a self,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<ResponseValue<types::MarginDustResponse>, Error<types::Error>> {
         let url = format!("{}/sapi/v1/margin/dust", self.baseurl,);
-        let mut query = Vec::with_capacity(3usize);
+        let mut query = Vec::with_capacity(1usize);
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -62317,7 +61907,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -62343,27 +61933,21 @@ Sends a `POST` request to `/sapi/v1/margin/dust`
 Arguments:
 - `asset`
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn convert_dust_assets_to_bnb<'a>(
         &'a self,
         asset: &'a str,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<types::ConvertDustAssetsToBnbResponse>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/margin/dust", self.baseurl,);
-        let mut query = Vec::with_capacity(4usize);
+        let mut query = Vec::with_capacity(2usize);
         query.push(("asset", asset.to_string()));
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -62374,7 +61958,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -62400,24 +61984,18 @@ Sends a `POST` request to `/sapi/v1/margin/max-leverage`
 Arguments:
 - `max_leverage`: Can only adjust 3 or 5
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn margin_max_leverage<'a>(
         &'a self,
         max_leverage: i64,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<ResponseValue<types::MarginMaxLeverageResponse>, Error<types::Error>> {
         let url = format!("{}/sapi/v1/margin/max-leverage", self.baseurl,);
-        let mut query = Vec::with_capacity(4usize);
+        let mut query = Vec::with_capacity(2usize);
         query.push(("maxLeverage", max_leverage.to_string()));
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -62428,7 +62006,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -62468,7 +62046,7 @@ Sends a `GET` request to `/sapi/v1/margin/leverageBracket`
                 reqwest::header::HeaderValue::from_static("application/json"),
             )
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -62502,7 +62080,7 @@ Sends a `GET` request to `/sapi/v1/system/status`
                 reqwest::header::HeaderValue::from_static("application/json"),
             )
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -62521,25 +62099,19 @@ Sends a `GET` request to `/sapi/v1/capital/config/getall`
 
 Arguments:
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn capital_config_getall<'a>(
         &'a self,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<Vec<types::CapitalConfigGetallResponseItem>>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/capital/config/getall", self.baseurl,);
-        let mut query = Vec::with_capacity(3usize);
+        let mut query = Vec::with_capacity(1usize);
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -62550,7 +62122,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -62579,9 +62151,7 @@ Arguments:
 - `end_time`: UTC timestamp in ms
 - `limit`
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `start_time`: UTC timestamp in ms
-- `timestamp`: UTC timestamp in ms
 - `type_`
 */
     pub async fn account_snapshot<'a>(
@@ -62589,13 +62159,11 @@ Arguments:
         end_time: Option<i64>,
         limit: Option<i64>,
         recv_window: Option<i64>,
-        signature: &'a str,
         start_time: Option<i64>,
-        timestamp: i64,
         type_: types::AccountSnapshotType,
     ) -> Result<ResponseValue<types::AccountSnapshotResponse>, Error<types::Error>> {
         let url = format!("{}/sapi/v1/accountSnapshot", self.baseurl,);
-        let mut query = Vec::with_capacity(7usize);
+        let mut query = Vec::with_capacity(5usize);
         if let Some(v) = &end_time {
             query.push(("endTime", v.to_string()));
         }
@@ -62605,11 +62173,9 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &start_time {
             query.push(("startTime", v.to_string()));
         }
-        query.push(("timestamp", timestamp.to_string()));
         query.push(("type", type_.to_string()));
         #[allow(unused_mut)]
         let mut request = self
@@ -62621,7 +62187,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -62647,25 +62213,19 @@ Sends a `POST` request to `/sapi/v1/account/disableFastWithdrawSwitch`
 
 Arguments:
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn account_disable_fast_withdraw_switch<'a>(
         &'a self,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<serde_json::Map<String, serde_json::Value>>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/account/disableFastWithdrawSwitch", self.baseurl,);
-        let mut query = Vec::with_capacity(3usize);
+        let mut query = Vec::with_capacity(1usize);
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -62676,7 +62236,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -62702,25 +62262,19 @@ Sends a `POST` request to `/sapi/v1/account/enableFastWithdrawSwitch`
 
 Arguments:
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn account_enable_fast_withdraw_switch<'a>(
         &'a self,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<serde_json::Map<String, serde_json::Value>>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/account/enableFastWithdrawSwitch", self.baseurl,);
-        let mut query = Vec::with_capacity(3usize);
+        let mut query = Vec::with_capacity(1usize);
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -62731,7 +62285,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -62765,8 +62319,6 @@ Arguments:
 - `name`
 - `network`
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 - `transaction_fee_flag`: When making internal transfer
 - `true` ->  returning the fee to the destination account;
 - `false` -> returning the fee back to the departure account.
@@ -62782,8 +62334,6 @@ Arguments:
         name: Option<&'a str>,
         network: Option<&'a str>,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
         transaction_fee_flag: Option<bool>,
         wallet_type: Option<i32>,
         withdraw_order_id: Option<&'a str>,
@@ -62792,7 +62342,7 @@ Arguments:
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/capital/withdraw/apply", self.baseurl,);
-        let mut query = Vec::with_capacity(12usize);
+        let mut query = Vec::with_capacity(10usize);
         query.push(("address", address.to_string()));
         if let Some(v) = &address_tag {
             query.push(("addressTag", v.to_string()));
@@ -62808,8 +62358,6 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         if let Some(v) = &transaction_fee_flag {
             query.push(("transactionFeeFlag", v.to_string()));
         }
@@ -62829,7 +62377,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -62861,30 +62409,26 @@ Arguments:
 - `limit`: Default 500; max 1000.
 - `offset`
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `start_time`: UTC timestamp in ms
 - `status`: * `0` - pending
 * `6` - credited but cannot withdraw
 * `1` - success
-- `timestamp`: UTC timestamp in ms
 */
-    pub async fn capital_deposit_hisrec<'a>(
+    pub async fn capital_deposit_history_rec<'a>(
         &'a self,
         coin: Option<&'a str>,
         end_time: Option<i64>,
         limit: Option<i32>,
         offset: Option<i32>,
         recv_window: Option<i64>,
-        signature: &'a str,
         start_time: Option<i64>,
         status: Option<i32>,
-        timestamp: i64,
     ) -> Result<
-        ResponseValue<Vec<types::CapitalDepositHisrecResponseItem>>,
+        ResponseValue<Vec<types::CapitalDepositHistoryRecResponseItem>>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/capital/deposit/hisrec", self.baseurl,);
-        let mut query = Vec::with_capacity(9usize);
+        let mut query = Vec::with_capacity(7usize);
         if let Some(v) = &coin {
             query.push(("coin", v.to_string()));
         }
@@ -62900,14 +62444,12 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &start_time {
             query.push(("startTime", v.to_string()));
         }
         if let Some(v) = &status {
             query.push(("status", v.to_string()));
         }
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -62918,7 +62460,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -62956,7 +62498,6 @@ Arguments:
 - `limit`: Default 500; max 1000.
 - `offset`
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `start_time`: UTC timestamp in ms
 - `status`: * `0` - Email Sent
 * `1` - Cancelled
@@ -62965,7 +62506,6 @@ Arguments:
 * `4` - Processing
 * `5` - Failure
 * `6` - Completed
-- `timestamp`: UTC timestamp in ms
 - `withdraw_order_id`
 */
     pub async fn capital_withdraw_history<'a>(
@@ -62975,17 +62515,15 @@ Arguments:
         limit: Option<i32>,
         offset: Option<i32>,
         recv_window: Option<i64>,
-        signature: &'a str,
         start_time: Option<i64>,
         status: Option<i64>,
-        timestamp: i64,
         withdraw_order_id: Option<&'a str>,
     ) -> Result<
         ResponseValue<Vec<types::CapitalWithdrawHistoryResponseItem>>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/capital/withdraw/history", self.baseurl,);
-        let mut query = Vec::with_capacity(10usize);
+        let mut query = Vec::with_capacity(8usize);
         if let Some(v) = &coin {
             query.push(("coin", v.to_string()));
         }
@@ -63001,14 +62539,12 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &start_time {
             query.push(("startTime", v.to_string()));
         }
         if let Some(v) = &status {
             query.push(("status", v.to_string()));
         }
-        query.push(("timestamp", timestamp.to_string()));
         if let Some(v) = &withdraw_order_id {
             query.push(("withdrawOrderId", v.to_string()));
         }
@@ -63022,7 +62558,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -63052,22 +62588,18 @@ Arguments:
 - `coin`: Coin name
 - `network`
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn capital_deposit_address<'a>(
         &'a self,
         coin: &'a str,
         network: Option<&'a str>,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<types::CapitalDepositAddressResponse>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/capital/deposit/address", self.baseurl,);
-        let mut query = Vec::with_capacity(5usize);
+        let mut query = Vec::with_capacity(3usize);
         query.push(("coin", coin.to_string()));
         if let Some(v) = &network {
             query.push(("network", v.to_string()));
@@ -63075,8 +62607,6 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -63087,7 +62617,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -63112,22 +62642,16 @@ Sends a `GET` request to `/sapi/v1/account/status`
 
 Arguments:
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn account_status<'a>(
         &'a self,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<ResponseValue<types::AccountStatusResponse>, Error<types::Error>> {
         let url = format!("{}/sapi/v1/account/status", self.baseurl,);
-        let mut query = Vec::with_capacity(3usize);
+        let mut query = Vec::with_capacity(1usize);
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -63138,7 +62662,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -63163,25 +62687,19 @@ Sends a `GET` request to `/sapi/v1/account/apiTradingStatus`
 
 Arguments:
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn account_api_trading_status<'a>(
         &'a self,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<types::AccountApiTradingStatusResponse>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/account/apiTradingStatus", self.baseurl,);
-        let mut query = Vec::with_capacity(3usize);
+        let mut query = Vec::with_capacity(1usize);
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -63192,7 +62710,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -63216,31 +62734,25 @@ Sends a `GET` request to `/sapi/v1/asset/dribblet`
 Arguments:
 - `end_time`: UTC timestamp in ms
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `start_time`: UTC timestamp in ms
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn asset_dribblet<'a>(
         &'a self,
         end_time: Option<i64>,
         recv_window: Option<i64>,
-        signature: &'a str,
         start_time: Option<i64>,
-        timestamp: i64,
     ) -> Result<ResponseValue<types::AssetDribbletResponse>, Error<types::Error>> {
         let url = format!("{}/sapi/v1/asset/dribblet", self.baseurl,);
-        let mut query = Vec::with_capacity(5usize);
+        let mut query = Vec::with_capacity(3usize);
         if let Some(v) = &end_time {
             query.push(("endTime", v.to_string()));
         }
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &start_time {
             query.push(("startTime", v.to_string()));
         }
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -63251,7 +62763,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -63274,22 +62786,16 @@ Sends a `POST` request to `/sapi/v1/asset/dust-btc`
 
 Arguments:
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn asset_dust_btc<'a>(
         &'a self,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<ResponseValue<types::AssetDustBtcResponse>, Error<types::Error>> {
         let url = format!("{}/sapi/v1/asset/dust-btc", self.baseurl,);
-        let mut query = Vec::with_capacity(3usize);
+        let mut query = Vec::with_capacity(1usize);
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -63300,7 +62806,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -63328,9 +62834,7 @@ Arguments:
 - `end_time`: UTC timestamp in ms
 - `limit`
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `start_time`: UTC timestamp in ms
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn asset_asset_dividend<'a>(
         &'a self,
@@ -63338,12 +62842,10 @@ Arguments:
         end_time: Option<i64>,
         limit: Option<i64>,
         recv_window: Option<i64>,
-        signature: &'a str,
         start_time: Option<i64>,
-        timestamp: i64,
     ) -> Result<ResponseValue<types::AssetAssetDividendResponse>, Error<types::Error>> {
         let url = format!("{}/sapi/v1/asset/assetDividend", self.baseurl,);
-        let mut query = Vec::with_capacity(7usize);
+        let mut query = Vec::with_capacity(5usize);
         if let Some(v) = &asset {
             query.push(("asset", v.to_string()));
         }
@@ -63356,11 +62858,9 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &start_time {
             query.push(("startTime", v.to_string()));
         }
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -63371,7 +62871,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -63399,26 +62899,20 @@ Sends a `GET` request to `/sapi/v1/asset/assetDetail`
 Arguments:
 - `asset`
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn asset_asset_detail<'a>(
         &'a self,
         asset: Option<&'a str>,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<ResponseValue<types::AssetAssetDetailResponse>, Error<types::Error>> {
         let url = format!("{}/sapi/v1/asset/assetDetail", self.baseurl,);
-        let mut query = Vec::with_capacity(4usize);
+        let mut query = Vec::with_capacity(2usize);
         if let Some(v) = &asset {
             query.push(("asset", v.to_string()));
         }
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -63429,7 +62923,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -63454,30 +62948,24 @@ Sends a `GET` request to `/sapi/v1/asset/tradeFee`
 
 Arguments:
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `symbol`: Trading symbol, e.g. BNBUSDT
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn asset_trade_fee<'a>(
         &'a self,
         recv_window: Option<i64>,
-        signature: &'a str,
         symbol: Option<&'a str>,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<Vec<types::AssetTradeFeeResponseItem>>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/asset/tradeFee", self.baseurl,);
-        let mut query = Vec::with_capacity(4usize);
+        let mut query = Vec::with_capacity(2usize);
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &symbol {
             query.push(("symbol", v.to_string()));
         }
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -63488,7 +62976,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -63519,10 +63007,8 @@ Arguments:
 - `end_time`: UTC timestamp in ms
 - `from_symbol`: Must be sent when type are ISOLATEDMARGIN_MARGIN and ISOLATEDMARGIN_ISOLATEDMARGIN
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `size`: Default:10 Max:100
 - `start_time`: UTC timestamp in ms
-- `timestamp`: UTC timestamp in ms
 - `to_symbol`: Must be sent when type are MARGIN_ISOLATEDMARGIN and ISOLATEDMARGIN_ISOLATEDMARGIN
 - `type_`: Universal transfer type
 */
@@ -63532,15 +63018,13 @@ Arguments:
         end_time: Option<i64>,
         from_symbol: Option<&'a str>,
         recv_window: Option<i64>,
-        signature: &'a str,
         size: Option<i32>,
         start_time: Option<i64>,
-        timestamp: i64,
         to_symbol: Option<&'a str>,
         type_: types::AssetTransferType,
     ) -> Result<ResponseValue<types::AssetTransferResponse>, Error<types::Error>> {
         let url = format!("{}/sapi/v1/asset/transfer", self.baseurl,);
-        let mut query = Vec::with_capacity(10usize);
+        let mut query = Vec::with_capacity(8usize);
         if let Some(v) = &current {
             query.push(("current", v.to_string()));
         }
@@ -63553,14 +63037,12 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &size {
             query.push(("size", v.to_string()));
         }
         if let Some(v) = &start_time {
             query.push(("startTime", v.to_string()));
         }
-        query.push(("timestamp", timestamp.to_string()));
         if let Some(v) = &to_symbol {
             query.push(("toSymbol", v.to_string()));
         }
@@ -63575,7 +63057,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -63641,8 +63123,6 @@ Arguments:
 - `asset`
 - `from_symbol`: Must be sent when type are ISOLATEDMARGIN_MARGIN and ISOLATEDMARGIN_ISOLATEDMARGIN
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 - `to_symbol`: Must be sent when type are MARGIN_ISOLATEDMARGIN and ISOLATEDMARGIN_ISOLATEDMARGIN
 - `type_`: Universal transfer type
 */
@@ -63652,8 +63132,6 @@ Arguments:
         asset: &'a str,
         from_symbol: Option<&'a str>,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
         to_symbol: Option<&'a str>,
         type_: types::PostUserUniversalTransferType,
     ) -> Result<
@@ -63661,7 +63139,7 @@ Arguments:
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/asset/transfer", self.baseurl,);
-        let mut query = Vec::with_capacity(8usize);
+        let mut query = Vec::with_capacity(6usize);
         query.push(("amount", amount.to_string()));
         query.push(("asset", asset.to_string()));
         if let Some(v) = &from_symbol {
@@ -63670,8 +63148,6 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         if let Some(v) = &to_symbol {
             query.push(("toSymbol", v.to_string()));
         }
@@ -63686,7 +63162,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -63713,22 +63189,18 @@ Arguments:
 - `asset`
 - `need_btc_valuation`
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn asset_get_funding_asset<'a>(
         &'a self,
         asset: Option<&'a str>,
         need_btc_valuation: Option<types::AssetGetFundingAssetNeedBtcValuation>,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<Vec<types::AssetGetFundingAssetResponseItem>>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/asset/get-funding-asset", self.baseurl,);
-        let mut query = Vec::with_capacity(5usize);
+        let mut query = Vec::with_capacity(3usize);
         if let Some(v) = &asset {
             query.push(("asset", v.to_string()));
         }
@@ -63738,8 +63210,6 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -63750,7 +63220,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -63777,22 +63247,18 @@ Arguments:
 - `asset`
 - `need_btc_valuation`
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn asset_get_user_asset<'a>(
         &'a self,
         asset: Option<&'a str>,
         need_btc_valuation: Option<types::AssetGetUserAssetNeedBtcValuation>,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<Vec<types::AssetGetUserAssetResponseItem>>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v3/asset/getUserAsset", self.baseurl,);
-        let mut query = Vec::with_capacity(5usize);
+        let mut query = Vec::with_capacity(3usize);
         if let Some(v) = &asset {
             query.push(("asset", v.to_string()));
         }
@@ -63802,8 +63268,6 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -63814,7 +63278,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -63843,9 +63307,7 @@ Arguments:
 - `asset`
 - `client_tran_id`: The unique flag, the min length is 20
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `target_asset`: Target asset you want to convert
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn asset_convert_transfer<'a>(
         &'a self,
@@ -63853,24 +63315,20 @@ Arguments:
         asset: &'a str,
         client_tran_id: &'a str,
         recv_window: Option<i64>,
-        signature: &'a str,
         target_asset: &'a str,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<types::AssetConvertTransferResponse>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/asset/convert-transfer", self.baseurl,);
-        let mut query = Vec::with_capacity(7usize);
+        let mut query = Vec::with_capacity(5usize);
         query.push(("amount", amount.to_string()));
         query.push(("asset", asset.to_string()));
         query.push(("clientTranId", client_tran_id.to_string()));
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         query.push(("targetAsset", target_asset.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -63881,7 +63339,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -63908,32 +63366,28 @@ Arguments:
 - `current`: Current querying page. Start from 1. Default:1
 - `end_time`: UTC timestamp in ms
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `size`: Default:10 Max:100
 - `start_time`: UTC timestamp in ms
-- `timestamp`: UTC timestamp in ms
 - `tran_id`: The transaction id
 */
-    pub async fn asset_convert_transfer_query_by_page<'a>(
+    pub async fn asset_convert_transfer_paged<'a>(
         &'a self,
-        account_type: Option<types::AssetConvertTransferQueryByPageAccountType>,
+        account_type: Option<types::AssetConvertTransferPagedAccountType>,
         asset: Option<&'a str>,
         current: Option<i32>,
         end_time: i64,
         recv_window: Option<i64>,
-        signature: &'a str,
         size: Option<i32>,
         start_time: i64,
-        timestamp: i64,
         tran_id: Option<i64>,
     ) -> Result<
-        ResponseValue<types::AssetConvertTransferQueryByPageResponse>,
+        ResponseValue<types::AssetConvertTransferPagedResponse>,
         Error<types::Error>,
     > {
         let url = format!(
             "{}/sapi/v1/asset/convert-transfer/queryByPage", self.baseurl,
         );
-        let mut query = Vec::with_capacity(10usize);
+        let mut query = Vec::with_capacity(8usize);
         if let Some(v) = &account_type {
             query.push(("accountType", v.to_string()));
         }
@@ -63947,12 +63401,10 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &size {
             query.push(("size", v.to_string()));
         }
         query.push(("startTime", start_time.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         if let Some(v) = &tran_id {
             query.push(("tranId", v.to_string()));
         }
@@ -63966,7 +63418,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -63995,10 +63447,8 @@ Arguments:
 - `current`: Current querying page. Start from 1. Default:1
 - `end_time`: UTC timestamp in ms
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `size`: Default:10 Max:100
 - `start_time`: UTC timestamp in ms
-- `timestamp`: UTC timestamp in ms
 - `tran_id`: The transaction id
 */
     pub async fn asset_ledger_transfer_cloud_mining_query_by_page<'a>(
@@ -64008,10 +63458,8 @@ Arguments:
         current: Option<i32>,
         end_time: i64,
         recv_window: Option<i64>,
-        signature: &'a str,
         size: Option<i32>,
         start_time: i64,
-        timestamp: i64,
         tran_id: Option<i64>,
     ) -> Result<
         ResponseValue<types::AssetLedgerTransferCloudMiningQueryByPageResponse>,
@@ -64020,7 +63468,7 @@ Arguments:
         let url = format!(
             "{}/sapi/v1/asset/ledger-transfer/cloud-mining/queryByPage", self.baseurl,
         );
-        let mut query = Vec::with_capacity(10usize);
+        let mut query = Vec::with_capacity(8usize);
         if let Some(v) = &asset {
             query.push(("asset", v.to_string()));
         }
@@ -64034,12 +63482,10 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &size {
             query.push(("size", v.to_string()));
         }
         query.push(("startTime", start_time.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         if let Some(v) = &tran_id {
             query.push(("tranId", v.to_string()));
         }
@@ -64053,7 +63499,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -64076,25 +63522,19 @@ Sends a `GET` request to `/sapi/v1/account/apiRestrictions`
 
 Arguments:
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn account_api_restrictions<'a>(
         &'a self,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<types::AccountApiRestrictionsResponse>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/account/apiRestrictions", self.baseurl,);
-        let mut query = Vec::with_capacity(3usize);
+        let mut query = Vec::with_capacity(1usize);
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -64105,7 +63545,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -64147,7 +63587,7 @@ Sends a `GET` request to `/sapi/v1/capital/contract/convertible-coins`
                 reqwest::header::HeaderValue::from_static("application/json"),
             )
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -64198,7 +63638,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -64224,28 +63664,22 @@ Sends a `POST` request to `/sapi/v1/sub-account/virtualSubAccount`
 
 Arguments:
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `sub_account_string`: Please input a string. We will create a virtual email using that string for you to register
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn sub_account_virtual_sub_account<'a>(
         &'a self,
         recv_window: Option<i64>,
-        signature: &'a str,
         sub_account_string: &'a str,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<types::SubAccountVirtualSubAccountResponse>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/sub-account/virtualSubAccount", self.baseurl,);
-        let mut query = Vec::with_capacity(4usize);
+        let mut query = Vec::with_capacity(2usize);
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         query.push(("subAccountString", sub_account_string.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -64256,7 +63690,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -64283,8 +63717,6 @@ Arguments:
 - `limit`: Default 1; max 200
 - `page`: Default 1
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn sub_account_list<'a>(
         &'a self,
@@ -64293,11 +63725,9 @@ Arguments:
         limit: Option<i32>,
         page: Option<i32>,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<ResponseValue<types::SubAccountListResponse>, Error<types::Error>> {
         let url = format!("{}/sapi/v1/sub-account/list", self.baseurl,);
-        let mut query = Vec::with_capacity(7usize);
+        let mut query = Vec::with_capacity(5usize);
         if let Some(v) = &email {
             query.push(("email", v.to_string()));
         }
@@ -64313,8 +63743,6 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -64325,7 +63753,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -64355,9 +63783,7 @@ Arguments:
 - `limit`: Default 1
 - `page`: Default 1
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `start_time`: UTC timestamp in ms
-- `timestamp`: UTC timestamp in ms
 - `to_email`: Sub-account email
 */
     pub async fn sub_account_sub_transfer_history<'a>(
@@ -64367,16 +63793,14 @@ Arguments:
         limit: Option<i32>,
         page: Option<i32>,
         recv_window: Option<i64>,
-        signature: &'a str,
         start_time: Option<i64>,
-        timestamp: i64,
         to_email: Option<&'a str>,
     ) -> Result<
         ResponseValue<Vec<types::SubAccountSubTransferHistoryResponseItem>>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/sub-account/sub/transfer/history", self.baseurl,);
-        let mut query = Vec::with_capacity(9usize);
+        let mut query = Vec::with_capacity(7usize);
         if let Some(v) = &end_time {
             query.push(("endTime", v.to_string()));
         }
@@ -64392,11 +63816,9 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &start_time {
             query.push(("startTime", v.to_string()));
         }
-        query.push(("timestamp", timestamp.to_string()));
         if let Some(v) = &to_email {
             query.push(("toEmail", v.to_string()));
         }
@@ -64410,7 +63832,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -64438,9 +63860,7 @@ Arguments:
 - `limit`: Default value: 50, Max value: 500
 - `page`: Default 1
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `start_time`: UTC timestamp in ms
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn sub_account_futures_internal_transfer<'a>(
         &'a self,
@@ -64450,9 +63870,7 @@ Arguments:
         limit: Option<i32>,
         page: Option<i32>,
         recv_window: Option<i64>,
-        signature: &'a str,
         start_time: Option<i64>,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<types::SubAccountFuturesInternalTransferResponse>,
         Error<types::Error>,
@@ -64460,7 +63878,7 @@ Arguments:
         let url = format!(
             "{}/sapi/v1/sub-account/futures/internalTransfer", self.baseurl,
         );
-        let mut query = Vec::with_capacity(9usize);
+        let mut query = Vec::with_capacity(7usize);
         query.push(("email", email.to_string()));
         if let Some(v) = &end_time {
             query.push(("endTime", v.to_string()));
@@ -64475,11 +63893,9 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &start_time {
             query.push(("startTime", v.to_string()));
         }
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -64490,7 +63906,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -64519,8 +63935,6 @@ Arguments:
 - `from_email`: Sender email
 - `futures_type`: 1:USDT-margined Futures,2: Coin-margined Futures
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 - `to_email`: Recipient email
 */
     pub async fn post_sub_account_future_asset_transfer<'a>(
@@ -64530,8 +63944,6 @@ Arguments:
         from_email: &'a str,
         futures_type: i32,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
         to_email: &'a str,
     ) -> Result<
         ResponseValue<types::PostSubAccountFutureAssetTransferResponse>,
@@ -64540,7 +63952,7 @@ Arguments:
         let url = format!(
             "{}/sapi/v1/sub-account/futures/internalTransfer", self.baseurl,
         );
-        let mut query = Vec::with_capacity(8usize);
+        let mut query = Vec::with_capacity(6usize);
         query.push(("amount", amount.to_string()));
         query.push(("asset", asset.to_string()));
         query.push(("fromEmail", from_email.to_string()));
@@ -64548,8 +63960,6 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         query.push(("toEmail", to_email.to_string()));
         #[allow(unused_mut)]
         let mut request = self
@@ -64561,7 +63971,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -64587,24 +63997,18 @@ Sends a `GET` request to `/sapi/v3/sub-account/assets`
 Arguments:
 - `email`: Sub-account email
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn set_sub_account_assets<'a>(
         &'a self,
         email: &'a str,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<ResponseValue<types::SetSubAccountAssetsResponse>, Error<types::Error>> {
         let url = format!("{}/sapi/v3/sub-account/assets", self.baseurl,);
-        let mut query = Vec::with_capacity(4usize);
+        let mut query = Vec::with_capacity(2usize);
         query.push(("email", email.to_string()));
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -64615,7 +64019,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -64642,24 +64046,20 @@ Arguments:
 - `email`: Sub-account email
 - `page`: Default 1
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `size`: Default:10 Max:20
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn sub_account_spot_summary<'a>(
         &'a self,
         email: Option<&'a str>,
         page: Option<i32>,
         recv_window: Option<i64>,
-        signature: &'a str,
         size: Option<i32>,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<types::SubAccountSpotSummaryResponse>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/sub-account/spotSummary", self.baseurl,);
-        let mut query = Vec::with_capacity(6usize);
+        let mut query = Vec::with_capacity(4usize);
         if let Some(v) = &email {
             query.push(("email", v.to_string()));
         }
@@ -64669,11 +64069,9 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &size {
             query.push(("size", v.to_string()));
         }
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -64684,7 +64082,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -64712,8 +64110,6 @@ Arguments:
 - `email`: Sub-account email
 - `network`
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn capital_deposit_sub_address<'a>(
         &'a self,
@@ -64721,14 +64117,12 @@ Arguments:
         email: &'a str,
         network: Option<&'a str>,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<types::CapitalDepositSubAddressResponse>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/capital/deposit/subAddress", self.baseurl,);
-        let mut query = Vec::with_capacity(6usize);
+        let mut query = Vec::with_capacity(4usize);
         query.push(("coin", coin.to_string()));
         query.push(("email", email.to_string()));
         if let Some(v) = &network {
@@ -64737,8 +64131,6 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -64749,7 +64141,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -64779,10 +64171,8 @@ Arguments:
 - `limit`
 - `offset`
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `start_time`: UTC timestamp in ms
 - `status`: 0(0:pending,6: credited but cannot withdraw, 1:success)
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn capital_deposit_sub_hisrec<'a>(
         &'a self,
@@ -64792,16 +64182,14 @@ Arguments:
         limit: Option<i64>,
         offset: Option<i32>,
         recv_window: Option<i64>,
-        signature: &'a str,
         start_time: Option<i64>,
         status: Option<i32>,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<Vec<types::CapitalDepositSubHisrecResponseItem>>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/capital/deposit/subHisrec", self.baseurl,);
-        let mut query = Vec::with_capacity(10usize);
+        let mut query = Vec::with_capacity(8usize);
         if let Some(v) = &coin {
             query.push(("coin", v.to_string()));
         }
@@ -64818,14 +64206,12 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &start_time {
             query.push(("startTime", v.to_string()));
         }
         if let Some(v) = &status {
             query.push(("status", v.to_string()));
         }
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -64836,7 +64222,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -64862,41 +64248,35 @@ Sends a `POST` request to `/sapi/v1/capital/deposit/credit-apply`
 Arguments:
 - `deposit_id`: Deposit record Id, priority use
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `sub_account_id`
 - `sub_user_id`
-- `timestamp`: UTC timestamp in ms
 - `tx_id`: Deposit txId, used when depositId is not specified
 */
     pub async fn capital_deposit_credit_apply<'a>(
         &'a self,
         deposit_id: Option<i64>,
         recv_window: Option<i64>,
-        signature: &'a str,
         sub_account_id: Option<i64>,
         sub_user_id: Option<i64>,
-        timestamp: i64,
         tx_id: Option<&'a str>,
     ) -> Result<
         ResponseValue<types::CapitalDepositCreditApplyResponse>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/capital/deposit/credit-apply", self.baseurl,);
-        let mut query = Vec::with_capacity(7usize);
+        let mut query = Vec::with_capacity(5usize);
         if let Some(v) = &deposit_id {
             query.push(("depositId", v.to_string()));
         }
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &sub_account_id {
             query.push(("subAccountId", v.to_string()));
         }
         if let Some(v) = &sub_user_id {
             query.push(("subUserId", v.to_string()));
         }
-        query.push(("timestamp", timestamp.to_string()));
         if let Some(v) = &tx_id {
             query.push(("txId", v.to_string()));
         }
@@ -64910,7 +64290,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -64935,25 +64315,19 @@ Sends a `GET` request to `/sapi/v1/asset/wallet/balance`
 
 Arguments:
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn asset_wallet_balance<'a>(
         &'a self,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<Vec<types::AssetWalletBalanceResponseItem>>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/asset/wallet/balance", self.baseurl,);
-        let mut query = Vec::with_capacity(3usize);
+        let mut query = Vec::with_capacity(1usize);
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -64964,7 +64338,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -64993,10 +64367,8 @@ Arguments:
 - `email`
 - `end_time`
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `size`: Default:10 Max:100
 - `start_time`
-- `timestamp`: UTC timestamp in ms
 - `type_`
 */
     pub async fn asset_custody_transfer_history<'a>(
@@ -65006,17 +64378,15 @@ Arguments:
         email: &'a str,
         end_time: i64,
         recv_window: Option<i64>,
-        signature: &'a str,
         size: Option<i32>,
         start_time: i64,
-        timestamp: i64,
         type_: Option<&'a str>,
     ) -> Result<
         ResponseValue<types::AssetCustodyTransferHistoryResponse>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/asset/custody/transfer-history", self.baseurl,);
-        let mut query = Vec::with_capacity(10usize);
+        let mut query = Vec::with_capacity(8usize);
         query.push(("asset", asset.to_string()));
         if let Some(v) = &current {
             query.push(("current", v.to_string()));
@@ -65026,12 +64396,10 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &size {
             query.push(("size", v.to_string()));
         }
         query.push(("startTime", start_time.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         if let Some(v) = &type_ {
             query.push(("type", v.to_string()));
         }
@@ -65045,7 +64413,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -65072,22 +64440,18 @@ Arguments:
 - `coin`
 - `network`
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn capital_deposit_address_list<'a>(
         &'a self,
         coin: &'a str,
         network: Option<&'a str>,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<Vec<types::CapitalDepositAddressListResponseItem>>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/capital/deposit/address/list", self.baseurl,);
-        let mut query = Vec::with_capacity(5usize);
+        let mut query = Vec::with_capacity(3usize);
         query.push(("coin", coin.to_string()));
         if let Some(v) = &network {
             query.push(("network", v.to_string()));
@@ -65095,8 +64459,6 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -65107,7 +64469,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -65133,29 +64495,23 @@ Sends a `GET` request to `/sapi/v1/sub-account/status`
 Arguments:
 - `email`: Sub-account email
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn sub_account_status<'a>(
         &'a self,
         email: Option<&'a str>,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<Vec<types::SubAccountStatusResponseItem>>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/sub-account/status", self.baseurl,);
-        let mut query = Vec::with_capacity(4usize);
+        let mut query = Vec::with_capacity(2usize);
         if let Some(v) = &email {
             query.push(("email", v.to_string()));
         }
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -65166,7 +64522,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -65190,27 +64546,21 @@ Sends a `POST` request to `/sapi/v1/sub-account/margin/enable`
 Arguments:
 - `email`: Sub-account email
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn sub_account_margin_enable<'a>(
         &'a self,
         email: &'a str,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<types::SubAccountMarginEnableResponse>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/sub-account/margin/enable", self.baseurl,);
-        let mut query = Vec::with_capacity(4usize);
+        let mut query = Vec::with_capacity(2usize);
         query.push(("email", email.to_string()));
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -65221,7 +64571,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -65245,27 +64595,21 @@ Sends a `GET` request to `/sapi/v1/sub-account/margin/account`
 Arguments:
 - `email`: Sub-account email
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn sub_account_margin_account<'a>(
         &'a self,
         email: &'a str,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<types::SubAccountMarginAccountResponse>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/sub-account/margin/account", self.baseurl,);
-        let mut query = Vec::with_capacity(4usize);
+        let mut query = Vec::with_capacity(2usize);
         query.push(("email", email.to_string()));
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -65276,7 +64620,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -65299,25 +64643,19 @@ Sends a `GET` request to `/sapi/v1/sub-account/margin/accountSummary`
 
 Arguments:
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn sub_account_margin_account_summary<'a>(
         &'a self,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<types::SubAccountMarginAccountSummaryResponse>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/sub-account/margin/accountSummary", self.baseurl,);
-        let mut query = Vec::with_capacity(3usize);
+        let mut query = Vec::with_capacity(1usize);
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -65328,7 +64666,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -65352,27 +64690,21 @@ Sends a `POST` request to `/sapi/v1/sub-account/futures/enable`
 Arguments:
 - `email`: Sub-account email
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn sub_account_futures_enable<'a>(
         &'a self,
         email: &'a str,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<types::SubAccountFuturesEnableResponse>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/sub-account/futures/enable", self.baseurl,);
-        let mut query = Vec::with_capacity(4usize);
+        let mut query = Vec::with_capacity(2usize);
         query.push(("email", email.to_string()));
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -65383,7 +64715,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -65407,27 +64739,21 @@ Sends a `GET` request to `/sapi/v1/sub-account/futures/account`
 Arguments:
 - `email`
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn query_sub_account_futures_account_v1<'a>(
         &'a self,
         email: &'a str,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<types::QuerySubAccountFuturesAccountV1Response>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/sub-account/futures/account", self.baseurl,);
-        let mut query = Vec::with_capacity(4usize);
+        let mut query = Vec::with_capacity(2usize);
         query.push(("email", email.to_string()));
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -65438,7 +64764,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -65461,14 +64787,10 @@ Sends a `GET` request to `/sapi/v1/sub-account/futures/accountSummary`
 
 Arguments:
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn sub_account_futures_account_summary<'a>(
         &'a self,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<types::SubAccountFuturesAccountSummaryResponse>,
         Error<types::Error>,
@@ -65476,12 +64798,10 @@ Arguments:
         let url = format!(
             "{}/sapi/v1/sub-account/futures/accountSummary", self.baseurl,
         );
-        let mut query = Vec::with_capacity(3usize);
+        let mut query = Vec::with_capacity(1usize);
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -65492,7 +64812,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -65516,27 +64836,21 @@ Sends a `GET` request to `/sapi/v1/sub-account/futures/positionRisk`
 Arguments:
 - `email`: Sub-account email
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn sub_account_futures_position_risk<'a>(
         &'a self,
         email: &'a str,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<Vec<types::SubAccountFuturesPositionRiskResponseItem>>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/sub-account/futures/positionRisk", self.baseurl,);
-        let mut query = Vec::with_capacity(4usize);
+        let mut query = Vec::with_capacity(2usize);
         query.push(("email", email.to_string()));
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -65547,7 +64861,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -65573,8 +64887,6 @@ Arguments:
 - `asset`
 - `email`: Sub-account email
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 - `type_`: * `1` - transfer from subaccount's spot account to its USDT-margined futures account
 * `2` - transfer from subaccount's USDT-margined futures account to its spot account
 * `3` - transfer from subaccount's spot account to its COIN-margined futures account
@@ -65586,23 +64898,19 @@ Arguments:
         asset: &'a str,
         email: &'a str,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
         type_: i64,
     ) -> Result<
         ResponseValue<types::SubAccountFuturesTransferResponse>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/sub-account/futures/transfer", self.baseurl,);
-        let mut query = Vec::with_capacity(7usize);
+        let mut query = Vec::with_capacity(5usize);
         query.push(("amount", amount.to_string()));
         query.push(("asset", asset.to_string()));
         query.push(("email", email.to_string()));
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         query.push(("type", type_.to_string()));
         #[allow(unused_mut)]
         let mut request = self
@@ -65614,7 +64922,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -65640,8 +64948,6 @@ Arguments:
 - `asset`
 - `email`: Sub-account email
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 - `type_`: * `1` - transfer from subaccount's spot account to margin account
 * `2` - transfer from subaccount's margin account to its spot account
 */
@@ -65651,23 +64957,19 @@ Arguments:
         asset: &'a str,
         email: &'a str,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
         type_: i64,
     ) -> Result<
         ResponseValue<types::SubAccountMarginTransferResponse>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/sub-account/margin/transfer", self.baseurl,);
-        let mut query = Vec::with_capacity(7usize);
+        let mut query = Vec::with_capacity(5usize);
         query.push(("amount", amount.to_string()));
         query.push(("asset", asset.to_string()));
         query.push(("email", email.to_string()));
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         query.push(("type", type_.to_string()));
         #[allow(unused_mut)]
         let mut request = self
@@ -65679,7 +64981,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -65704,8 +65006,6 @@ Arguments:
 - `amount`
 - `asset`
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 - `to_email`: Recipient email
 */
     pub async fn sub_account_transfer_sub_to_sub<'a>(
@@ -65713,22 +65013,18 @@ Arguments:
         amount: f64,
         asset: &'a str,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
         to_email: &'a str,
     ) -> Result<
         ResponseValue<types::SubAccountTransferSubToSubResponse>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/sub-account/transfer/subToSub", self.baseurl,);
-        let mut query = Vec::with_capacity(6usize);
+        let mut query = Vec::with_capacity(4usize);
         query.push(("amount", amount.to_string()));
         query.push(("asset", asset.to_string()));
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         query.push(("toEmail", to_email.to_string()));
         #[allow(unused_mut)]
         let mut request = self
@@ -65740,7 +65036,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -65765,29 +65061,23 @@ Arguments:
 - `amount`
 - `asset`
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn sub_account_transfer_sub_to_master<'a>(
         &'a self,
         amount: f64,
         asset: &'a str,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<types::SubAccountTransferSubToMasterResponse>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/sub-account/transfer/subToMaster", self.baseurl,);
-        let mut query = Vec::with_capacity(5usize);
+        let mut query = Vec::with_capacity(3usize);
         query.push(("amount", amount.to_string()));
         query.push(("asset", asset.to_string()));
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -65798,7 +65088,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -65827,9 +65117,7 @@ Arguments:
 - `end_time`: UTC timestamp in ms
 - `limit`: Default 500; max 1000.
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `start_time`: UTC timestamp in ms
-- `timestamp`: UTC timestamp in ms
 - `type_`: * `1` - transfer in
 * `2` - transfer out
 */
@@ -65839,9 +65127,7 @@ Arguments:
         end_time: Option<i64>,
         limit: Option<i32>,
         recv_window: Option<i64>,
-        signature: &'a str,
         start_time: Option<i64>,
-        timestamp: i64,
         type_: Option<i32>,
     ) -> Result<
         ResponseValue<Vec<types::SubAccountTransferSubUserHistoryResponseItem>>,
@@ -65850,7 +65136,7 @@ Arguments:
         let url = format!(
             "{}/sapi/v1/sub-account/transfer/subUserHistory", self.baseurl,
         );
-        let mut query = Vec::with_capacity(8usize);
+        let mut query = Vec::with_capacity(6usize);
         if let Some(v) = &asset {
             query.push(("asset", v.to_string()));
         }
@@ -65863,11 +65149,9 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &start_time {
             query.push(("startTime", v.to_string()));
         }
-        query.push(("timestamp", timestamp.to_string()));
         if let Some(v) = &type_ {
             query.push(("type", v.to_string()));
         }
@@ -65881,7 +65165,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -65914,9 +65198,7 @@ Arguments:
 - `limit`: Default 500, Max 500
 - `page`: Default 1
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `start_time`: UTC timestamp in ms
-- `timestamp`: UTC timestamp in ms
 - `to_email`: Sub-account email
 */
     pub async fn sub_account_universal_transfer<'a>(
@@ -65927,16 +65209,14 @@ Arguments:
         limit: Option<i32>,
         page: Option<i32>,
         recv_window: Option<i64>,
-        signature: &'a str,
         start_time: Option<i64>,
-        timestamp: i64,
         to_email: Option<&'a str>,
     ) -> Result<
         ResponseValue<Vec<types::SubAccountUniversalTransferResponseItem>>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/sub-account/universalTransfer", self.baseurl,);
-        let mut query = Vec::with_capacity(10usize);
+        let mut query = Vec::with_capacity(8usize);
         if let Some(v) = &client_tran_id {
             query.push(("clientTranId", v.to_string()));
         }
@@ -65955,11 +65235,9 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &start_time {
             query.push(("startTime", v.to_string()));
         }
-        query.push(("timestamp", timestamp.to_string()));
         if let Some(v) = &to_email {
             query.push(("toEmail", v.to_string()));
         }
@@ -65973,7 +65251,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -66009,9 +65287,7 @@ Arguments:
 - `from_account_type`
 - `from_email`: Sub-account email
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `symbol`: Only supported under ISOLATED_MARGIN type
-- `timestamp`: UTC timestamp in ms
 - `to_account_type`
 - `to_email`: Sub-account email
 */
@@ -66023,9 +65299,7 @@ Arguments:
         from_account_type: types::UniversalTransferMasterAccountFromAccountType,
         from_email: Option<&'a str>,
         recv_window: Option<i64>,
-        signature: &'a str,
         symbol: Option<&'a str>,
-        timestamp: i64,
         to_account_type: types::UniversalTransferMasterAccountToAccountType,
         to_email: Option<&'a str>,
     ) -> Result<
@@ -66033,7 +65307,7 @@ Arguments:
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/sub-account/universalTransfer", self.baseurl,);
-        let mut query = Vec::with_capacity(11usize);
+        let mut query = Vec::with_capacity(9usize);
         query.push(("amount", amount.to_string()));
         query.push(("asset", asset.to_string()));
         if let Some(v) = &client_tran_id {
@@ -66046,11 +65320,9 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &symbol {
             query.push(("symbol", v.to_string()));
         }
-        query.push(("timestamp", timestamp.to_string()));
         query.push(("toAccountType", to_account_type.to_string()));
         if let Some(v) = &to_email {
             query.push(("toEmail", v.to_string()));
@@ -66065,7 +65337,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -66091,29 +65363,23 @@ Arguments:
 - `futures_type`: * `1` - USDT Margined Futures
 * `2` - COIN Margined Futures
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn query_sub_account_futures_account_v2<'a>(
         &'a self,
         email: &'a str,
         futures_type: i32,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<types::QuerySubAccountFuturesAccountV2Response>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v2/sub-account/futures/account", self.baseurl,);
-        let mut query = Vec::with_capacity(5usize);
+        let mut query = Vec::with_capacity(3usize);
         query.push(("email", email.to_string()));
         query.push(("futuresType", futures_type.to_string()));
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -66124,7 +65390,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -66151,8 +65417,6 @@ Arguments:
 - `limit`: Default 10, Max 20
 - `page`: Default 1
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn query_sub_account_futures_account_summary<'a>(
         &'a self,
@@ -66160,8 +65424,6 @@ Arguments:
         limit: Option<i32>,
         page: Option<i32>,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<types::QuerySubAccountFuturesAccountSummaryResponse>,
         Error<types::Error>,
@@ -66169,7 +65431,7 @@ Arguments:
         let url = format!(
             "{}/sapi/v2/sub-account/futures/accountSummary", self.baseurl,
         );
-        let mut query = Vec::with_capacity(6usize);
+        let mut query = Vec::with_capacity(4usize);
         query.push(("futuresType", futures_type.to_string()));
         if let Some(v) = &limit {
             query.push(("limit", v.to_string()));
@@ -66180,8 +65442,6 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -66192,7 +65452,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -66218,29 +65478,23 @@ Arguments:
 - `futures_type`: * `1` - USDT Margined Futures
 * `2` - COIN Margined Futures
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn query_sub_account_futures_position_risk<'a>(
         &'a self,
         email: &'a str,
         futures_type: i32,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<types::QuerySubAccountFuturesPositionRiskResponse>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v2/sub-account/futures/positionRisk", self.baseurl,);
-        let mut query = Vec::with_capacity(5usize);
+        let mut query = Vec::with_capacity(3usize);
         query.push(("email", email.to_string()));
         query.push(("futuresType", futures_type.to_string()));
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -66251,7 +65505,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -66276,29 +65530,23 @@ Arguments:
 - `email`: Sub-account email
 - `enable_blvt`: Only true for now
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn sub_account_blvt_enable<'a>(
         &'a self,
         email: &'a str,
         enable_blvt: bool,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<types::SubAccountBlvtEnableResponse>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/sub-account/blvt/enable", self.baseurl,);
-        let mut query = Vec::with_capacity(5usize);
+        let mut query = Vec::with_capacity(3usize);
         query.push(("email", email.to_string()));
         query.push(("enableBlvt", enable_blvt.to_string()));
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -66309,7 +65557,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -66334,8 +65582,6 @@ Arguments:
 - `amount`
 - `asset`
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 - `to_email`: Recipient email
 */
     pub async fn managed_subaccount_deposit<'a>(
@@ -66343,22 +65589,18 @@ Arguments:
         amount: f64,
         asset: &'a str,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
         to_email: &'a str,
     ) -> Result<
         ResponseValue<types::ManagedSubaccountDepositResponse>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/managed-subaccount/deposit", self.baseurl,);
-        let mut query = Vec::with_capacity(6usize);
+        let mut query = Vec::with_capacity(4usize);
         query.push(("amount", amount.to_string()));
         query.push(("asset", asset.to_string()));
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         query.push(("toEmail", to_email.to_string()));
         #[allow(unused_mut)]
         let mut request = self
@@ -66370,7 +65612,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -66394,27 +65636,21 @@ Sends a `GET` request to `/sapi/v1/managed-subaccount/asset`
 Arguments:
 - `email`: Sub-account email
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn managed_subaccount_asset<'a>(
         &'a self,
         email: &'a str,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<Vec<types::ManagedSubaccountAssetResponseItem>>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/managed-subaccount/asset", self.baseurl,);
-        let mut query = Vec::with_capacity(4usize);
+        let mut query = Vec::with_capacity(2usize);
         query.push(("email", email.to_string()));
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -66425,7 +65661,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -66451,8 +65687,6 @@ Arguments:
 - `asset`
 - `from_email`: Sender email
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 - `transfer_date`: Withdrawals is automatically occur on the transfer date(UTC0). If a date is not selected, the withdrawal occurs right now
 */
     pub async fn managed_subaccount_withdraw<'a>(
@@ -66461,23 +65695,19 @@ Arguments:
         asset: &'a str,
         from_email: &'a str,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
         transfer_date: Option<i64>,
     ) -> Result<
         ResponseValue<types::ManagedSubaccountWithdrawResponse>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/managed-subaccount/withdraw", self.baseurl,);
-        let mut query = Vec::with_capacity(7usize);
+        let mut query = Vec::with_capacity(5usize);
         query.push(("amount", amount.to_string()));
         query.push(("asset", asset.to_string()));
         query.push(("fromEmail", from_email.to_string()));
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         if let Some(v) = &transfer_date {
             query.push(("transferDate", v.to_string()));
         }
@@ -66491,7 +65721,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -66521,9 +65751,7 @@ Arguments:
 - `end_time`: UTC timestamp in ms
 - `limit`: min 7, max 30, default 7
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `start_time`: UTC timestamp in ms
-- `timestamp`: UTC timestamp in ms
 - `type_`: "SPOT", "MARGIN"(cross), "FUTURES"(UM)
 */
     pub async fn managed_subaccount_account_snapshot<'a>(
@@ -66532,9 +65760,7 @@ Arguments:
         end_time: Option<i64>,
         limit: Option<i32>,
         recv_window: Option<i64>,
-        signature: &'a str,
         start_time: Option<i64>,
-        timestamp: i64,
         type_: &'a str,
     ) -> Result<
         ResponseValue<types::ManagedSubaccountAccountSnapshotResponse>,
@@ -66543,7 +65769,7 @@ Arguments:
         let url = format!(
             "{}/sapi/v1/managed-subaccount/accountSnapshot", self.baseurl,
         );
-        let mut query = Vec::with_capacity(8usize);
+        let mut query = Vec::with_capacity(6usize);
         query.push(("email", email.to_string()));
         if let Some(v) = &end_time {
             query.push(("endTime", v.to_string()));
@@ -66554,11 +65780,9 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &start_time {
             query.push(("startTime", v.to_string()));
         }
-        query.push(("timestamp", timestamp.to_string()));
         query.push(("type", type_.to_string()));
         #[allow(unused_mut)]
         let mut request = self
@@ -66570,7 +65794,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -66599,9 +65823,7 @@ Arguments:
 - `limit`: Default 500; max 1000.
 - `page`: Default 1
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `start_time`: UTC timestamp in ms
-- `timestamp`: UTC timestamp in ms
 - `transfer_function_account_type`: Transfer function account type (SPOT/MARGIN/ISOLATED_MARGIN/USDT_FUTURE/COIN_FUTURE)
 - `transfers`: Transfer Direction (FROM/TO)
 */
@@ -66612,9 +65834,7 @@ Arguments:
         limit: Option<i32>,
         page: Option<i32>,
         recv_window: Option<i64>,
-        signature: &'a str,
         start_time: Option<i64>,
-        timestamp: i64,
         transfer_function_account_type: Option<&'a str>,
         transfers: Option<&'a str>,
     ) -> Result<
@@ -66624,7 +65844,7 @@ Arguments:
         let url = format!(
             "{}/sapi/v1/managed-subaccount/queryTransLogForInvestor", self.baseurl,
         );
-        let mut query = Vec::with_capacity(10usize);
+        let mut query = Vec::with_capacity(8usize);
         query.push(("email", email.to_string()));
         if let Some(v) = &end_time {
             query.push(("endTime", v.to_string()));
@@ -66638,11 +65858,9 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &start_time {
             query.push(("startTime", v.to_string()));
         }
-        query.push(("timestamp", timestamp.to_string()));
         if let Some(v) = &transfer_function_account_type {
             query.push(("transferFunctionAccountType", v.to_string()));
         }
@@ -66659,7 +65877,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -66688,9 +65906,7 @@ Arguments:
 - `limit`: Default 500; max 1000.
 - `page`: Default 1
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `start_time`: UTC timestamp in ms
-- `timestamp`: UTC timestamp in ms
 - `transfer_function_account_type`: Transfer function account type (SPOT/MARGIN/ISOLATED_MARGIN/USDT_FUTURE/COIN_FUTURE)
 - `transfers`: Transfer Direction (FROM/TO)
 */
@@ -66701,9 +65917,7 @@ Arguments:
         limit: Option<i32>,
         page: Option<i32>,
         recv_window: Option<i64>,
-        signature: &'a str,
         start_time: Option<i64>,
-        timestamp: i64,
         transfer_function_account_type: Option<&'a str>,
         transfers: Option<&'a str>,
     ) -> Result<
@@ -66713,7 +65927,7 @@ Arguments:
         let url = format!(
             "{}/sapi/v1/managed-subaccount/queryTransLogForTradeParent", self.baseurl,
         );
-        let mut query = Vec::with_capacity(10usize);
+        let mut query = Vec::with_capacity(8usize);
         query.push(("email", email.to_string()));
         if let Some(v) = &end_time {
             query.push(("endTime", v.to_string()));
@@ -66727,11 +65941,9 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &start_time {
             query.push(("startTime", v.to_string()));
         }
-        query.push(("timestamp", timestamp.to_string()));
         if let Some(v) = &transfer_function_account_type {
             query.push(("transferFunctionAccountType", v.to_string()));
         }
@@ -66748,7 +65960,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -66772,15 +65984,11 @@ Sends a `GET` request to `/sapi/v1/managed-subaccount/fetch-future-asset`
 Arguments:
 - `email`
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn managed_subaccount_fetch_future_asset<'a>(
         &'a self,
         email: &'a str,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<types::ManagedSubaccountFetchFutureAssetResponse>,
         Error<types::Error>,
@@ -66788,13 +65996,11 @@ Arguments:
         let url = format!(
             "{}/sapi/v1/managed-subaccount/fetch-future-asset", self.baseurl,
         );
-        let mut query = Vec::with_capacity(4usize);
+        let mut query = Vec::with_capacity(2usize);
         query.push(("email", email.to_string()));
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -66805,7 +66011,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -66829,27 +66035,21 @@ Sends a `GET` request to `/sapi/v1/managed-subaccount/marginAsset`
 Arguments:
 - `email`
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn managed_subaccount_margin_asset<'a>(
         &'a self,
         email: &'a str,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<types::ManagedSubaccountMarginAssetResponse>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/managed-subaccount/marginAsset", self.baseurl,);
-        let mut query = Vec::with_capacity(4usize);
+        let mut query = Vec::with_capacity(2usize);
         query.push(("email", email.to_string()));
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -66860,7 +66060,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -66888,8 +66088,6 @@ Arguments:
 - `limit`: Default 500; max 1000.
 - `page`: Default 1
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn managed_subaccount_info<'a>(
         &'a self,
@@ -66897,14 +66095,12 @@ Arguments:
         limit: Option<i32>,
         page: Option<i32>,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<types::ManagedSubaccountInfoResponse>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/managed-subaccount/info", self.baseurl,);
-        let mut query = Vec::with_capacity(6usize);
+        let mut query = Vec::with_capacity(4usize);
         query.push(("email", email.to_string()));
         if let Some(v) = &limit {
             query.push(("limit", v.to_string()));
@@ -66915,8 +66111,6 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -66927,7 +66121,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -66955,8 +66149,6 @@ Arguments:
 - `email`
 - `network`
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn managed_subaccount_deposit_address<'a>(
         &'a self,
@@ -66964,8 +66156,6 @@ Arguments:
         email: &'a str,
         network: Option<&'a str>,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<types::ManagedSubaccountDepositAddressResponse>,
         Error<types::Error>,
@@ -66973,7 +66163,7 @@ Arguments:
         let url = format!(
             "{}/sapi/v1/managed-subaccount/deposit/address", self.baseurl,
         );
-        let mut query = Vec::with_capacity(6usize);
+        let mut query = Vec::with_capacity(4usize);
         query.push(("coin", coin.to_string()));
         query.push(("email", email.to_string()));
         if let Some(v) = &network {
@@ -66982,8 +66172,6 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -66994,7 +66182,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -67022,9 +66210,7 @@ Arguments:
 - `limit`: Default 500; max 1000.
 - `page`: Default 1
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `start_time`: UTC timestamp in ms
-- `timestamp`: UTC timestamp in ms
 - `transfer_function_account_type`: Transfer function account type
 - `transfers`: Transfer Direction
 */
@@ -67034,9 +66220,7 @@ Arguments:
         limit: Option<i32>,
         page: Option<i32>,
         recv_window: Option<i64>,
-        signature: &'a str,
         start_time: Option<i64>,
-        timestamp: i64,
         transfer_function_account_type: types::ManagedSubaccountQueryTransLogTransferFunctionAccountType,
         transfers: types::ManagedSubaccountQueryTransLogTransfers,
     ) -> Result<
@@ -67046,7 +66230,7 @@ Arguments:
         let url = format!(
             "{}/sapi/v1/managed-subaccount/query-trans-log", self.baseurl,
         );
-        let mut query = Vec::with_capacity(9usize);
+        let mut query = Vec::with_capacity(7usize);
         if let Some(v) = &end_time {
             query.push(("endTime", v.to_string()));
         }
@@ -67059,11 +66243,9 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &start_time {
             query.push(("startTime", v.to_string()));
         }
-        query.push(("timestamp", timestamp.to_string()));
         query
             .push((
                 "transferFunctionAccountType",
@@ -67080,7 +66262,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -67104,17 +66286,13 @@ Sends a `GET` request to `/sapi/v1/sub-account/subAccountApi/ipRestriction`
 Arguments:
 - `email`: Sub-account email
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `sub_account_api_key`
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn query_sub_account_sub_account_api_ip_restriction<'a>(
         &'a self,
         email: &'a str,
         recv_window: Option<i64>,
-        signature: &'a str,
         sub_account_api_key: &'a str,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<types::QuerySubAccountSubAccountApiIpRestrictionResponse>,
         Error<types::Error>,
@@ -67122,14 +66300,12 @@ Arguments:
         let url = format!(
             "{}/sapi/v1/sub-account/subAccountApi/ipRestriction", self.baseurl,
         );
-        let mut query = Vec::with_capacity(5usize);
+        let mut query = Vec::with_capacity(3usize);
         query.push(("email", email.to_string()));
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         query.push(("subAccountApiKey", sub_account_api_key.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -67140,7 +66316,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -67165,20 +66341,16 @@ Arguments:
 - `email`: Sub-account email
 - `ip_address`: Can be added in batches, separated by commas
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `sub_account_api_key`
 - `third_party_name`: third party IP list name
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn sub_account_delete_ip_list<'a>(
         &'a self,
         email: &'a str,
         ip_address: Option<&'a str>,
         recv_window: Option<i64>,
-        signature: &'a str,
         sub_account_api_key: &'a str,
         third_party_name: Option<&'a str>,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<types::SubAccountDeleteIpListResponse>,
         Error<types::Error>,
@@ -67186,7 +66358,7 @@ Arguments:
         let url = format!(
             "{}/sapi/v1/sub-account/subAccountApi/ipRestriction/ipList", self.baseurl,
         );
-        let mut query = Vec::with_capacity(7usize);
+        let mut query = Vec::with_capacity(5usize);
         query.push(("email", email.to_string()));
         if let Some(v) = &ip_address {
             query.push(("ipAddress", v.to_string()));
@@ -67194,12 +66366,10 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         query.push(("subAccountApiKey", sub_account_api_key.to_string()));
         if let Some(v) = &third_party_name {
             query.push(("thirdPartyName", v.to_string()));
         }
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -67210,7 +66380,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -67236,15 +66406,11 @@ Sends a `GET` request to `/sapi/v1/sub-account/transaction-statistics`
 Arguments:
 - `email`
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn sub_account_transaction_statistics<'a>(
         &'a self,
         email: &'a str,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<types::SubAccountTransactionStatisticsResponse>,
         Error<types::Error>,
@@ -67252,13 +66418,11 @@ Arguments:
         let url = format!(
             "{}/sapi/v1/sub-account/transaction-statistics", self.baseurl,
         );
-        let mut query = Vec::with_capacity(4usize);
+        let mut query = Vec::with_capacity(2usize);
         query.push(("email", email.to_string()));
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -67269,7 +66433,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -67295,27 +66459,21 @@ Sends a `POST` request to `/sapi/v1/sub-account/eoptions/enable`
 Arguments:
 - `email`
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn sub_account_eoptions_enable<'a>(
         &'a self,
         email: &'a str,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<types::SubAccountEoptionsEnableResponse>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/sub-account/eoptions/enable", self.baseurl,);
-        let mut query = Vec::with_capacity(4usize);
+        let mut query = Vec::with_capacity(2usize);
         query.push(("email", email.to_string()));
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -67326,7 +66484,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -67352,21 +66510,17 @@ Sends a `POST` request to `/sapi/v2/sub-account/subAccountApi/ipRestriction`
 Arguments:
 - `email`: Sub-account email
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `status`: IP Restriction status. 1 = IP Unrestricted. 2 = Restrict access to trusted IPs only. 3 = Restrict access to users' trusted third party IPs only
 - `sub_account_api_key`
 - `third_party_name`: third party IP list name
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn set_sub_account_sub_account_api_ip_restriction<'a>(
         &'a self,
         email: &'a str,
         recv_window: Option<i64>,
-        signature: &'a str,
         status: &'a str,
         sub_account_api_key: &'a str,
         third_party_name: Option<&'a str>,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<types::SetSubAccountSubAccountApiIpRestrictionResponse>,
         Error<types::Error>,
@@ -67374,18 +66528,16 @@ Arguments:
         let url = format!(
             "{}/sapi/v2/sub-account/subAccountApi/ipRestriction", self.baseurl,
         );
-        let mut query = Vec::with_capacity(7usize);
+        let mut query = Vec::with_capacity(5usize);
         query.push(("email", email.to_string()));
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         query.push(("status", status.to_string()));
         query.push(("subAccountApiKey", sub_account_api_key.to_string()));
         if let Some(v) = &third_party_name {
             query.push(("thirdPartyName", v.to_string()));
         }
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -67396,7 +66548,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -67422,27 +66574,21 @@ Sends a `GET` request to `/sapi/v4/sub-account/assets`
 Arguments:
 - `email`
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn query_sub_account_assets<'a>(
         &'a self,
         email: &'a str,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<types::QuerySubAccountAssetsResponse>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v4/sub-account/assets", self.baseurl,);
-        let mut query = Vec::with_capacity(4usize);
+        let mut query = Vec::with_capacity(2usize);
         query.push(("email", email.to_string()));
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -67453,7 +66599,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -67501,7 +66647,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -67536,7 +66682,7 @@ Sends a `POST` request to `/api/v3/userDataStream`
                 reqwest::header::HeaderValue::from_static("application/json"),
             )
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -67578,7 +66724,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -67623,7 +66769,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -67658,7 +66804,7 @@ Sends a `POST` request to `/sapi/v1/userDataStream`
                 reqwest::header::HeaderValue::from_static("application/json"),
             )
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -67700,7 +66846,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -67745,7 +66891,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -67780,7 +66926,7 @@ Sends a `POST` request to `/sapi/v1/userDataStream/isolated`
                 reqwest::header::HeaderValue::from_static("application/json"),
             )
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -67822,7 +66968,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -67848,8 +66994,6 @@ Arguments:
 - `page`: Default 1
 - `recv_window`: The value cannot be greater than 60000
 - `rows`: Default 100, max 500
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 - `transaction_type`: * `0` - deposit
 * `1` - withdraw
 */
@@ -67860,12 +67004,10 @@ Arguments:
         page: Option<i32>,
         recv_window: Option<i64>,
         rows: Option<i32>,
-        signature: &'a str,
-        timestamp: i64,
         transaction_type: i64,
     ) -> Result<ResponseValue<types::FiatOrdersResponse>, Error<types::Error>> {
         let url = format!("{}/sapi/v1/fiat/orders", self.baseurl,);
-        let mut query = Vec::with_capacity(8usize);
+        let mut query = Vec::with_capacity(6usize);
         if let Some(v) = &begin_time {
             query.push(("beginTime", v.to_string()));
         }
@@ -67881,8 +67023,6 @@ Arguments:
         if let Some(v) = &rows {
             query.push(("rows", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         query.push(("transactionType", transaction_type.to_string()));
         #[allow(unused_mut)]
         let mut request = self
@@ -67894,7 +67034,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -67923,8 +67063,6 @@ Arguments:
 - `page`: Default 1
 - `recv_window`: The value cannot be greater than 60000
 - `rows`: Default 100, max 500
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 - `transaction_type`: * `0` - deposit
 * `1` - withdraw
 */
@@ -67935,12 +67073,10 @@ Arguments:
         page: Option<i32>,
         recv_window: Option<i64>,
         rows: Option<i32>,
-        signature: &'a str,
-        timestamp: i64,
         transaction_type: i64,
     ) -> Result<ResponseValue<types::FiatPaymentsResponse>, Error<types::Error>> {
         let url = format!("{}/sapi/v1/fiat/payments", self.baseurl,);
-        let mut query = Vec::with_capacity(8usize);
+        let mut query = Vec::with_capacity(6usize);
         if let Some(v) = &begin_time {
             query.push(("beginTime", v.to_string()));
         }
@@ -67956,8 +67092,6 @@ Arguments:
         if let Some(v) = &rows {
             query.push(("rows", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         query.push(("transactionType", transaction_type.to_string()));
         #[allow(unused_mut)]
         let mut request = self
@@ -67969,7 +67103,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -67995,11 +67129,9 @@ Arguments:
 - `current`: Current querying page. Start from 1. Default:1
 - `is_sort_asc`: default "true"
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `size`: Default:10 Max:100
 - `sort_by`: Default `START_TIME`
 - `status`: Default `ALL`
-- `timestamp`: UTC timestamp in ms
 - `type_`
 */
     pub async fn lending_project_list<'a>(
@@ -68008,18 +67140,16 @@ Arguments:
         current: Option<i32>,
         is_sort_asc: Option<bool>,
         recv_window: Option<i64>,
-        signature: &'a str,
         size: Option<i32>,
         sort_by: Option<types::LendingProjectListSortBy>,
         status: Option<types::LendingProjectListStatus>,
-        timestamp: i64,
         type_: types::LendingProjectListType,
     ) -> Result<
         ResponseValue<Vec<types::LendingProjectListResponseItem>>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/lending/project/list", self.baseurl,);
-        let mut query = Vec::with_capacity(10usize);
+        let mut query = Vec::with_capacity(8usize);
         if let Some(v) = &asset {
             query.push(("asset", v.to_string()));
         }
@@ -68032,7 +67162,6 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &size {
             query.push(("size", v.to_string()));
         }
@@ -68042,7 +67171,6 @@ Arguments:
         if let Some(v) = &status {
             query.push(("status", v.to_string()));
         }
-        query.push(("timestamp", timestamp.to_string()));
         query.push(("type", type_.to_string()));
         #[allow(unused_mut)]
         let mut request = self
@@ -68054,7 +67182,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -68079,29 +67207,23 @@ Arguments:
 - `lot`
 - `project_id`
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn lending_customized_fixed_purchase<'a>(
         &'a self,
         lot: &'a str,
         project_id: &'a str,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<types::LendingCustomizedFixedPurchaseResponse>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/lending/customizedFixed/purchase", self.baseurl,);
-        let mut query = Vec::with_capacity(5usize);
+        let mut query = Vec::with_capacity(3usize);
         query.push(("lot", lot.to_string()));
         query.push(("projectId", project_id.to_string()));
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -68112,7 +67234,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -68137,24 +67259,20 @@ Arguments:
 - `asset`
 - `project_id`
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `status`: Default `ALL`
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn lending_project_position_list<'a>(
         &'a self,
         asset: &'a str,
         project_id: Option<&'a str>,
         recv_window: Option<i64>,
-        signature: &'a str,
         status: Option<types::LendingProjectPositionListStatus>,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<Vec<types::LendingProjectPositionListResponseItem>>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/lending/project/position/list", self.baseurl,);
-        let mut query = Vec::with_capacity(6usize);
+        let mut query = Vec::with_capacity(4usize);
         query.push(("asset", asset.to_string()));
         if let Some(v) = &project_id {
             query.push(("projectId", v.to_string()));
@@ -68162,11 +67280,9 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &status {
             query.push(("status", v.to_string()));
         }
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -68177,7 +67293,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -68205,8 +67321,6 @@ Arguments:
 - `position_id`
 - `project_id`
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn lending_position_changed<'a>(
         &'a self,
@@ -68214,14 +67328,12 @@ Arguments:
         position_id: Option<&'a str>,
         project_id: &'a str,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<types::LendingPositionChangedResponse>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/lending/positionChanged", self.baseurl,);
-        let mut query = Vec::with_capacity(6usize);
+        let mut query = Vec::with_capacity(4usize);
         query.push(("lot", lot.to_string()));
         if let Some(v) = &position_id {
             query.push(("positionId", v.to_string()));
@@ -68230,8 +67342,6 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -68242,7 +67352,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -68272,9 +67382,7 @@ Arguments:
 * `F_DEFI` - for flexible DeFi Staking
 * `L_DEFI` - for locked DeFi Staking
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `size`: Default:10 Max:100
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn staking_product_list<'a>(
         &'a self,
@@ -68282,15 +67390,13 @@ Arguments:
         current: Option<i32>,
         product: &'a str,
         recv_window: Option<i64>,
-        signature: &'a str,
         size: Option<i32>,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<Vec<types::StakingProductListResponseItem>>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/staking/productList", self.baseurl,);
-        let mut query = Vec::with_capacity(7usize);
+        let mut query = Vec::with_capacity(5usize);
         if let Some(v) = &asset {
             query.push(("asset", v.to_string()));
         }
@@ -68301,11 +67407,9 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &size {
             query.push(("size", v.to_string()));
         }
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -68316,7 +67420,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -68345,8 +67449,6 @@ Arguments:
 - `product_id`
 - `recv_window`: The value cannot be greater than 60000
 - `renewable`: true or false, default false. Active if product is `STAKING` or `L_DEFI`
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn staking_purchase<'a>(
         &'a self,
@@ -68355,11 +67457,9 @@ Arguments:
         product_id: &'a str,
         recv_window: Option<i64>,
         renewable: Option<&'a str>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<ResponseValue<types::StakingPurchaseResponse>, Error<types::Error>> {
         let url = format!("{}/sapi/v1/staking/purchase", self.baseurl,);
-        let mut query = Vec::with_capacity(7usize);
+        let mut query = Vec::with_capacity(5usize);
         query.push(("amount", amount.to_string()));
         query.push(("product", product.to_string()));
         query.push(("productId", product_id.to_string()));
@@ -68369,8 +67469,6 @@ Arguments:
         if let Some(v) = &renewable {
             query.push(("renewable", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -68381,7 +67479,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -68412,8 +67510,6 @@ Arguments:
 * `L_DEFI` - for locked DeFi Staking
 - `product_id`
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn staking_redeem<'a>(
         &'a self,
@@ -68422,11 +67518,9 @@ Arguments:
         product: &'a str,
         product_id: &'a str,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<ResponseValue<types::StakingRedeemResponse>, Error<types::Error>> {
         let url = format!("{}/sapi/v1/staking/redeem", self.baseurl,);
-        let mut query = Vec::with_capacity(7usize);
+        let mut query = Vec::with_capacity(5usize);
         if let Some(v) = &amount {
             query.push(("amount", v.to_string()));
         }
@@ -68438,8 +67532,6 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -68450,7 +67542,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -68479,9 +67571,7 @@ Arguments:
 * `L_DEFI` - for locked DeFi Staking
 - `product_id`
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `size`: Default:10 Max:100
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn staking_position<'a>(
         &'a self,
@@ -68490,15 +67580,13 @@ Arguments:
         product: &'a str,
         product_id: Option<&'a str>,
         recv_window: Option<i64>,
-        signature: &'a str,
         size: Option<i32>,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<Vec<types::StakingPositionResponseItem>>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/staking/position", self.baseurl,);
-        let mut query = Vec::with_capacity(8usize);
+        let mut query = Vec::with_capacity(6usize);
         if let Some(v) = &asset {
             query.push(("asset", v.to_string()));
         }
@@ -68512,11 +67600,9 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &size {
             query.push(("size", v.to_string()));
         }
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -68527,7 +67613,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -68556,10 +67642,8 @@ Arguments:
 * `F_DEFI` - for flexible DeFi Staking
 * `L_DEFI` - for locked DeFi Staking
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `size`: Default:10 Max:100
 - `start_time`: UTC timestamp in ms
-- `timestamp`: UTC timestamp in ms
 - `txn_type`: `SUBSCRIPTION`, `REDEMPTION`, `INTEREST`
 */
     pub async fn staking_staking_record<'a>(
@@ -68569,17 +67653,15 @@ Arguments:
         end_time: Option<i64>,
         product: &'a str,
         recv_window: Option<i64>,
-        signature: &'a str,
         size: Option<i32>,
         start_time: Option<i64>,
-        timestamp: i64,
         txn_type: &'a str,
     ) -> Result<
         ResponseValue<Vec<types::StakingStakingRecordResponseItem>>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/staking/stakingRecord", self.baseurl,);
-        let mut query = Vec::with_capacity(10usize);
+        let mut query = Vec::with_capacity(8usize);
         if let Some(v) = &asset {
             query.push(("asset", v.to_string()));
         }
@@ -68593,14 +67675,12 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &size {
             query.push(("size", v.to_string()));
         }
         if let Some(v) = &start_time {
             query.push(("startTime", v.to_string()));
         }
-        query.push(("timestamp", timestamp.to_string()));
         query.push(("txnType", txn_type.to_string()));
         #[allow(unused_mut)]
         let mut request = self
@@ -68612,7 +67692,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -68641,8 +67721,6 @@ Arguments:
 * `L_DEFI` - for locked DeFi Staking
 - `recv_window`: The value cannot be greater than 60000
 - `renewable`: true or false
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn staking_set_auto_staking<'a>(
         &'a self,
@@ -68650,22 +67728,18 @@ Arguments:
         product: &'a str,
         recv_window: Option<i64>,
         renewable: &'a str,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<types::StakingSetAutoStakingResponse>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/staking/setAutoStaking", self.baseurl,);
-        let mut query = Vec::with_capacity(6usize);
+        let mut query = Vec::with_capacity(4usize);
         query.push(("positionId", position_id.to_string()));
         query.push(("product", product.to_string()));
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
         query.push(("renewable", renewable.to_string()));
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -68676,7 +67750,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -68703,29 +67777,23 @@ Arguments:
 * `L_DEFI` - for locked DeFi Staking
 - `product_id`
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn staking_personal_left_quota<'a>(
         &'a self,
         product: &'a str,
         product_id: &'a str,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<Vec<types::StakingPersonalLeftQuotaResponseItem>>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/staking/personalLeftQuota", self.baseurl,);
-        let mut query = Vec::with_capacity(5usize);
+        let mut query = Vec::with_capacity(3usize);
         query.push(("product", product.to_string()));
         query.push(("productId", product_id.to_string()));
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -68736,7 +67804,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -68771,7 +67839,7 @@ Sends a `GET` request to `/sapi/v1/mining/pub/algoList`
                 reqwest::header::HeaderValue::from_static("application/json"),
             )
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -68803,7 +67871,7 @@ Sends a `GET` request to `/sapi/v1/mining/pub/coinList`
                 reqwest::header::HeaderValue::from_static("application/json"),
             )
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -68824,8 +67892,6 @@ Sends a `GET` request to `/sapi/v1/mining/worker/detail`
 Arguments:
 - `algo`: Algorithm(sha256)
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 - `user_name`: Mining Account
 - `worker_name`: Miner’s name
 */
@@ -68833,19 +67899,15 @@ Arguments:
         &'a self,
         algo: &'a str,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
         user_name: &'a str,
         worker_name: &'a str,
     ) -> Result<ResponseValue<types::MiningWorkerDetailResponse>, Error<types::Error>> {
         let url = format!("{}/sapi/v1/mining/worker/detail", self.baseurl,);
-        let mut query = Vec::with_capacity(6usize);
+        let mut query = Vec::with_capacity(4usize);
         query.push(("algo", algo.to_string()));
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         query.push(("userName", user_name.to_string()));
         query.push(("workerName", worker_name.to_string()));
         #[allow(unused_mut)]
@@ -68858,7 +67920,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -68883,10 +67945,8 @@ Arguments:
 - `algo`: Algorithm(sha256)
 - `page_index`: Page number, default is first page, start form 1
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `sort`: sort sequence(default=0)0 positive sequence, 1 negative sequence
 - `sort_column`: Sort by( default 1): 1: miner name, 2: real-time computing power, 3: daily average computing power, 4: real-time rejection rate, 5: last submission time
-- `timestamp`: UTC timestamp in ms
 - `user_name`: Mining Account
 - `worker_status`: miners status(default=0)0 all, 1 valid, 2 invalid, 3 failure
 */
@@ -68895,15 +67955,13 @@ Arguments:
         algo: &'a str,
         page_index: Option<i32>,
         recv_window: Option<i64>,
-        signature: &'a str,
         sort: Option<i32>,
         sort_column: Option<i32>,
-        timestamp: i64,
         user_name: &'a str,
         worker_status: Option<i32>,
     ) -> Result<ResponseValue<types::MiningWorkerListResponse>, Error<types::Error>> {
         let url = format!("{}/sapi/v1/mining/worker/list", self.baseurl,);
-        let mut query = Vec::with_capacity(9usize);
+        let mut query = Vec::with_capacity(7usize);
         query.push(("algo", algo.to_string()));
         if let Some(v) = &page_index {
             query.push(("pageIndex", v.to_string()));
@@ -68911,14 +67969,12 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &sort {
             query.push(("sort", v.to_string()));
         }
         if let Some(v) = &sort_column {
             query.push(("sortColumn", v.to_string()));
         }
-        query.push(("timestamp", timestamp.to_string()));
         query.push(("userName", user_name.to_string()));
         if let Some(v) = &worker_status {
             query.push(("workerStatus", v.to_string()));
@@ -68933,7 +67989,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -68961,9 +68017,7 @@ Arguments:
 - `page_index`: Page number, default is first page, start form 1
 - `page_size`: Number of pages, minimum 10, maximum 200
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `start_date`: Search date, millisecond timestamp, while empty query all
-- `timestamp`: UTC timestamp in ms
 - `user_name`: Mining Account
 */
     pub async fn mining_payment_list<'a>(
@@ -68974,13 +68028,11 @@ Arguments:
         page_index: Option<i32>,
         page_size: Option<&'a str>,
         recv_window: Option<i64>,
-        signature: &'a str,
         start_date: Option<&'a str>,
-        timestamp: i64,
         user_name: &'a str,
     ) -> Result<ResponseValue<types::MiningPaymentListResponse>, Error<types::Error>> {
         let url = format!("{}/sapi/v1/mining/payment/list", self.baseurl,);
-        let mut query = Vec::with_capacity(10usize);
+        let mut query = Vec::with_capacity(8usize);
         query.push(("algo", algo.to_string()));
         if let Some(v) = &coin {
             query.push(("coin", v.to_string()));
@@ -68997,11 +68049,9 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &start_date {
             query.push(("startDate", v.to_string()));
         }
-        query.push(("timestamp", timestamp.to_string()));
         query.push(("userName", user_name.to_string()));
         #[allow(unused_mut)]
         let mut request = self
@@ -69013,7 +68063,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -69041,9 +68091,7 @@ Arguments:
 - `page_index`: Page number, default is first page, start form 1
 - `page_size`: Number of pages, minimum 10, maximum 200
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `start_date`: Search date, millisecond timestamp, while empty query all
-- `timestamp`: UTC timestamp in ms
 - `user_name`: Mining Account
 */
     pub async fn mining_payment_other<'a>(
@@ -69054,13 +68102,11 @@ Arguments:
         page_index: Option<i32>,
         page_size: Option<&'a str>,
         recv_window: Option<i64>,
-        signature: &'a str,
         start_date: Option<&'a str>,
-        timestamp: i64,
         user_name: &'a str,
     ) -> Result<ResponseValue<types::MiningPaymentOtherResponse>, Error<types::Error>> {
         let url = format!("{}/sapi/v1/mining/payment/other", self.baseurl,);
-        let mut query = Vec::with_capacity(10usize);
+        let mut query = Vec::with_capacity(8usize);
         query.push(("algo", algo.to_string()));
         if let Some(v) = &coin {
             query.push(("coin", v.to_string()));
@@ -69077,11 +68123,9 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &start_date {
             query.push(("startDate", v.to_string()));
         }
-        query.push(("timestamp", timestamp.to_string()));
         query.push(("userName", user_name.to_string()));
         #[allow(unused_mut)]
         let mut request = self
@@ -69093,7 +68137,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -69118,16 +68162,12 @@ Arguments:
 - `page_index`: Page number, default is first page, start form 1
 - `page_size`: Number of pages, minimum 10, maximum 200
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn mining_hash_transfer_config_details_list<'a>(
         &'a self,
         page_index: Option<i32>,
         page_size: Option<&'a str>,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<types::MiningHashTransferConfigDetailsListResponse>,
         Error<types::Error>,
@@ -69135,7 +68175,7 @@ Arguments:
         let url = format!(
             "{}/sapi/v1/mining/hash-transfer/config/details/list", self.baseurl,
         );
-        let mut query = Vec::with_capacity(5usize);
+        let mut query = Vec::with_capacity(3usize);
         if let Some(v) = &page_index {
             query.push(("pageIndex", v.to_string()));
         }
@@ -69145,8 +68185,6 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -69157,7 +68195,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -69183,8 +68221,6 @@ Arguments:
 - `page_index`: Page number, default is first page, start form 1
 - `page_size`: Number of pages, minimum 10, maximum 200
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 - `user_name`: Mining Account
 */
     pub async fn mining_hash_transfer_profit_details<'a>(
@@ -69193,8 +68229,6 @@ Arguments:
         page_index: Option<i32>,
         page_size: Option<&'a str>,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
         user_name: &'a str,
     ) -> Result<
         ResponseValue<types::MiningHashTransferProfitDetailsResponse>,
@@ -69203,7 +68237,7 @@ Arguments:
         let url = format!(
             "{}/sapi/v1/mining/hash-transfer/profit/details", self.baseurl,
         );
-        let mut query = Vec::with_capacity(7usize);
+        let mut query = Vec::with_capacity(5usize);
         query.push(("configId", config_id.to_string()));
         if let Some(v) = &page_index {
             query.push(("pageIndex", v.to_string()));
@@ -69214,8 +68248,6 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         query.push(("userName", user_name.to_string()));
         #[allow(unused_mut)]
         let mut request = self
@@ -69227,7 +68259,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -69253,9 +68285,7 @@ Arguments:
 - `end_date`: Search date, millisecond timestamp, while empty query all
 - `hash_rate`: Resale hashrate h/s must be transferred (BTC is greater than 500000000000 ETH is greater than 500000)
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `start_date`: Search date, millisecond timestamp, while empty query all
-- `timestamp`: UTC timestamp in ms
 - `to_pool_user`: Mining Account
 - `user_name`: Mining Account
 */
@@ -69265,9 +68295,7 @@ Arguments:
         end_date: Option<&'a str>,
         hash_rate: &'a str,
         recv_window: Option<i64>,
-        signature: &'a str,
         start_date: Option<&'a str>,
-        timestamp: i64,
         to_pool_user: &'a str,
         user_name: &'a str,
     ) -> Result<
@@ -69275,7 +68303,7 @@ Arguments:
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/mining/hash-transfer/config", self.baseurl,);
-        let mut query = Vec::with_capacity(9usize);
+        let mut query = Vec::with_capacity(7usize);
         query.push(("algo", algo.to_string()));
         if let Some(v) = &end_date {
             query.push(("endDate", v.to_string()));
@@ -69284,11 +68312,9 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &start_date {
             query.push(("startDate", v.to_string()));
         }
-        query.push(("timestamp", timestamp.to_string()));
         query.push(("toPoolUser", to_pool_user.to_string()));
         query.push(("userName", user_name.to_string()));
         #[allow(unused_mut)]
@@ -69301,7 +68327,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -69325,16 +68351,12 @@ Sends a `POST` request to `/sapi/v1/mining/hash-transfer/config/cancel`
 Arguments:
 - `config_id`: Mining ID
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 - `user_name`: Mining Account
 */
     pub async fn mining_hash_transfer_config_cancel<'a>(
         &'a self,
         config_id: &'a str,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
         user_name: &'a str,
     ) -> Result<
         ResponseValue<types::MiningHashTransferConfigCancelResponse>,
@@ -69343,13 +68365,11 @@ Arguments:
         let url = format!(
             "{}/sapi/v1/mining/hash-transfer/config/cancel", self.baseurl,
         );
-        let mut query = Vec::with_capacity(5usize);
+        let mut query = Vec::with_capacity(3usize);
         query.push(("configId", config_id.to_string()));
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         query.push(("userName", user_name.to_string()));
         #[allow(unused_mut)]
         let mut request = self
@@ -69361,7 +68381,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -69385,29 +68405,23 @@ Sends a `GET` request to `/sapi/v1/mining/statistics/user/status`
 Arguments:
 - `algo`: Algorithm(sha256)
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 - `user_name`: Mining Account
 */
     pub async fn mining_statistics_user_status<'a>(
         &'a self,
         algo: &'a str,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
         user_name: &'a str,
     ) -> Result<
         ResponseValue<types::MiningStatisticsUserStatusResponse>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/mining/statistics/user/status", self.baseurl,);
-        let mut query = Vec::with_capacity(5usize);
+        let mut query = Vec::with_capacity(3usize);
         query.push(("algo", algo.to_string()));
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         query.push(("userName", user_name.to_string()));
         #[allow(unused_mut)]
         let mut request = self
@@ -69419,7 +68433,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -69443,29 +68457,23 @@ Sends a `GET` request to `/sapi/v1/mining/statistics/user/list`
 Arguments:
 - `algo`: Algorithm(sha256)
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 - `user_name`: Mining Account
 */
     pub async fn mining_statistics_user_list<'a>(
         &'a self,
         algo: &'a str,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
         user_name: &'a str,
     ) -> Result<
         ResponseValue<types::MiningStatisticsUserListResponse>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/mining/statistics/user/list", self.baseurl,);
-        let mut query = Vec::with_capacity(5usize);
+        let mut query = Vec::with_capacity(3usize);
         query.push(("algo", algo.to_string()));
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         query.push(("userName", user_name.to_string()));
         #[allow(unused_mut)]
         let mut request = self
@@ -69477,7 +68485,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -69504,9 +68512,7 @@ Arguments:
 - `page_index`: Page number, default is first page, start form 1
 - `page_size`: Number of pages, minimum 10, maximum 200
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `start_date`: Search date, millisecond timestamp, while empty query all
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn mining_payment_uid<'a>(
         &'a self,
@@ -69515,12 +68521,10 @@ Arguments:
         page_index: Option<i32>,
         page_size: Option<&'a str>,
         recv_window: Option<i64>,
-        signature: &'a str,
         start_date: Option<&'a str>,
-        timestamp: i64,
     ) -> Result<ResponseValue<types::MiningPaymentUidResponse>, Error<types::Error>> {
         let url = format!("{}/sapi/v1/mining/payment/uid", self.baseurl,);
-        let mut query = Vec::with_capacity(8usize);
+        let mut query = Vec::with_capacity(6usize);
         query.push(("algo", algo.to_string()));
         if let Some(v) = &end_date {
             query.push(("endDate", v.to_string()));
@@ -69534,11 +68538,9 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &start_date {
             query.push(("startDate", v.to_string()));
         }
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -69549,7 +68551,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -69575,10 +68577,8 @@ Arguments:
 - `current`: Current querying page. Start from 1. Default:1
 - `end_time`: UTC timestamp in ms
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `size`: Default:10 Max:100
 - `start_time`: UTC timestamp in ms
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn get_future_account_transaction_history<'a>(
         &'a self,
@@ -69586,16 +68586,14 @@ Arguments:
         current: Option<i32>,
         end_time: Option<i64>,
         recv_window: Option<i64>,
-        signature: &'a str,
         size: Option<i32>,
         start_time: i64,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<types::GetFutureAccountTransactionHistoryResponse>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/futures/transfer", self.baseurl,);
-        let mut query = Vec::with_capacity(8usize);
+        let mut query = Vec::with_capacity(6usize);
         query.push(("asset", asset.to_string()));
         if let Some(v) = &current {
             query.push(("current", v.to_string()));
@@ -69606,12 +68604,10 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &size {
             query.push(("size", v.to_string()));
         }
         query.push(("startTime", start_time.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -69622,7 +68618,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -69649,8 +68645,6 @@ Arguments:
 - `amount`
 - `asset`
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 - `type_`: 1: transfer from spot account to USDT-Ⓜ futures account. 2: transfer from USDT-Ⓜ futures account to spot account. 3: transfer from spot account to COIN-Ⓜ futures account. 4: transfer from COIN-Ⓜ futures account to spot account.
 */
     pub async fn futures_transfer<'a>(
@@ -69658,19 +68652,15 @@ Arguments:
         amount: f64,
         asset: &'a str,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
         type_: i64,
     ) -> Result<ResponseValue<types::FuturesTransferResponse>, Error<types::Error>> {
         let url = format!("{}/sapi/v1/futures/transfer", self.baseurl,);
-        let mut query = Vec::with_capacity(6usize);
+        let mut query = Vec::with_capacity(4usize);
         query.push(("amount", amount.to_string()));
         query.push(("asset", asset.to_string()));
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         query.push(("type", type_.to_string()));
         #[allow(unused_mut)]
         let mut request = self
@@ -69682,7 +68672,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -69707,23 +68697,19 @@ Arguments:
 - `data_type`
 - `end_time`: UTC timestamp in ms
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `start_time`: UTC timestamp in ms
 - `symbol`
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn futures_hist_data_link<'a>(
         &'a self,
         data_type: types::FuturesHistDataLinkDataType,
         end_time: Option<i64>,
         recv_window: Option<i64>,
-        signature: &'a str,
         start_time: Option<i64>,
         symbol: &'a str,
-        timestamp: i64,
     ) -> Result<ResponseValue<types::FuturesHistDataLinkResponse>, Error<types::Error>> {
         let url = format!("{}/sapi/v1/futures/histDataLink", self.baseurl,);
-        let mut query = Vec::with_capacity(7usize);
+        let mut query = Vec::with_capacity(5usize);
         query.push(("dataType", data_type.to_string()));
         if let Some(v) = &end_time {
             query.push(("endTime", v.to_string()));
@@ -69731,12 +68717,10 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &start_time {
             query.push(("startTime", v.to_string()));
         }
         query.push(("symbol", symbol.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -69747,7 +68731,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -69785,9 +68769,7 @@ Arguments:
 - `recv_window`: The value cannot be greater than 60000
 - `reduce_only`: 'true' or 'false'. Default 'false'; Cannot be sent in Hedge Mode; Cannot be sent when you open a position
 - `side`
-- `signature`: Signature
 - `symbol`: Trading symbol, e.g. BNBUSDT
-- `timestamp`: UTC timestamp in ms
 - `urgency`: Represent the relative speed of the current execution; ENUM: LOW, MEDIUM, HIGH
 */
     pub async fn algo_futures_new_order_vp<'a>(
@@ -69799,16 +68781,14 @@ Arguments:
         recv_window: Option<i64>,
         reduce_only: Option<bool>,
         side: types::AlgoFuturesNewOrderVpSide,
-        signature: &'a str,
         symbol: &'a str,
-        timestamp: i64,
         urgency: types::AlgoFuturesNewOrderVpUrgency,
     ) -> Result<
         ResponseValue<types::AlgoFuturesNewOrderVpResponse>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/algo/futures/newOrderVp", self.baseurl,);
-        let mut query = Vec::with_capacity(11usize);
+        let mut query = Vec::with_capacity(9usize);
         if let Some(v) = &client_algo_id {
             query.push(("clientAlgoId", v.to_string()));
         }
@@ -69826,9 +68806,7 @@ Arguments:
             query.push(("reduceOnly", v.to_string()));
         }
         query.push(("side", side.to_string()));
-        query.push(("signature", signature.to_string()));
         query.push(("symbol", symbol.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         query.push(("urgency", urgency.to_string()));
         #[allow(unused_mut)]
         let mut request = self
@@ -69840,7 +68818,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -69882,9 +68860,7 @@ Arguments:
 - `recv_window`: The value cannot be greater than 60000
 - `reduce_only`: 'true' or 'false'. Default 'false'; Cannot be sent in Hedge Mode; Cannot be sent when you open a position
 - `side`
-- `signature`: Signature
 - `symbol`: Trading symbol, e.g. BNBUSDT
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn algo_futures_new_order_twap<'a>(
         &'a self,
@@ -69896,15 +68872,13 @@ Arguments:
         recv_window: Option<i64>,
         reduce_only: Option<bool>,
         side: types::AlgoFuturesNewOrderTwapSide,
-        signature: &'a str,
         symbol: &'a str,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<types::AlgoFuturesNewOrderTwapResponse>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/algo/futures/newOrderTwap", self.baseurl,);
-        let mut query = Vec::with_capacity(11usize);
+        let mut query = Vec::with_capacity(9usize);
         if let Some(v) = &client_algo_id {
             query.push(("clientAlgoId", v.to_string()));
         }
@@ -69923,9 +68897,7 @@ Arguments:
             query.push(("reduceOnly", v.to_string()));
         }
         query.push(("side", side.to_string()));
-        query.push(("signature", signature.to_string()));
         query.push(("symbol", symbol.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -69936,7 +68908,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -69964,27 +68936,21 @@ Sends a `DELETE` request to `/sapi/v1/algo/futures/order`
 Arguments:
 - `algo_id`: Eg. 14511
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn cancel_algo_futures_order<'a>(
         &'a self,
         algo_id: i64,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<types::CancelAlgoFuturesOrderResponse>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/algo/futures/order", self.baseurl,);
-        let mut query = Vec::with_capacity(4usize);
+        let mut query = Vec::with_capacity(2usize);
         query.push(("algoId", algo_id.to_string()));
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -69995,7 +68961,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -70021,25 +68987,19 @@ Sends a `GET` request to `/sapi/v1/algo/futures/openOrders`
 
 Arguments:
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn algo_futures_open_orders<'a>(
         &'a self,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<types::AlgoFuturesOpenOrdersResponse>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/algo/futures/openOrders", self.baseurl,);
-        let mut query = Vec::with_capacity(3usize);
+        let mut query = Vec::with_capacity(1usize);
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -70050,7 +69010,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -70080,10 +69040,8 @@ Arguments:
 - `page_size`: Page size, minimum 1, maximum 100, default 100
 - `recv_window`: The value cannot be greater than 60000
 - `side`
-- `signature`: Signature
 - `start_time`: UTC timestamp in ms
 - `symbol`: Trading symbol, e.g. BNBUSDT
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn algo_futures_historical_orders<'a>(
         &'a self,
@@ -70092,16 +69050,14 @@ Arguments:
         page_size: Option<&'a str>,
         recv_window: Option<i64>,
         side: Option<types::AlgoFuturesHistoricalOrdersSide>,
-        signature: &'a str,
         start_time: Option<i64>,
         symbol: Option<&'a str>,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<types::AlgoFuturesHistoricalOrdersResponse>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/algo/futures/historicalOrders", self.baseurl,);
-        let mut query = Vec::with_capacity(9usize);
+        let mut query = Vec::with_capacity(7usize);
         if let Some(v) = &end_time {
             query.push(("endTime", v.to_string()));
         }
@@ -70117,14 +69073,12 @@ Arguments:
         if let Some(v) = &side {
             query.push(("side", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &start_time {
             query.push(("startTime", v.to_string()));
         }
         if let Some(v) = &symbol {
             query.push(("symbol", v.to_string()));
         }
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -70135,7 +69089,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -70164,8 +69118,6 @@ Arguments:
 - `page`: Default 1
 - `page_size`: Page size, minimum 1, maximum 100, default 100
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn algo_futures_sub_orders<'a>(
         &'a self,
@@ -70173,14 +69125,12 @@ Arguments:
         page: Option<i32>,
         page_size: Option<&'a str>,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<types::AlgoFuturesSubOrdersResponse>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/algo/futures/subOrders", self.baseurl,);
-        let mut query = Vec::with_capacity(6usize);
+        let mut query = Vec::with_capacity(4usize);
         query.push(("algoId", algo_id.to_string()));
         if let Some(v) = &page {
             query.push(("page", v.to_string()));
@@ -70191,8 +69141,6 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -70203,7 +69151,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -70233,9 +69181,7 @@ Arguments:
 - `quantity`
 - `recv_window`: The value cannot be greater than 60000
 - `side`
-- `signature`: Signature
 - `symbol`: Trading symbol, e.g. BNBUSDT
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn algo_spot_new_order_twap<'a>(
         &'a self,
@@ -70245,15 +69191,13 @@ Arguments:
         quantity: f64,
         recv_window: Option<i64>,
         side: types::AlgoSpotNewOrderTwapSide,
-        signature: &'a str,
         symbol: &'a str,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<types::AlgoSpotNewOrderTwapResponse>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/algo/spot/newOrderTwap", self.baseurl,);
-        let mut query = Vec::with_capacity(9usize);
+        let mut query = Vec::with_capacity(7usize);
         if let Some(v) = &client_algo_id {
             query.push(("clientAlgoId", v.to_string()));
         }
@@ -70266,9 +69210,7 @@ Arguments:
             query.push(("recvWindow", v.to_string()));
         }
         query.push(("side", side.to_string()));
-        query.push(("signature", signature.to_string()));
         query.push(("symbol", symbol.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -70279,7 +69221,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -70305,24 +69247,18 @@ Sends a `DELETE` request to `/sapi/v1/algo/spot/order`
 Arguments:
 - `algo_id`
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn cancel_algo_spot_order<'a>(
         &'a self,
         algo_id: i64,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<ResponseValue<types::CancelAlgoSpotOrderResponse>, Error<types::Error>> {
         let url = format!("{}/sapi/v1/algo/spot/order", self.baseurl,);
-        let mut query = Vec::with_capacity(4usize);
+        let mut query = Vec::with_capacity(2usize);
         query.push(("algoId", algo_id.to_string()));
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -70333,7 +69269,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -70358,22 +69294,16 @@ Sends a `GET` request to `/sapi/v1/algo/spot/openOrders`
 
 Arguments:
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn algo_spot_open_orders<'a>(
         &'a self,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<ResponseValue<types::AlgoSpotOpenOrdersResponse>, Error<types::Error>> {
         let url = format!("{}/sapi/v1/algo/spot/openOrders", self.baseurl,);
-        let mut query = Vec::with_capacity(3usize);
+        let mut query = Vec::with_capacity(1usize);
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -70384,7 +69314,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -70413,10 +69343,8 @@ Arguments:
 - `page_size`: Number of pages, minimum 10, maximum 200
 - `recv_window`: The value cannot be greater than 60000
 - `side`
-- `signature`: Signature
 - `start_time`: UTC timestamp in ms
 - `symbol`: Trading symbol, e.g. BNBUSDT
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn algo_spot_historical_orders<'a>(
         &'a self,
@@ -70425,16 +69353,14 @@ Arguments:
         page_size: Option<&'a str>,
         recv_window: Option<i64>,
         side: types::AlgoSpotHistoricalOrdersSide,
-        signature: &'a str,
         start_time: Option<i64>,
         symbol: &'a str,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<types::AlgoSpotHistoricalOrdersResponse>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/algo/spot/historicalOrders", self.baseurl,);
-        let mut query = Vec::with_capacity(9usize);
+        let mut query = Vec::with_capacity(7usize);
         if let Some(v) = &end_time {
             query.push(("endTime", v.to_string()));
         }
@@ -70448,12 +69374,10 @@ Arguments:
             query.push(("recvWindow", v.to_string()));
         }
         query.push(("side", side.to_string()));
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &start_time {
             query.push(("startTime", v.to_string()));
         }
         query.push(("symbol", symbol.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -70464,7 +69388,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -70492,8 +69416,6 @@ Arguments:
 - `page`: Default 1
 - `page_size`: Number of pages, minimum 10, maximum 200
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn algo_spot_sub_orders<'a>(
         &'a self,
@@ -70501,11 +69423,9 @@ Arguments:
         page: Option<i32>,
         page_size: Option<&'a str>,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<ResponseValue<types::AlgoSpotSubOrdersResponse>, Error<types::Error>> {
         let url = format!("{}/sapi/v1/algo/spot/subOrders", self.baseurl,);
-        let mut query = Vec::with_capacity(6usize);
+        let mut query = Vec::with_capacity(4usize);
         query.push(("algoId", algo_id.to_string()));
         if let Some(v) = &page {
             query.push(("page", v.to_string()));
@@ -70516,8 +69436,6 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -70528,7 +69446,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -70553,22 +69471,16 @@ Sends a `GET` request to `/sapi/v1/portfolio/account`
 
 Arguments:
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn portfolio_account<'a>(
         &'a self,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<ResponseValue<types::PortfolioAccountResponse>, Error<types::Error>> {
         let url = format!("{}/sapi/v1/portfolio/account", self.baseurl,);
-        let mut query = Vec::with_capacity(3usize);
+        let mut query = Vec::with_capacity(1usize);
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -70579,7 +69491,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -70619,7 +69531,7 @@ Sends a `GET` request to `/sapi/v1/portfolio/collateralRate`
                 reqwest::header::HeaderValue::from_static("application/json"),
             )
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -70641,22 +69553,16 @@ Sends a `GET` request to `/sapi/v1/portfolio/pmLoan`
 
 Arguments:
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn portfolio_pm_loan<'a>(
         &'a self,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<ResponseValue<types::PortfolioPmLoanResponse>, Error<types::Error>> {
         let url = format!("{}/sapi/v1/portfolio/pmLoan", self.baseurl,);
-        let mut query = Vec::with_capacity(3usize);
+        let mut query = Vec::with_capacity(1usize);
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -70667,7 +69573,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -70693,26 +69599,20 @@ Sends a `POST` request to `/sapi/v1/portfolio/repay`
 Arguments:
 - `from`
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn portfolio_repay<'a>(
         &'a self,
         from: Option<&'a str>,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<ResponseValue<types::PortfolioRepayResponse>, Error<types::Error>> {
         let url = format!("{}/sapi/v1/portfolio/repay", self.baseurl,);
-        let mut query = Vec::with_capacity(4usize);
+        let mut query = Vec::with_capacity(2usize);
         if let Some(v) = &from {
             query.push(("from", v.to_string()));
         }
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -70723,7 +69623,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -70750,26 +69650,22 @@ Arguments:
 - `asset`
 - `end_time`: UTC timestamp in ms
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `size`: Default:10 Max:100
 - `start_time`: UTC timestamp in ms
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn portfolio_interest_history<'a>(
         &'a self,
         asset: &'a str,
         end_time: Option<i64>,
         recv_window: Option<i64>,
-        signature: &'a str,
         size: Option<i32>,
         start_time: Option<i64>,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<Vec<types::PortfolioInterestHistoryResponseItem>>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/portfolio/interest-history", self.baseurl,);
-        let mut query = Vec::with_capacity(7usize);
+        let mut query = Vec::with_capacity(5usize);
         query.push(("asset", asset.to_string()));
         if let Some(v) = &end_time {
             query.push(("endTime", v.to_string()));
@@ -70777,14 +69673,12 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &size {
             query.push(("size", v.to_string()));
         }
         if let Some(v) = &start_time {
             query.push(("startTime", v.to_string()));
         }
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -70795,7 +69689,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -70843,7 +69737,7 @@ Sends a `GET` request to `/sapi/v1/portfolio/asset-index-price`
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -70865,25 +69759,19 @@ Sends a `POST` request to `/sapi/v1/portfolio/auto-collection`
 
 Arguments:
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn portfolio_auto_collection<'a>(
         &'a self,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<types::PortfolioAutoCollectionResponse>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/portfolio/auto-collection", self.baseurl,);
-        let mut query = Vec::with_capacity(3usize);
+        let mut query = Vec::with_capacity(1usize);
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -70894,7 +69782,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -70920,29 +69808,23 @@ Sends a `POST` request to `/sapi/v1/portfolio/bnb-transfer`
 Arguments:
 - `amount`
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 - `transfer_side`
 */
     pub async fn portfolio_bnb_transfer<'a>(
         &'a self,
         amount: f64,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
         transfer_side: types::PortfolioBnbTransferTransferSide,
     ) -> Result<
         ResponseValue<types::PortfolioBnbTransferResponse>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/portfolio/bnb-transfer", self.baseurl,);
-        let mut query = Vec::with_capacity(5usize);
+        let mut query = Vec::with_capacity(3usize);
         query.push(("amount", amount.to_string()));
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         query.push(("transferSide", transfer_side.to_string()));
         #[allow(unused_mut)]
         let mut request = self
@@ -70954,7 +69836,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -70979,25 +69861,19 @@ Sends a `GET` request to `/sapi/v1/portfolio/repay-futures-switch`
 
 Arguments:
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn get_auto_repay_futures_status<'a>(
         &'a self,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<types::GetAutoRepayFuturesStatusResponse>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/portfolio/repay-futures-switch", self.baseurl,);
-        let mut query = Vec::with_capacity(3usize);
+        let mut query = Vec::with_capacity(1usize);
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -71008,7 +69884,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -71034,27 +69910,21 @@ Sends a `POST` request to `/sapi/v1/portfolio/repay-futures-switch`
 Arguments:
 - `auto_repay`
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn portfolio_repay_futures_switch<'a>(
         &'a self,
         auto_repay: bool,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<types::PortfolioRepayFuturesSwitchResponse>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/portfolio/repay-futures-switch", self.baseurl,);
-        let mut query = Vec::with_capacity(4usize);
+        let mut query = Vec::with_capacity(2usize);
         query.push(("autoRepay", auto_repay.to_string()));
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -71065,7 +69935,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -71090,14 +69960,10 @@ Sends a `POST` request to `/sapi/v1/portfolio/repay-futures-negative-balance`
 
 Arguments:
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn portfolio_repay_futures_negative_balance<'a>(
         &'a self,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<types::PortfolioRepayFuturesNegativeBalanceResponse>,
         Error<types::Error>,
@@ -71105,12 +69971,10 @@ Arguments:
         let url = format!(
             "{}/sapi/v1/portfolio/repay-futures-negative-balance", self.baseurl,
         );
-        let mut query = Vec::with_capacity(3usize);
+        let mut query = Vec::with_capacity(1usize);
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -71121,7 +69985,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -71159,7 +70023,7 @@ Sends a `GET` request to `/sapi/v1/portfolio/margin-asset-leverage`
                 reqwest::header::HeaderValue::from_static("application/json"),
             )
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -71185,27 +70049,21 @@ Sends a `POST` request to `/sapi/v1/portfolio/asset-collection`
 Arguments:
 - `asset`
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn portfolio_asset_collection<'a>(
         &'a self,
         asset: &'a str,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<types::PortfolioAssetCollectionResponse>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/portfolio/asset-collection", self.baseurl,);
-        let mut query = Vec::with_capacity(4usize);
+        let mut query = Vec::with_capacity(2usize);
         query.push(("asset", asset.to_string()));
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -71216,7 +70074,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -71262,7 +70120,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -71283,26 +70141,20 @@ Sends a `POST` request to `/sapi/v1/blvt/subscribe`
 Arguments:
 - `cost`: Spot balance
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 - `token_name`: BTCDOWN, BTCUP
 */
     pub async fn blvt_subscribe<'a>(
         &'a self,
         cost: f64,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
         token_name: &'a str,
     ) -> Result<ResponseValue<types::BlvtSubscribeResponse>, Error<types::Error>> {
         let url = format!("{}/sapi/v1/blvt/subscribe", self.baseurl,);
-        let mut query = Vec::with_capacity(5usize);
+        let mut query = Vec::with_capacity(3usize);
         query.push(("cost", cost.to_string()));
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         query.push(("tokenName", token_name.to_string()));
         #[allow(unused_mut)]
         let mut request = self
@@ -71314,7 +70166,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -71342,9 +70194,7 @@ Arguments:
 - `id`
 - `limit`: Default 500; max 1000.
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `start_time`: UTC timestamp in ms
-- `timestamp`: UTC timestamp in ms
 - `token_name`: BTCDOWN, BTCUP
 */
     pub async fn blvt_subscribe_record<'a>(
@@ -71353,13 +70203,11 @@ Arguments:
         id: Option<i64>,
         limit: Option<i32>,
         recv_window: Option<i64>,
-        signature: &'a str,
         start_time: Option<i64>,
-        timestamp: i64,
         token_name: Option<&'a str>,
     ) -> Result<ResponseValue<types::BlvtSubscribeRecordResponse>, Error<types::Error>> {
         let url = format!("{}/sapi/v1/blvt/subscribe/record", self.baseurl,);
-        let mut query = Vec::with_capacity(8usize);
+        let mut query = Vec::with_capacity(6usize);
         if let Some(v) = &end_time {
             query.push(("endTime", v.to_string()));
         }
@@ -71372,11 +70220,9 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &start_time {
             query.push(("startTime", v.to_string()));
         }
-        query.push(("timestamp", timestamp.to_string()));
         if let Some(v) = &token_name {
             query.push(("tokenName", v.to_string()));
         }
@@ -71390,7 +70236,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -71414,26 +70260,20 @@ Sends a `POST` request to `/sapi/v1/blvt/redeem`
 Arguments:
 - `amount`
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 - `token_name`: BTCDOWN, BTCUP
 */
     pub async fn blvt_redeem<'a>(
         &'a self,
         amount: f64,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
         token_name: &'a str,
     ) -> Result<ResponseValue<types::BlvtRedeemResponse>, Error<types::Error>> {
         let url = format!("{}/sapi/v1/blvt/redeem", self.baseurl,);
-        let mut query = Vec::with_capacity(5usize);
+        let mut query = Vec::with_capacity(3usize);
         query.push(("amount", amount.to_string()));
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         query.push(("tokenName", token_name.to_string()));
         #[allow(unused_mut)]
         let mut request = self
@@ -71445,7 +70285,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -71473,9 +70313,7 @@ Arguments:
 - `id`
 - `limit`: default 1000, max 1000
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `start_time`: UTC timestamp in ms
-- `timestamp`: UTC timestamp in ms
 - `token_name`: BTCDOWN, BTCUP
 */
     pub async fn blvt_redeem_record<'a>(
@@ -71484,16 +70322,14 @@ Arguments:
         id: Option<i64>,
         limit: Option<i32>,
         recv_window: Option<i64>,
-        signature: &'a str,
         start_time: Option<i64>,
-        timestamp: i64,
         token_name: Option<&'a str>,
     ) -> Result<
         ResponseValue<Vec<types::BlvtRedeemRecordResponseItem>>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/blvt/redeem/record", self.baseurl,);
-        let mut query = Vec::with_capacity(8usize);
+        let mut query = Vec::with_capacity(6usize);
         if let Some(v) = &end_time {
             query.push(("endTime", v.to_string()));
         }
@@ -71506,11 +70342,9 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &start_time {
             query.push(("startTime", v.to_string()));
         }
-        query.push(("timestamp", timestamp.to_string()));
         if let Some(v) = &token_name {
             query.push(("tokenName", v.to_string()));
         }
@@ -71524,7 +70358,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -71547,27 +70381,21 @@ Sends a `GET` request to `/sapi/v1/blvt/userLimit`
 
 Arguments:
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 - `token_name`: BTCDOWN, BTCUP
 */
     pub async fn blvt_user_limit<'a>(
         &'a self,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
         token_name: Option<&'a str>,
     ) -> Result<
         ResponseValue<Vec<types::BlvtUserLimitResponseItem>>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/blvt/userLimit", self.baseurl,);
-        let mut query = Vec::with_capacity(4usize);
+        let mut query = Vec::with_capacity(2usize);
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         if let Some(v) = &token_name {
             query.push(("tokenName", v.to_string()));
         }
@@ -71581,7 +70409,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -71618,7 +70446,7 @@ Sends a `GET` request to `/sapi/v1/bswap/pools`
                 reqwest::header::HeaderValue::from_static("application/json"),
             )
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -71643,29 +70471,23 @@ Sends a `GET` request to `/sapi/v1/bswap/liquidity`
 Arguments:
 - `pool_id`
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn bswap_liquidity<'a>(
         &'a self,
         pool_id: Option<i64>,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<Vec<types::BswapLiquidityResponseItem>>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/bswap/liquidity", self.baseurl,);
-        let mut query = Vec::with_capacity(4usize);
+        let mut query = Vec::with_capacity(2usize);
         if let Some(v) = &pool_id {
             query.push(("poolId", v.to_string()));
         }
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -71676,7 +70498,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -71704,8 +70526,6 @@ Arguments:
 - `pool_id`
 - `quantity`
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 - `type_`: * `Single` - to add a single token
 * `Combination` - to add dual tokens
 */
@@ -71715,20 +70535,16 @@ Arguments:
         pool_id: i64,
         quantity: f64,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
         type_: Option<types::BswapLiquidityAddType>,
     ) -> Result<ResponseValue<types::BswapLiquidityAddResponse>, Error<types::Error>> {
         let url = format!("{}/sapi/v1/bswap/liquidityAdd", self.baseurl,);
-        let mut query = Vec::with_capacity(7usize);
+        let mut query = Vec::with_capacity(5usize);
         query.push(("asset", asset.to_string()));
         query.push(("poolId", pool_id.to_string()));
         query.push(("quantity", quantity.to_string()));
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         if let Some(v) = &type_ {
             query.push(("type", v.to_string()));
         }
@@ -71742,7 +70558,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -71770,8 +70586,6 @@ Arguments:
 - `pool_id`
 - `recv_window`: The value cannot be greater than 60000
 - `share_amount`
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 - `type_`: * `SINGLE` - for single asset removal
 * `COMBINATION` - for combination of all coins removal
 */
@@ -71781,15 +70595,13 @@ Arguments:
         pool_id: i64,
         recv_window: Option<i64>,
         share_amount: f64,
-        signature: &'a str,
-        timestamp: i64,
         type_: types::BswapLiquidityRemoveType,
     ) -> Result<
         ResponseValue<types::BswapLiquidityRemoveResponse>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/bswap/liquidityRemove", self.baseurl,);
-        let mut query = Vec::with_capacity(7usize);
+        let mut query = Vec::with_capacity(5usize);
         if let Some(v) = &asset {
             query.push(("asset", v.to_string()));
         }
@@ -71798,8 +70610,6 @@ Arguments:
             query.push(("recvWindow", v.to_string()));
         }
         query.push(("shareAmount", share_amount.to_string()));
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         query.push(("type", type_.to_string()));
         #[allow(unused_mut)]
         let mut request = self
@@ -71811,7 +70621,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -71841,9 +70651,7 @@ Arguments:
 - `operation_id`
 - `pool_id`
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `start_time`: UTC timestamp in ms
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn bswap_liquidity_ops<'a>(
         &'a self,
@@ -71853,15 +70661,13 @@ Arguments:
         operation_id: Option<i64>,
         pool_id: Option<i64>,
         recv_window: Option<i64>,
-        signature: &'a str,
         start_time: Option<i64>,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<Vec<types::BswapLiquidityOpsResponseItem>>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/bswap/liquidityOps", self.baseurl,);
-        let mut query = Vec::with_capacity(9usize);
+        let mut query = Vec::with_capacity(7usize);
         if let Some(v) = &end_time {
             query.push(("endTime", v.to_string()));
         }
@@ -71880,11 +70686,9 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &start_time {
             query.push(("startTime", v.to_string()));
         }
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -71895,7 +70699,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -71927,8 +70731,6 @@ Arguments:
 - `quote_asset`
 - `quote_qty`
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn bswap_quote<'a>(
         &'a self,
@@ -71936,19 +70738,15 @@ Arguments:
         quote_asset: &'a str,
         quote_qty: f64,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<ResponseValue<types::BswapQuoteResponse>, Error<types::Error>> {
         let url = format!("{}/sapi/v1/bswap/quote", self.baseurl,);
-        let mut query = Vec::with_capacity(6usize);
+        let mut query = Vec::with_capacity(4usize);
         query.push(("baseAsset", base_asset.to_string()));
         query.push(("quoteAsset", quote_asset.to_string()));
         query.push(("quoteQty", quote_qty.to_string()));
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -71959,7 +70757,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -71988,13 +70786,11 @@ Arguments:
 - `limit`: default 3, max 100
 - `quote_asset`
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `start_time`: UTC timestamp in ms
 - `status`: * `0` - pending for swap
 * `1` - success
 * `2` - failed
 - `swap_id`
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn swap_history<'a>(
         &'a self,
@@ -72003,17 +70799,15 @@ Arguments:
         limit: Option<i32>,
         quote_asset: Option<&'a str>,
         recv_window: Option<i64>,
-        signature: &'a str,
         start_time: Option<i64>,
         status: Option<i32>,
         swap_id: Option<i64>,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<Vec<types::SwapHistoryResponseItem>>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/bswap/swap", self.baseurl,);
-        let mut query = Vec::with_capacity(10usize);
+        let mut query = Vec::with_capacity(8usize);
         if let Some(v) = &base_asset {
             query.push(("baseAsset", v.to_string()));
         }
@@ -72029,7 +70823,6 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &start_time {
             query.push(("startTime", v.to_string()));
         }
@@ -72039,7 +70832,6 @@ Arguments:
         if let Some(v) = &swap_id {
             query.push(("swapId", v.to_string()));
         }
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -72050,7 +70842,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -72078,8 +70870,6 @@ Arguments:
 - `quote_asset`
 - `quote_qty`
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn bswap_swap<'a>(
         &'a self,
@@ -72087,19 +70877,15 @@ Arguments:
         quote_asset: &'a str,
         quote_qty: f64,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<ResponseValue<types::BswapSwapResponse>, Error<types::Error>> {
         let url = format!("{}/sapi/v1/bswap/swap", self.baseurl,);
-        let mut query = Vec::with_capacity(6usize);
+        let mut query = Vec::with_capacity(4usize);
         query.push(("baseAsset", base_asset.to_string()));
         query.push(("quoteAsset", quote_asset.to_string()));
         query.push(("quoteQty", quote_qty.to_string()));
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -72110,7 +70896,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -72134,29 +70920,23 @@ Sends a `GET` request to `/sapi/v1/bswap/poolConfigure`
 Arguments:
 - `pool_id`
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn bswap_pool_configure<'a>(
         &'a self,
         pool_id: Option<i64>,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<Vec<types::BswapPoolConfigureResponseItem>>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/bswap/poolConfigure", self.baseurl,);
-        let mut query = Vec::with_capacity(4usize);
+        let mut query = Vec::with_capacity(2usize);
         if let Some(v) = &pool_id {
             query.push(("poolId", v.to_string()));
         }
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -72167,7 +70947,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -72195,8 +70975,6 @@ Arguments:
 - `quote_asset`
 - `quote_qty`
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 - `type_`: * `SINGLE` - for adding a single token
 * `COMBINATION` - for adding dual tokens
 */
@@ -72206,23 +70984,19 @@ Arguments:
         quote_asset: &'a str,
         quote_qty: f64,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
         type_: types::BswapAddLiquidityPreviewType,
     ) -> Result<
         ResponseValue<types::BswapAddLiquidityPreviewResponse>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/bswap/addLiquidityPreview", self.baseurl,);
-        let mut query = Vec::with_capacity(7usize);
+        let mut query = Vec::with_capacity(5usize);
         query.push(("poolId", pool_id.to_string()));
         query.push(("quoteAsset", quote_asset.to_string()));
         query.push(("quoteQty", quote_qty.to_string()));
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         query.push(("type", type_.to_string()));
         #[allow(unused_mut)]
         let mut request = self
@@ -72234,7 +71008,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -72262,8 +71036,6 @@ Arguments:
 - `quote_asset`
 - `recv_window`: The value cannot be greater than 60000
 - `share_amount`
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 - `type_`: * `SINGLE` - remove and obtain a single token
 * `COMBINATION` - remove and obtain dual token
 */
@@ -72273,23 +71045,19 @@ Arguments:
         quote_asset: &'a str,
         recv_window: Option<i64>,
         share_amount: f64,
-        signature: &'a str,
-        timestamp: i64,
         type_: types::BswapRemoveLiquidityPreviewType,
     ) -> Result<
         ResponseValue<types::BswapRemoveLiquidityPreviewResponse>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/bswap/removeLiquidityPreview", self.baseurl,);
-        let mut query = Vec::with_capacity(7usize);
+        let mut query = Vec::with_capacity(5usize);
         query.push(("poolId", pool_id.to_string()));
         query.push(("quoteAsset", quote_asset.to_string()));
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
         query.push(("shareAmount", share_amount.to_string()));
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         query.push(("type", type_.to_string()));
         #[allow(unused_mut)]
         let mut request = self
@@ -72301,7 +71069,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -72326,27 +71094,21 @@ Sends a `GET` request to `/sapi/v1/bswap/unclaimedRewards`
 
 Arguments:
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 - `type_`: 0: Swap rewards, 1: Liquidity rewards, default to 0
 */
     pub async fn bswap_unclaimed_rewards<'a>(
         &'a self,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
         type_: Option<i32>,
     ) -> Result<
         ResponseValue<types::BswapUnclaimedRewardsResponse>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/bswap/unclaimedRewards", self.baseurl,);
-        let mut query = Vec::with_capacity(4usize);
+        let mut query = Vec::with_capacity(2usize);
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         if let Some(v) = &type_ {
             query.push(("type", v.to_string()));
         }
@@ -72360,7 +71122,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -72385,24 +71147,18 @@ Sends a `POST` request to `/sapi/v1/bswap/claimRewards`
 
 Arguments:
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 - `type_`: 0: Swap rewards, 1: Liquidity rewards, default to 0
 */
     pub async fn bswap_claim_rewards<'a>(
         &'a self,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
         type_: Option<i32>,
     ) -> Result<ResponseValue<types::BswapClaimRewardsResponse>, Error<types::Error>> {
         let url = format!("{}/sapi/v1/bswap/claimRewards", self.baseurl,);
-        let mut query = Vec::with_capacity(4usize);
+        let mut query = Vec::with_capacity(2usize);
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         if let Some(v) = &type_ {
             query.push(("type", v.to_string()));
         }
@@ -72416,7 +71172,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -72445,9 +71201,7 @@ Arguments:
 - `limit`: Default 3, max 100
 - `pool_id`
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `start_time`: UTC timestamp in ms
-- `timestamp`: UTC timestamp in ms
 - `type_`: 0: Swap rewards, 1: Liquidity rewards, default to 0
 */
     pub async fn bswap_claimed_history<'a>(
@@ -72457,16 +71211,14 @@ Arguments:
         limit: Option<i32>,
         pool_id: Option<i64>,
         recv_window: Option<i64>,
-        signature: &'a str,
         start_time: Option<i64>,
-        timestamp: i64,
         type_: Option<i32>,
     ) -> Result<
         ResponseValue<Vec<types::BswapClaimedHistoryResponseItem>>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/bswap/claimedHistory", self.baseurl,);
-        let mut query = Vec::with_capacity(9usize);
+        let mut query = Vec::with_capacity(7usize);
         if let Some(v) = &asset_rewards {
             query.push(("assetRewards", v.to_string()));
         }
@@ -72482,11 +71234,9 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &start_time {
             query.push(("startTime", v.to_string()));
         }
-        query.push(("timestamp", timestamp.to_string()));
         if let Some(v) = &type_ {
             query.push(("type", v.to_string()));
         }
@@ -72500,7 +71250,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -72529,9 +71279,7 @@ Arguments:
 - `page`: Default 1
 - `recv_window`: The value cannot be greater than 60000
 - `rows`: default 100, max 100
-- `signature`: Signature
 - `start_timestamp`: UTC timestamp in ms
-- `timestamp`: UTC timestamp in ms
 - `trade_type`
 */
     pub async fn c2c_order_match_list_user_order_history<'a>(
@@ -72540,9 +71288,7 @@ Arguments:
         page: Option<i32>,
         recv_window: Option<i64>,
         rows: Option<i32>,
-        signature: &'a str,
         start_timestamp: Option<i64>,
-        timestamp: i64,
         trade_type: types::C2cOrderMatchListUserOrderHistoryTradeType,
     ) -> Result<
         ResponseValue<types::C2cOrderMatchListUserOrderHistoryResponse>,
@@ -72551,7 +71297,7 @@ Arguments:
         let url = format!(
             "{}/sapi/v1/c2c/orderMatch/listUserOrderHistory", self.baseurl,
         );
-        let mut query = Vec::with_capacity(8usize);
+        let mut query = Vec::with_capacity(6usize);
         if let Some(v) = &end_timestamp {
             query.push(("endTimestamp", v.to_string()));
         }
@@ -72564,11 +71310,9 @@ Arguments:
         if let Some(v) = &rows {
             query.push(("rows", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &start_timestamp {
             query.push(("startTimestamp", v.to_string()));
         }
-        query.push(("timestamp", timestamp.to_string()));
         query.push(("tradeType", trade_type.to_string()));
         #[allow(unused_mut)]
         let mut request = self
@@ -72580,7 +71324,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -72611,8 +71355,6 @@ Arguments:
 - `loan_coin`: Coin loaned
 - `order_id`: Order id
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn loan_vip_ongoing_orders<'a>(
         &'a self,
@@ -72623,14 +71365,12 @@ Arguments:
         loan_coin: Option<&'a str>,
         order_id: Option<i64>,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<types::LoanVipOngoingOrdersResponse>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/loan/vip/ongoing/orders", self.baseurl,);
-        let mut query = Vec::with_capacity(9usize);
+        let mut query = Vec::with_capacity(7usize);
         if let Some(v) = &collateral_account_id {
             query.push(("collateralAccountId", v.to_string()));
         }
@@ -72652,8 +71392,6 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -72664,7 +71402,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -72691,19 +71429,15 @@ Arguments:
 - `amount`
 - `order_id`: Order id
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn loan_vip_repay<'a>(
         &'a self,
         amount: f64,
         order_id: Option<i64>,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<ResponseValue<types::LoanVipRepayResponse>, Error<types::Error>> {
         let url = format!("{}/sapi/v1/loan/vip/repay", self.baseurl,);
-        let mut query = Vec::with_capacity(5usize);
+        let mut query = Vec::with_capacity(3usize);
         query.push(("amount", amount.to_string()));
         if let Some(v) = &order_id {
             query.push(("orderId", v.to_string()));
@@ -72711,8 +71445,6 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -72723,7 +71455,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -72753,9 +71485,7 @@ Arguments:
 - `loan_coin`: Coin loaned
 - `order_id`: Order id
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `start_time`: UTC timestamp in ms
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn loan_vip_repay_history<'a>(
         &'a self,
@@ -72765,12 +71495,10 @@ Arguments:
         loan_coin: Option<&'a str>,
         order_id: Option<i64>,
         recv_window: Option<i64>,
-        signature: &'a str,
         start_time: Option<i64>,
-        timestamp: i64,
     ) -> Result<ResponseValue<types::LoanVipRepayHistoryResponse>, Error<types::Error>> {
         let url = format!("{}/sapi/v1/loan/vip/repay/history", self.baseurl,);
-        let mut query = Vec::with_capacity(9usize);
+        let mut query = Vec::with_capacity(7usize);
         if let Some(v) = &current {
             query.push(("current", v.to_string()));
         }
@@ -72789,11 +71517,9 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &start_time {
             query.push(("startTime", v.to_string()));
         }
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -72804,7 +71530,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -72831,22 +71557,18 @@ Arguments:
 - `collateral_account_id`
 - `order_id`: Order id
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn loan_vip_collateral_account<'a>(
         &'a self,
         collateral_account_id: Option<i64>,
         order_id: Option<i64>,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<types::LoanVipCollateralAccountResponse>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/loan/vip/collateral/account", self.baseurl,);
-        let mut query = Vec::with_capacity(5usize);
+        let mut query = Vec::with_capacity(3usize);
         if let Some(v) = &collateral_account_id {
             query.push(("collateralAccountId", v.to_string()));
         }
@@ -72856,8 +71578,6 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -72868,7 +71588,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -72900,8 +71620,6 @@ Arguments:
 - `loan_coin`: Coin loaned
 - `loan_term`
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn loan_vip_borrow<'a>(
         &'a self,
@@ -72913,11 +71631,9 @@ Arguments:
         loan_coin: Option<&'a str>,
         loan_term: Option<i64>,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<ResponseValue<types::LoanVipBorrowResponse>, Error<types::Error>> {
         let url = format!("{}/sapi/v1/loan/vip/borrow", self.baseurl,);
-        let mut query = Vec::with_capacity(10usize);
+        let mut query = Vec::with_capacity(8usize);
         query.push(("collateralAccountId", collateral_account_id.to_string()));
         query.push(("collateralCoin", collateral_coin.to_string()));
         query.push(("isFlexibleRate", is_flexible_rate.to_string()));
@@ -72932,8 +71648,6 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -72944,7 +71658,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -72970,28 +71684,22 @@ Sends a `GET` request to `/sapi/v1/loan/vip/loanable/data`
 Arguments:
 - `loan_coin`: Coin loaned
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 - `vip_level`: Defaults to user's vip level
 */
     pub async fn loan_vip_loanable_data<'a>(
         &'a self,
         loan_coin: Option<&'a str>,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
         vip_level: Option<i32>,
     ) -> Result<ResponseValue<types::LoanVipLoanableDataResponse>, Error<types::Error>> {
         let url = format!("{}/sapi/v1/loan/vip/loanable/data", self.baseurl,);
-        let mut query = Vec::with_capacity(5usize);
+        let mut query = Vec::with_capacity(3usize);
         if let Some(v) = &loan_coin {
             query.push(("loanCoin", v.to_string()));
         }
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         if let Some(v) = &vip_level {
             query.push(("vipLevel", v.to_string()));
         }
@@ -73005,7 +71713,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -73031,29 +71739,23 @@ Sends a `GET` request to `/sapi/v1/loan/vip/collateral/data`
 Arguments:
 - `collateral_coin`: Coin used as collateral
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn loan_vip_collateral_data<'a>(
         &'a self,
         collateral_coin: Option<&'a str>,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<types::LoanVipCollateralDataResponse>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/loan/vip/collateral/data", self.baseurl,);
-        let mut query = Vec::with_capacity(4usize);
+        let mut query = Vec::with_capacity(2usize);
         if let Some(v) = &collateral_coin {
             query.push(("collateralCoin", v.to_string()));
         }
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -73064,7 +71766,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -73091,19 +71793,15 @@ Arguments:
 - `current`: Current querying page. Start from 1. Default:1
 - `limit`: Default 500; max 1000.
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn loan_vip_request_data<'a>(
         &'a self,
         current: Option<i32>,
         limit: Option<i32>,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<ResponseValue<types::LoanVipRequestDataResponse>, Error<types::Error>> {
         let url = format!("{}/sapi/v1/loan/vip/request/data", self.baseurl,);
-        let mut query = Vec::with_capacity(5usize);
+        let mut query = Vec::with_capacity(3usize);
         if let Some(v) = &current {
             query.push(("current", v.to_string()));
         }
@@ -73113,8 +71811,6 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -73125,7 +71821,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -73151,29 +71847,23 @@ Sends a `GET` request to `/sapi/v1/loan/vip/request/interestRate`
 Arguments:
 - `loan_coin`: Max 10 assets, Multiple split by ","
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn loan_vip_request_interest_rate<'a>(
         &'a self,
         loan_coin: Option<&'a str>,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<Vec<types::LoanVipRequestInterestRateResponseItem>>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/loan/vip/request/interestRate", self.baseurl,);
-        let mut query = Vec::with_capacity(4usize);
+        let mut query = Vec::with_capacity(2usize);
         if let Some(v) = &loan_coin {
             query.push(("loanCoin", v.to_string()));
         }
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -73184,7 +71874,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -73211,19 +71901,15 @@ Arguments:
 - `loan_term`
 - `order_id`: Order id
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn loan_vip_renew<'a>(
         &'a self,
         loan_term: Option<i64>,
         order_id: Option<i64>,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<ResponseValue<types::LoanVipRenewResponse>, Error<types::Error>> {
         let url = format!("{}/sapi/v1/loan/vip/renew", self.baseurl,);
-        let mut query = Vec::with_capacity(5usize);
+        let mut query = Vec::with_capacity(3usize);
         if let Some(v) = &loan_term {
             query.push(("loanTerm", v.to_string()));
         }
@@ -73233,8 +71919,6 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -73245,7 +71929,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -73274,9 +71958,7 @@ Arguments:
 - `end_time`: UTC timestamp in ms
 - `limit`: default 20, max 100
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `start_time`: UTC timestamp in ms
-- `timestamp`: UTC timestamp in ms
 - `type_`: All types will be returned by default.
   * `borrowIn`
   * `collateralSpent`
@@ -73292,13 +71974,11 @@ Arguments:
         end_time: Option<i64>,
         limit: Option<i32>,
         recv_window: Option<i64>,
-        signature: &'a str,
         start_time: Option<i64>,
-        timestamp: i64,
         type_: Option<types::LoanIncomeType>,
     ) -> Result<ResponseValue<Vec<types::LoanIncomeResponseItem>>, Error<types::Error>> {
         let url = format!("{}/sapi/v1/loan/income", self.baseurl,);
-        let mut query = Vec::with_capacity(8usize);
+        let mut query = Vec::with_capacity(6usize);
         if let Some(v) = &asset {
             query.push(("asset", v.to_string()));
         }
@@ -73311,11 +71991,9 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &start_time {
             query.push(("startTime", v.to_string()));
         }
-        query.push(("timestamp", timestamp.to_string()));
         if let Some(v) = &type_ {
             query.push(("type", v.to_string()));
         }
@@ -73329,7 +72007,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -73357,8 +72035,6 @@ Arguments:
 - `loan_coin`: Coin loaned
 - `loan_term`: 7/14/30/90/180 days
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn loan_borrow<'a>(
         &'a self,
@@ -73368,11 +72044,9 @@ Arguments:
         loan_coin: &'a str,
         loan_term: i32,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<ResponseValue<types::LoanBorrowResponse>, Error<types::Error>> {
         let url = format!("{}/sapi/v1/loan/borrow", self.baseurl,);
-        let mut query = Vec::with_capacity(8usize);
+        let mut query = Vec::with_capacity(6usize);
         if let Some(v) = &collateral_amount {
             query.push(("collateralAmount", v.to_string()));
         }
@@ -73385,8 +72059,6 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -73397,7 +72069,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -73429,9 +72101,7 @@ Arguments:
 - `loan_coin`: Coin loaned
 - `order_id`: orderId in POST /sapi/v1/loan/borrow
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `start_time`: UTC timestamp in ms
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn loan_borrow_history<'a>(
         &'a self,
@@ -73442,12 +72112,10 @@ Arguments:
         loan_coin: Option<&'a str>,
         order_id: Option<i64>,
         recv_window: Option<i64>,
-        signature: &'a str,
         start_time: Option<i64>,
-        timestamp: i64,
     ) -> Result<ResponseValue<types::LoanBorrowHistoryResponse>, Error<types::Error>> {
         let url = format!("{}/sapi/v1/loan/borrow/history", self.baseurl,);
-        let mut query = Vec::with_capacity(10usize);
+        let mut query = Vec::with_capacity(8usize);
         if let Some(v) = &collateral_coin {
             query.push(("collateralCoin", v.to_string()));
         }
@@ -73469,11 +72137,9 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &start_time {
             query.push(("startTime", v.to_string()));
         }
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -73484,7 +72150,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -73512,8 +72178,6 @@ Arguments:
 - `loan_coin`: Coin loaned
 - `order_id`: orderId in POST /sapi/v1/loan/borrow
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn loan_ongoing_orders<'a>(
         &'a self,
@@ -73523,11 +72187,9 @@ Arguments:
         loan_coin: Option<&'a str>,
         order_id: Option<i64>,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<ResponseValue<types::LoanOngoingOrdersResponse>, Error<types::Error>> {
         let url = format!("{}/sapi/v1/loan/ongoing/orders", self.baseurl,);
-        let mut query = Vec::with_capacity(8usize);
+        let mut query = Vec::with_capacity(6usize);
         if let Some(v) = &collateral_coin {
             query.push(("collateralCoin", v.to_string()));
         }
@@ -73546,8 +72208,6 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -73558,7 +72218,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -73584,8 +72244,6 @@ Arguments:
 - `collateral_return`: Default: TRUE. TRUE: Return extra collateral to spot account; FALSE: Keep extra collateral in the order.
 - `order_id`: Order ID
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 - `type_`: Default: 1. 1 for 'repay with borrowed coin'; 2 for 'repay with collateral'.
 */
     pub async fn loan_repay<'a>(
@@ -73594,12 +72252,10 @@ Arguments:
         collateral_return: Option<bool>,
         order_id: i64,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
         type_: Option<i32>,
     ) -> Result<ResponseValue<types::LoanRepayResponse>, Error<types::Error>> {
         let url = format!("{}/sapi/v1/loan/repay", self.baseurl,);
-        let mut query = Vec::with_capacity(7usize);
+        let mut query = Vec::with_capacity(5usize);
         query.push(("amount", amount.to_string()));
         if let Some(v) = &collateral_return {
             query.push(("collateralReturn", v.to_string()));
@@ -73608,8 +72264,6 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         if let Some(v) = &type_ {
             query.push(("type", v.to_string()));
         }
@@ -73623,7 +72277,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -73655,9 +72309,7 @@ Arguments:
 - `loan_coin`: Coin loaned
 - `order_id`: Order ID
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `start_time`: UTC timestamp in ms
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn loan_repay_history<'a>(
         &'a self,
@@ -73668,12 +72320,10 @@ Arguments:
         loan_coin: Option<&'a str>,
         order_id: Option<i64>,
         recv_window: Option<i64>,
-        signature: &'a str,
         start_time: Option<i64>,
-        timestamp: i64,
     ) -> Result<ResponseValue<types::LoanRepayHistoryResponse>, Error<types::Error>> {
         let url = format!("{}/sapi/v1/loan/repay/history", self.baseurl,);
-        let mut query = Vec::with_capacity(10usize);
+        let mut query = Vec::with_capacity(8usize);
         if let Some(v) = &collateral_coin {
             query.push(("collateralCoin", v.to_string()));
         }
@@ -73695,11 +72345,9 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &start_time {
             query.push(("startTime", v.to_string()));
         }
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -73710,7 +72358,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -73736,8 +72384,6 @@ Arguments:
 - `direction`: 'ADDITIONAL', 'REDUCED'
 - `order_id`: Order ID
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn loan_adjust_ltv<'a>(
         &'a self,
@@ -73745,19 +72391,15 @@ Arguments:
         direction: types::LoanAdjustLtvDirection,
         order_id: i64,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<ResponseValue<types::LoanAdjustLtvResponse>, Error<types::Error>> {
         let url = format!("{}/sapi/v1/loan/adjust/ltv", self.baseurl,);
-        let mut query = Vec::with_capacity(6usize);
+        let mut query = Vec::with_capacity(4usize);
         query.push(("amount", amount.to_string()));
         query.push(("direction", direction.to_string()));
         query.push(("orderId", order_id.to_string()));
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -73768,7 +72410,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -73800,9 +72442,7 @@ Arguments:
 - `loan_coin`: Coin loaned
 - `order_id`: Order ID
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `start_time`: UTC timestamp in ms
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn loan_ltv_adjustment_history<'a>(
         &'a self,
@@ -73813,15 +72453,13 @@ Arguments:
         loan_coin: Option<&'a str>,
         order_id: Option<i64>,
         recv_window: Option<i64>,
-        signature: &'a str,
         start_time: Option<i64>,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<types::LoanLtvAdjustmentHistoryResponse>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/loan/ltv/adjustment/history", self.baseurl,);
-        let mut query = Vec::with_capacity(10usize);
+        let mut query = Vec::with_capacity(8usize);
         if let Some(v) = &collateral_coin {
             query.push(("collateralCoin", v.to_string()));
         }
@@ -73843,11 +72481,9 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &start_time {
             query.push(("startTime", v.to_string()));
         }
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -73858,7 +72494,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -73884,28 +72520,22 @@ Sends a `GET` request to `/sapi/v1/loan/loanable/data`
 Arguments:
 - `loan_coin`: Coin loaned
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 - `vip_level`: Defaults to user's vip level
 */
     pub async fn loan_loanable_data<'a>(
         &'a self,
         loan_coin: Option<&'a str>,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
         vip_level: Option<i32>,
     ) -> Result<ResponseValue<types::LoanLoanableDataResponse>, Error<types::Error>> {
         let url = format!("{}/sapi/v1/loan/loanable/data", self.baseurl,);
-        let mut query = Vec::with_capacity(5usize);
+        let mut query = Vec::with_capacity(3usize);
         if let Some(v) = &loan_coin {
             query.push(("loanCoin", v.to_string()));
         }
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         if let Some(v) = &vip_level {
             query.push(("vipLevel", v.to_string()));
         }
@@ -73919,7 +72549,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -73945,28 +72575,22 @@ Sends a `GET` request to `/sapi/v1/loan/collateral/data`
 Arguments:
 - `collateral_coin`: Coin used as collateral
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 - `vip_level`: Defaults to user's vip level
 */
     pub async fn loan_collateral_data<'a>(
         &'a self,
         collateral_coin: Option<&'a str>,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
         vip_level: Option<i32>,
     ) -> Result<ResponseValue<types::LoanCollateralDataResponse>, Error<types::Error>> {
         let url = format!("{}/sapi/v1/loan/collateral/data", self.baseurl,);
-        let mut query = Vec::with_capacity(5usize);
+        let mut query = Vec::with_capacity(3usize);
         if let Some(v) = &collateral_coin {
             query.push(("collateralCoin", v.to_string()));
         }
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         if let Some(v) = &vip_level {
             query.push(("vipLevel", v.to_string()));
         }
@@ -73980,7 +72604,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -74008,8 +72632,6 @@ Arguments:
 - `loan_coin`: Coin loaned
 - `recv_window`: The value cannot be greater than 60000
 - `repay_amount`: repay amount of loanCoin
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn loan_repay_collateral_rate<'a>(
         &'a self,
@@ -74017,22 +72639,18 @@ Arguments:
         loan_coin: &'a str,
         recv_window: Option<i64>,
         repay_amount: f32,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<types::LoanRepayCollateralRateResponse>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/loan/repay/collateral/rate", self.baseurl,);
-        let mut query = Vec::with_capacity(6usize);
+        let mut query = Vec::with_capacity(4usize);
         query.push(("collateralCoin", collateral_coin.to_string()));
         query.push(("loanCoin", loan_coin.to_string()));
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
         query.push(("repayAmount", repay_amount.to_string()));
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -74043,7 +72661,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -74071,8 +72689,6 @@ Arguments:
 - `margin_call`
 - `order_id`: Mandatory when collateralCoin is empty. Send either orderId or collateralCoin, if both parameters are sent, take orderId only.
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn loan_customize_margin_call<'a>(
         &'a self,
@@ -74080,14 +72696,12 @@ Arguments:
         margin_call: f32,
         order_id: Option<i64>,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<types::LoanCustomizeMarginCallResponse>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/loan/customize/margin_call", self.baseurl,);
-        let mut query = Vec::with_capacity(6usize);
+        let mut query = Vec::with_capacity(4usize);
         if let Some(v) = &collateral_coin {
             query.push(("collateralCoin", v.to_string()));
         }
@@ -74098,8 +72712,6 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -74110,7 +72722,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -74138,8 +72750,6 @@ Arguments:
 - `loan_amount`: Loan amount
 - `loan_coin`: Coin loaned
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn loan_flexible_borrow<'a>(
         &'a self,
@@ -74148,11 +72758,9 @@ Arguments:
         loan_amount: Option<f32>,
         loan_coin: Option<&'a str>,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<ResponseValue<types::LoanFlexibleBorrowResponse>, Error<types::Error>> {
         let url = format!("{}/sapi/v1/loan/flexible/borrow", self.baseurl,);
-        let mut query = Vec::with_capacity(7usize);
+        let mut query = Vec::with_capacity(5usize);
         if let Some(v) = &collateral_amount {
             query.push(("collateralAmount", v.to_string()));
         }
@@ -74168,8 +72776,6 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -74180,7 +72786,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -74208,8 +72814,6 @@ Arguments:
 - `limit`: Default 500; max 1000.
 - `loan_coin`: Coin loaned
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn loan_flexible_ongoing_orders<'a>(
         &'a self,
@@ -74218,14 +72822,12 @@ Arguments:
         limit: Option<i32>,
         loan_coin: Option<&'a str>,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<types::LoanFlexibleOngoingOrdersResponse>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/loan/flexible/ongoing/orders", self.baseurl,);
-        let mut query = Vec::with_capacity(7usize);
+        let mut query = Vec::with_capacity(5usize);
         if let Some(v) = &collateral_coin {
             query.push(("collateralCoin", v.to_string()));
         }
@@ -74241,8 +72843,6 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -74253,7 +72853,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -74282,9 +72882,7 @@ Arguments:
 - `limit`: Default 500; max 1000.
 - `loan_coin`: Coin loaned
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `start_time`: UTC timestamp in ms
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn loan_flexible_borrow_history<'a>(
         &'a self,
@@ -74294,15 +72892,13 @@ Arguments:
         limit: Option<i32>,
         loan_coin: Option<&'a str>,
         recv_window: Option<i64>,
-        signature: &'a str,
         start_time: Option<i64>,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<types::LoanFlexibleBorrowHistoryResponse>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/loan/flexible/borrow/history", self.baseurl,);
-        let mut query = Vec::with_capacity(9usize);
+        let mut query = Vec::with_capacity(7usize);
         if let Some(v) = &collateral_coin {
             query.push(("collateralCoin", v.to_string()));
         }
@@ -74321,11 +72917,9 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &start_time {
             query.push(("startTime", v.to_string()));
         }
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -74336,7 +72930,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -74365,8 +72959,6 @@ Arguments:
 - `loan_coin`: Coin loaned
 - `recv_window`: The value cannot be greater than 60000
 - `repay_amount`: repay amount of loanCoin
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn loan_flexible_repay<'a>(
         &'a self,
@@ -74376,11 +72968,9 @@ Arguments:
         loan_coin: Option<&'a str>,
         recv_window: Option<i64>,
         repay_amount: f32,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<ResponseValue<types::LoanFlexibleRepayResponse>, Error<types::Error>> {
         let url = format!("{}/sapi/v1/loan/flexible/repay", self.baseurl,);
-        let mut query = Vec::with_capacity(8usize);
+        let mut query = Vec::with_capacity(6usize);
         if let Some(v) = &collateral_coin {
             query.push(("collateralCoin", v.to_string()));
         }
@@ -74397,8 +72987,6 @@ Arguments:
             query.push(("recvWindow", v.to_string()));
         }
         query.push(("repayAmount", repay_amount.to_string()));
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -74409,7 +72997,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -74438,9 +73026,7 @@ Arguments:
 - `limit`: Default 500; max 1000.
 - `loan_coin`: Coin loaned
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `start_time`: UTC timestamp in ms
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn loan_flexible_repay_history<'a>(
         &'a self,
@@ -74450,15 +73036,13 @@ Arguments:
         limit: Option<i32>,
         loan_coin: Option<&'a str>,
         recv_window: Option<i64>,
-        signature: &'a str,
         start_time: Option<i64>,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<types::LoanFlexibleRepayHistoryResponse>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/loan/flexible/repay/history", self.baseurl,);
-        let mut query = Vec::with_capacity(9usize);
+        let mut query = Vec::with_capacity(7usize);
         if let Some(v) = &collateral_coin {
             query.push(("collateralCoin", v.to_string()));
         }
@@ -74477,11 +73061,9 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &start_time {
             query.push(("startTime", v.to_string()));
         }
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -74492,7 +73074,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -74520,8 +73102,6 @@ Arguments:
 - `direction`
 - `loan_coin`: Coin loaned
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn loan_flexible_adjust_ltv<'a>(
         &'a self,
@@ -74530,14 +73110,12 @@ Arguments:
         direction: types::LoanFlexibleAdjustLtvDirection,
         loan_coin: Option<&'a str>,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<types::LoanFlexibleAdjustLtvResponse>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/loan/flexible/adjust/ltv", self.baseurl,);
-        let mut query = Vec::with_capacity(7usize);
+        let mut query = Vec::with_capacity(5usize);
         query.push(("adjustmentAmount", adjustment_amount.to_string()));
         if let Some(v) = &collateral_coin {
             query.push(("collateralCoin", v.to_string()));
@@ -74549,8 +73127,6 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -74561,7 +73137,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -74590,9 +73166,7 @@ Arguments:
 - `limit`: Default 500; max 1000.
 - `loan_coin`: Coin loaned
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `start_time`: UTC timestamp in ms
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn loan_flexible_ltv_adjustment_history<'a>(
         &'a self,
@@ -74602,9 +73176,7 @@ Arguments:
         limit: Option<i32>,
         loan_coin: Option<&'a str>,
         recv_window: Option<i64>,
-        signature: &'a str,
         start_time: Option<i64>,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<types::LoanFlexibleLtvAdjustmentHistoryResponse>,
         Error<types::Error>,
@@ -74612,7 +73184,7 @@ Arguments:
         let url = format!(
             "{}/sapi/v1/loan/flexible/ltv/adjustment/history", self.baseurl,
         );
-        let mut query = Vec::with_capacity(9usize);
+        let mut query = Vec::with_capacity(7usize);
         if let Some(v) = &collateral_coin {
             query.push(("collateralCoin", v.to_string()));
         }
@@ -74631,11 +73203,9 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &start_time {
             query.push(("startTime", v.to_string()));
         }
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -74646,7 +73216,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -74672,29 +73242,23 @@ Sends a `GET` request to `/sapi/v1/loan/flexible/loanable/data`
 Arguments:
 - `loan_coin`: Coin loaned
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn loan_flexible_loanable_data<'a>(
         &'a self,
         loan_coin: Option<&'a str>,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<types::LoanFlexibleLoanableDataResponse>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/loan/flexible/loanable/data", self.baseurl,);
-        let mut query = Vec::with_capacity(4usize);
+        let mut query = Vec::with_capacity(2usize);
         if let Some(v) = &loan_coin {
             query.push(("loanCoin", v.to_string()));
         }
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -74705,7 +73269,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -74731,29 +73295,23 @@ Sends a `GET` request to `/sapi/v1/loan/flexible/collateral/data`
 Arguments:
 - `collateral_coin`: Coin used as collateral
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn loan_flexible_collateral_data<'a>(
         &'a self,
         collateral_coin: Option<&'a str>,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<types::LoanFlexibleCollateralDataResponse>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/loan/flexible/collateral/data", self.baseurl,);
-        let mut query = Vec::with_capacity(4usize);
+        let mut query = Vec::with_capacity(2usize);
         if let Some(v) = &collateral_coin {
             query.push(("collateralCoin", v.to_string()));
         }
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -74764,7 +73322,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -74793,21 +73351,17 @@ Arguments:
 - `end_time`: UTC timestamp in ms
 - `limit`: default 100, max 100
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `start_time`: UTC timestamp in ms
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn pay_transactions<'a>(
         &'a self,
         end_time: Option<i64>,
         limit: Option<i32>,
         recv_window: Option<i64>,
-        signature: &'a str,
         start_time: Option<i64>,
-        timestamp: i64,
     ) -> Result<ResponseValue<types::PayTransactionsResponse>, Error<types::Error>> {
         let url = format!("{}/sapi/v1/pay/transactions", self.baseurl,);
-        let mut query = Vec::with_capacity(6usize);
+        let mut query = Vec::with_capacity(4usize);
         if let Some(v) = &end_time {
             query.push(("endTime", v.to_string()));
         }
@@ -74817,11 +73371,9 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &start_time {
             query.push(("startTime", v.to_string()));
         }
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -74832,7 +73384,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -74885,7 +73437,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -74910,25 +73462,19 @@ Sends a `GET` request to `/sapi/v1/convert/assetInfo`
 
 Arguments:
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn convert_asset_info<'a>(
         &'a self,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<Vec<types::ConvertAssetInfoResponseItem>>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/convert/assetInfo", self.baseurl,);
-        let mut query = Vec::with_capacity(3usize);
+        let mut query = Vec::with_capacity(1usize);
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -74939,7 +73485,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -74966,8 +73512,6 @@ Arguments:
 - `from_amount`: When specified, it is the amount you will be debited after the conversion
 - `from_asset`
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 - `to_amount`: When specified, it is the amount you will be debited after the conversion
 - `to_asset`
 - `valid_time`: 10s, 30s, 1m, 2m, default 10s
@@ -74978,15 +73522,13 @@ Arguments:
         from_amount: Option<f32>,
         from_asset: &'a str,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
         to_amount: Option<f32>,
         to_asset: &'a str,
         valid_time: Option<&'a str>,
         wallet_type: Option<&'a str>,
     ) -> Result<ResponseValue<types::ConvertGetQuoteResponse>, Error<types::Error>> {
         let url = format!("{}/sapi/v1/convert/getQuote", self.baseurl,);
-        let mut query = Vec::with_capacity(9usize);
+        let mut query = Vec::with_capacity(7usize);
         if let Some(v) = &from_amount {
             query.push(("fromAmount", v.to_string()));
         }
@@ -74994,8 +73536,6 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         if let Some(v) = &to_amount {
             query.push(("toAmount", v.to_string()));
         }
@@ -75016,7 +73556,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -75042,24 +73582,18 @@ Sends a `POST` request to `/sapi/v1/convert/acceptQuote`
 Arguments:
 - `quote_id`
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn convert_accept_quote<'a>(
         &'a self,
         quote_id: &'a str,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<ResponseValue<types::ConvertAcceptQuoteResponse>, Error<types::Error>> {
         let url = format!("{}/sapi/v1/convert/acceptQuote", self.baseurl,);
-        let mut query = Vec::with_capacity(4usize);
+        let mut query = Vec::with_capacity(2usize);
         query.push(("quoteId", quote_id.to_string()));
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -75070,7 +73604,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -75097,19 +73631,15 @@ Arguments:
 - `order_id`
 - `quote_id`
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn convert_order_status<'a>(
         &'a self,
         order_id: Option<&'a str>,
         quote_id: Option<&'a str>,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<ResponseValue<types::ConvertOrderStatusResponse>, Error<types::Error>> {
         let url = format!("{}/sapi/v1/convert/orderStatus", self.baseurl,);
-        let mut query = Vec::with_capacity(5usize);
+        let mut query = Vec::with_capacity(3usize);
         if let Some(v) = &order_id {
             query.push(("orderId", v.to_string()));
         }
@@ -75119,8 +73649,6 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -75131,7 +73659,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -75158,21 +73686,17 @@ Arguments:
 - `end_time`: UTC timestamp in ms
 - `limit`: default 100, max 1000
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `start_time`: UTC timestamp in ms
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn convert_trade_flow<'a>(
         &'a self,
         end_time: i64,
         limit: Option<i32>,
         recv_window: Option<i64>,
-        signature: &'a str,
         start_time: i64,
-        timestamp: i64,
     ) -> Result<ResponseValue<types::ConvertTradeFlowResponse>, Error<types::Error>> {
         let url = format!("{}/sapi/v1/convert/tradeFlow", self.baseurl,);
-        let mut query = Vec::with_capacity(6usize);
+        let mut query = Vec::with_capacity(4usize);
         query.push(("endTime", end_time.to_string()));
         if let Some(v) = &limit {
             query.push(("limit", v.to_string()));
@@ -75180,9 +73704,7 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         query.push(("startTime", start_time.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -75193,7 +73715,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -75222,21 +73744,17 @@ Arguments:
 - `end_time`: UTC timestamp in ms
 - `page`: default 1
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `start_time`: UTC timestamp in ms
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn rebate_tax_query<'a>(
         &'a self,
         end_time: Option<i64>,
         page: Option<i32>,
         recv_window: Option<i64>,
-        signature: &'a str,
         start_time: Option<i64>,
-        timestamp: i64,
     ) -> Result<ResponseValue<types::RebateTaxQueryResponse>, Error<types::Error>> {
         let url = format!("{}/sapi/v1/rebate/taxQuery", self.baseurl,);
-        let mut query = Vec::with_capacity(6usize);
+        let mut query = Vec::with_capacity(4usize);
         if let Some(v) = &end_time {
             query.push(("endTime", v.to_string()));
         }
@@ -75246,11 +73764,9 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &start_time {
             query.push(("startTime", v.to_string()));
         }
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -75261,7 +73777,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -75291,9 +73807,7 @@ Arguments:
 - `order_type`: 0: purchase order, 1: sell order, 2: royalty income, 3: primary market order, 4: mint fee
 - `page`: Default 1
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `start_time`: UTC timestamp in ms
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn nft_history_transactions<'a>(
         &'a self,
@@ -75302,15 +73816,13 @@ Arguments:
         order_type: i32,
         page: Option<i32>,
         recv_window: Option<i64>,
-        signature: &'a str,
         start_time: Option<i64>,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<types::NftHistoryTransactionsResponse>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/nft/history/transactions", self.baseurl,);
-        let mut query = Vec::with_capacity(8usize);
+        let mut query = Vec::with_capacity(6usize);
         if let Some(v) = &end_time {
             query.push(("endTime", v.to_string()));
         }
@@ -75324,11 +73836,9 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &start_time {
             query.push(("startTime", v.to_string()));
         }
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -75339,7 +73849,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -75368,9 +73878,7 @@ Arguments:
 - `limit`: Default 50, Max 50
 - `page`: Default 1
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `start_time`: UTC timestamp in ms
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn nft_history_deposit<'a>(
         &'a self,
@@ -75378,12 +73886,10 @@ Arguments:
         limit: Option<i32>,
         page: Option<i32>,
         recv_window: Option<i64>,
-        signature: &'a str,
         start_time: Option<i64>,
-        timestamp: i64,
     ) -> Result<ResponseValue<types::NftHistoryDepositResponse>, Error<types::Error>> {
         let url = format!("{}/sapi/v1/nft/history/deposit", self.baseurl,);
-        let mut query = Vec::with_capacity(7usize);
+        let mut query = Vec::with_capacity(5usize);
         if let Some(v) = &end_time {
             query.push(("endTime", v.to_string()));
         }
@@ -75396,11 +73902,9 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &start_time {
             query.push(("startTime", v.to_string()));
         }
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -75411,7 +73915,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -75440,9 +73944,7 @@ Arguments:
 - `limit`: Default 50, Max 50
 - `page`: Default 1
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `start_time`: UTC timestamp in ms
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn nft_history_withdraw<'a>(
         &'a self,
@@ -75450,12 +73952,10 @@ Arguments:
         limit: Option<i32>,
         page: Option<i32>,
         recv_window: Option<i64>,
-        signature: &'a str,
         start_time: Option<i64>,
-        timestamp: i64,
     ) -> Result<ResponseValue<types::NftHistoryWithdrawResponse>, Error<types::Error>> {
         let url = format!("{}/sapi/v1/nft/history/withdraw", self.baseurl,);
-        let mut query = Vec::with_capacity(7usize);
+        let mut query = Vec::with_capacity(5usize);
         if let Some(v) = &end_time {
             query.push(("endTime", v.to_string()));
         }
@@ -75468,11 +73968,9 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &start_time {
             query.push(("startTime", v.to_string()));
         }
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -75483,7 +73981,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -75508,19 +74006,15 @@ Arguments:
 - `limit`: Default 50, Max 50
 - `page`: Default 1
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn nft_user_get_asset<'a>(
         &'a self,
         limit: Option<i32>,
         page: Option<i32>,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<ResponseValue<types::NftUserGetAssetResponse>, Error<types::Error>> {
         let url = format!("{}/sapi/v1/nft/user/getAsset", self.baseurl,);
-        let mut query = Vec::with_capacity(5usize);
+        let mut query = Vec::with_capacity(3usize);
         if let Some(v) = &limit {
             query.push(("limit", v.to_string()));
         }
@@ -75530,8 +74024,6 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -75542,7 +74034,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -75575,26 +74067,20 @@ Sends a `POST` request to `/sapi/v1/giftcard/createCode`
 Arguments:
 - `amount`: The amount of the coin
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 - `token`: The coin type contained in the Binance Code
 */
     pub async fn giftcard_create_code<'a>(
         &'a self,
         amount: f64,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
         token: &'a str,
     ) -> Result<ResponseValue<types::GiftcardCreateCodeResponse>, Error<types::Error>> {
         let url = format!("{}/sapi/v1/giftcard/createCode", self.baseurl,);
-        let mut query = Vec::with_capacity(5usize);
+        let mut query = Vec::with_capacity(3usize);
         query.push(("amount", amount.to_string()));
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         query.push(("token", token.to_string()));
         #[allow(unused_mut)]
         let mut request = self
@@ -75606,7 +74092,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -75635,19 +74121,15 @@ Arguments:
 - `code`: Binance Code
 - `external_uid`: Each external unique ID represents a unique user on the partner platform. The function helps you to identify the redemption behavior of different users, such as redemption frequency and amount. It also helps risk and limit control of a single account, such as daily limit on redemption volume, frequency, and incorrect number of entries. This will also prevent a single user account reach the partner's daily redemption limits. We strongly recommend you to use this feature and transfer us the User ID of your users if you have different users redeeming Binance codes on your platform. To protect user data privacy, you may choose to transfer the user id in any desired format (max. 400 characters).
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn giftcard_redeem_code<'a>(
         &'a self,
         code: &'a str,
         external_uid: Option<&'a str>,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<ResponseValue<types::GiftcardRedeemCodeResponse>, Error<types::Error>> {
         let url = format!("{}/sapi/v1/giftcard/redeemCode", self.baseurl,);
-        let mut query = Vec::with_capacity(5usize);
+        let mut query = Vec::with_capacity(3usize);
         query.push(("code", code.to_string()));
         if let Some(v) = &external_uid {
             query.push(("externalUid", v.to_string()));
@@ -75655,8 +74137,6 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -75667,7 +74147,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -75695,24 +74175,18 @@ Sends a `GET` request to `/sapi/v1/giftcard/verify`
 Arguments:
 - `recv_window`: The value cannot be greater than 60000
 - `reference_no`: reference number
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn giftcard_verify<'a>(
         &'a self,
         recv_window: Option<i64>,
         reference_no: &'a str,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<ResponseValue<types::GiftcardVerifyResponse>, Error<types::Error>> {
         let url = format!("{}/sapi/v1/giftcard/verify", self.baseurl,);
-        let mut query = Vec::with_capacity(4usize);
+        let mut query = Vec::with_capacity(2usize);
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
         query.push(("referenceNo", reference_no.to_string()));
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -75723,7 +74197,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -75750,14 +74224,10 @@ Sends a `GET` request to `/sapi/v1/giftcard/cryptography/rsa-public-key`
 
 Arguments:
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn giftcard_cryptography_rsa_public_key<'a>(
         &'a self,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<types::GiftcardCryptographyRsaPublicKeyResponse>,
         Error<types::Error>,
@@ -75765,12 +74235,10 @@ Arguments:
         let url = format!(
             "{}/sapi/v1/giftcard/cryptography/rsa-public-key", self.baseurl,
         );
-        let mut query = Vec::with_capacity(3usize);
+        let mut query = Vec::with_capacity(1usize);
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -75781,7 +74249,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -75819,8 +74287,6 @@ Arguments:
 - `base_token_amount`: The base token asset quantity, example  1.002
 - `face_token`: The token you want to buy, example BNB. If faceToken = baseToken, it's the same as createCode endpoint.
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn giftcard_buy_code<'a>(
         &'a self,
@@ -75828,19 +74294,15 @@ Arguments:
         base_token_amount: f64,
         face_token: &'a str,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<ResponseValue<types::GiftcardBuyCodeResponse>, Error<types::Error>> {
         let url = format!("{}/sapi/v1/giftcard/buyCode", self.baseurl,);
-        let mut query = Vec::with_capacity(6usize);
+        let mut query = Vec::with_capacity(4usize);
         query.push(("baseToken", base_token.to_string()));
         query.push(("baseTokenAmount", base_token_amount.to_string()));
         query.push(("faceToken", face_token.to_string()));
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -75851,7 +74313,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -75877,27 +74339,21 @@ Sends a `GET` request to `/sapi/v1/giftcard/buyCode/token-limit`
 Arguments:
 - `base_token`: The token you want to pay, example BUSD
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn giftcard_buy_code_token_limit<'a>(
         &'a self,
         base_token: &'a str,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<types::GiftcardBuyCodeTokenLimitResponse>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/giftcard/buyCode/token-limit", self.baseurl,);
-        let mut query = Vec::with_capacity(4usize);
+        let mut query = Vec::with_capacity(2usize);
         query.push(("baseToken", base_token.to_string()));
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -75908,7 +74364,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -75932,19 +74388,15 @@ Sends a `GET` request to `/sapi/v1/lending/auto-invest/target-asset/list`
 Arguments:
 - `current`: Current querying page. Start from 1. Default:1
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `size`: Default:10 Max:100
 - `target_asset`
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn lending_auto_invest_target_asset_list<'a>(
         &'a self,
         current: Option<i32>,
         recv_window: Option<i64>,
-        signature: &'a str,
         size: Option<i32>,
         target_asset: Option<&'a str>,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<types::LendingAutoInvestTargetAssetListResponse>,
         Error<types::Error>,
@@ -75952,21 +74404,19 @@ Arguments:
         let url = format!(
             "{}/sapi/v1/lending/auto-invest/target-asset/list", self.baseurl,
         );
-        let mut query = Vec::with_capacity(6usize);
+        let mut query = Vec::with_capacity(4usize);
         if let Some(v) = &current {
             query.push(("current", v.to_string()));
         }
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &size {
             query.push(("size", v.to_string()));
         }
         if let Some(v) = &target_asset {
             query.push(("targetAsset", v.to_string()));
         }
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -75977,7 +74427,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -76003,17 +74453,13 @@ Sends a `GET` request to `/sapi/v1/lending/auto-invest/target-asset/roi/list`
 Arguments:
 - `his_roi_type`
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `target_asset`
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn lending_auto_invest_target_asset_roi_list<'a>(
         &'a self,
         his_roi_type: &'a str,
         recv_window: Option<i64>,
-        signature: &'a str,
         target_asset: &'a str,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<Vec<types::LendingAutoInvestTargetAssetRoiListResponseItem>>,
         Error<types::Error>,
@@ -76021,14 +74467,12 @@ Arguments:
         let url = format!(
             "{}/sapi/v1/lending/auto-invest/target-asset/roi/list", self.baseurl,
         );
-        let mut query = Vec::with_capacity(5usize);
+        let mut query = Vec::with_capacity(3usize);
         query.push(("hisRoiType", his_roi_type.to_string()));
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         query.push(("targetAsset", target_asset.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -76039,7 +74483,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -76064,25 +74508,19 @@ Sends a `GET` request to `/sapi/v1/lending/auto-invest/all/asset`
 
 Arguments:
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn lending_auto_invest_all_asset<'a>(
         &'a self,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<types::LendingAutoInvestAllAssetResponse>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/lending/auto-invest/all/asset", self.baseurl,);
-        let mut query = Vec::with_capacity(3usize);
+        let mut query = Vec::with_capacity(1usize);
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -76093,7 +74531,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -76120,9 +74558,7 @@ Arguments:
 - `flexible_allowed_to_use`
 - `index_id`
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `target_asset`
-- `timestamp`: UTC timestamp in ms
 - `usage_type`
 */
     pub async fn lending_auto_invest_source_asset_list<'a>(
@@ -76130,9 +74566,7 @@ Arguments:
         flexible_allowed_to_use: Option<bool>,
         index_id: Option<i64>,
         recv_window: Option<i64>,
-        signature: &'a str,
         target_asset: Option<&'a str>,
-        timestamp: i64,
         usage_type: &'a str,
     ) -> Result<
         ResponseValue<types::LendingAutoInvestSourceAssetListResponse>,
@@ -76141,7 +74575,7 @@ Arguments:
         let url = format!(
             "{}/sapi/v1/lending/auto-invest/source-asset/list", self.baseurl,
         );
-        let mut query = Vec::with_capacity(7usize);
+        let mut query = Vec::with_capacity(5usize);
         if let Some(v) = &flexible_allowed_to_use {
             query.push(("flexibleAllowedToUse", v.to_string()));
         }
@@ -76151,11 +74585,9 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &target_asset {
             query.push(("targetAsset", v.to_string()));
         }
-        query.push(("timestamp", timestamp.to_string()));
         query.push(("usageType", usage_type.to_string()));
         #[allow(unused_mut)]
         let mut request = self
@@ -76167,7 +74599,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -76194,24 +74626,20 @@ Arguments:
 - `asset`
 - `current`: Current querying page. Start from 1. Default:1
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `size`: Default:10 Max:100
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn simple_earn_flexible_list<'a>(
         &'a self,
         asset: Option<&'a str>,
         current: Option<i32>,
         recv_window: Option<i64>,
-        signature: &'a str,
         size: Option<i32>,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<types::SimpleEarnFlexibleListResponse>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/simple-earn/flexible/list", self.baseurl,);
-        let mut query = Vec::with_capacity(6usize);
+        let mut query = Vec::with_capacity(4usize);
         if let Some(v) = &asset {
             query.push(("asset", v.to_string()));
         }
@@ -76221,11 +74649,9 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &size {
             query.push(("size", v.to_string()));
         }
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -76236,7 +74662,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -76261,24 +74687,20 @@ Arguments:
 - `asset`
 - `current`: Current querying page. Start from 1. Default:1
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `size`: Default:10 Max:100
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn simple_earn_locked_list<'a>(
         &'a self,
         asset: Option<&'a str>,
         current: Option<i32>,
         recv_window: Option<i64>,
-        signature: &'a str,
         size: Option<i32>,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<types::SimpleEarnLockedListResponse>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/simple-earn/locked/list", self.baseurl,);
-        let mut query = Vec::with_capacity(6usize);
+        let mut query = Vec::with_capacity(4usize);
         if let Some(v) = &asset {
             query.push(("asset", v.to_string()));
         }
@@ -76288,11 +74710,9 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &size {
             query.push(("size", v.to_string()));
         }
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -76303,7 +74723,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -76331,9 +74751,7 @@ Arguments:
 - `auto_subscribe`: true or false, default true.
 - `product_id`
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `source_account`: SPOT,FUND,ALL, default SPOT
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn simple_earn_flexible_subscribe<'a>(
         &'a self,
@@ -76341,15 +74759,13 @@ Arguments:
         auto_subscribe: Option<bool>,
         product_id: &'a str,
         recv_window: Option<i64>,
-        signature: &'a str,
         source_account: Option<&'a str>,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<types::SimpleEarnFlexibleSubscribeResponse>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/simple-earn/flexible/subscribe", self.baseurl,);
-        let mut query = Vec::with_capacity(7usize);
+        let mut query = Vec::with_capacity(5usize);
         query.push(("amount", amount.to_string()));
         if let Some(v) = &auto_subscribe {
             query.push(("autoSubscribe", v.to_string()));
@@ -76358,11 +74774,9 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &source_account {
             query.push(("sourceAccount", v.to_string()));
         }
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -76373,7 +74787,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -76401,9 +74815,7 @@ Arguments:
 - `auto_subscribe`: true or false, default true.
 - `project_id`
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `source_account`: SPOT,FUND,ALL, default SPOT
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn simple_earn_locked_subscribe<'a>(
         &'a self,
@@ -76411,15 +74823,13 @@ Arguments:
         auto_subscribe: Option<bool>,
         project_id: &'a str,
         recv_window: Option<i64>,
-        signature: &'a str,
         source_account: Option<&'a str>,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<types::SimpleEarnLockedSubscribeResponse>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/simple-earn/locked/subscribe", self.baseurl,);
-        let mut query = Vec::with_capacity(7usize);
+        let mut query = Vec::with_capacity(5usize);
         query.push(("amount", amount.to_string()));
         if let Some(v) = &auto_subscribe {
             query.push(("autoSubscribe", v.to_string()));
@@ -76428,11 +74838,9 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &source_account {
             query.push(("sourceAccount", v.to_string()));
         }
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -76443,7 +74851,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -76472,8 +74880,6 @@ Arguments:
 - `product_id`
 - `recv_window`: The value cannot be greater than 60000
 - `redeem_all`: true or false, default to false
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn simple_earn_flexible_redeem<'a>(
         &'a self,
@@ -76482,14 +74888,12 @@ Arguments:
         product_id: &'a str,
         recv_window: Option<i64>,
         redeem_all: Option<bool>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<types::SimpleEarnFlexibleRedeemResponse>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/simple-earn/flexible/redeem", self.baseurl,);
-        let mut query = Vec::with_capacity(7usize);
+        let mut query = Vec::with_capacity(5usize);
         if let Some(v) = &amount {
             query.push(("amount", v.to_string()));
         }
@@ -76503,8 +74907,6 @@ Arguments:
         if let Some(v) = &redeem_all {
             query.push(("redeemAll", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -76515,7 +74917,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -76541,27 +74943,21 @@ Sends a `POST` request to `/sapi/v1/simple-earn/locked/redeem`
 Arguments:
 - `position_id`: 1234
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn simple_earn_locked_redeem<'a>(
         &'a self,
         position_id: &'a str,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<types::SimpleEarnLockedRedeemResponse>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/simple-earn/locked/redeem", self.baseurl,);
-        let mut query = Vec::with_capacity(4usize);
+        let mut query = Vec::with_capacity(2usize);
         query.push(("positionId", position_id.to_string()));
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -76572,7 +74968,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -76598,9 +74994,7 @@ Arguments:
 - `current`: Current querying page. Start from 1. Default:1
 - `product_id`
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `size`: Default:10 Max:100
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn simple_earn_flexible_position<'a>(
         &'a self,
@@ -76608,15 +75002,13 @@ Arguments:
         current: Option<i32>,
         product_id: Option<&'a str>,
         recv_window: Option<i64>,
-        signature: &'a str,
         size: Option<i32>,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<types::SimpleEarnFlexiblePositionResponse>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/simple-earn/flexible/position", self.baseurl,);
-        let mut query = Vec::with_capacity(7usize);
+        let mut query = Vec::with_capacity(5usize);
         if let Some(v) = &asset {
             query.push(("asset", v.to_string()));
         }
@@ -76629,11 +75021,9 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &size {
             query.push(("size", v.to_string()));
         }
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -76644,7 +75034,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -76671,9 +75061,7 @@ Arguments:
 - `position_id`
 - `project_id`
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `size`: Default:10 Max:100
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn simple_earn_locked_position<'a>(
         &'a self,
@@ -76682,15 +75070,13 @@ Arguments:
         position_id: Option<&'a str>,
         project_id: Option<&'a str>,
         recv_window: Option<i64>,
-        signature: &'a str,
         size: Option<i32>,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<types::SimpleEarnLockedPositionResponse>,
         Error<types::Error>,
     > {
         let url = format!("{}/sapi/v1/simple-earn/locked/position", self.baseurl,);
-        let mut query = Vec::with_capacity(8usize);
+        let mut query = Vec::with_capacity(6usize);
         if let Some(v) = &asset {
             query.push(("asset", v.to_string()));
         }
@@ -76706,11 +75092,9 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &size {
             query.push(("size", v.to_string()));
         }
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -76721,7 +75105,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -76744,22 +75128,16 @@ Sends a `GET` request to `/sapi/v1/simple-earn/account`
 
 Arguments:
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn simple_earn_account<'a>(
         &'a self,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<ResponseValue<types::SimpleEarnAccountResponse>, Error<types::Error>> {
         let url = format!("{}/sapi/v1/simple-earn/account", self.baseurl,);
-        let mut query = Vec::with_capacity(3usize);
+        let mut query = Vec::with_capacity(1usize);
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -76770,7 +75148,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -76798,10 +75176,8 @@ Arguments:
 - `product_id`
 - `purchase_id`
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `size`: Default:10 Max:100
 - `start_time`: UTC timestamp in ms
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn simple_earn_flexible_history_subscription_record<'a>(
         &'a self,
@@ -76811,10 +75187,8 @@ Arguments:
         product_id: Option<&'a str>,
         purchase_id: Option<&'a str>,
         recv_window: Option<i64>,
-        signature: &'a str,
         size: Option<i32>,
         start_time: Option<i64>,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<types::SimpleEarnFlexibleHistorySubscriptionRecordResponse>,
         Error<types::Error>,
@@ -76822,7 +75196,7 @@ Arguments:
         let url = format!(
             "{}/sapi/v1/simple-earn/flexible/history/subscriptionRecord", self.baseurl,
         );
-        let mut query = Vec::with_capacity(10usize);
+        let mut query = Vec::with_capacity(8usize);
         if let Some(v) = &asset {
             query.push(("asset", v.to_string()));
         }
@@ -76841,14 +75215,12 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &size {
             query.push(("size", v.to_string()));
         }
         if let Some(v) = &start_time {
             query.push(("startTime", v.to_string()));
         }
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -76859,7 +75231,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -76886,10 +75258,8 @@ Arguments:
 - `end_time`: UTC timestamp in ms
 - `purchase_id`
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `size`: Default:10 Max:100
 - `start_time`: UTC timestamp in ms
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn simple_earn_locked_history_subscription_record<'a>(
         &'a self,
@@ -76898,10 +75268,8 @@ Arguments:
         end_time: Option<i64>,
         purchase_id: Option<&'a str>,
         recv_window: Option<i64>,
-        signature: &'a str,
         size: Option<i32>,
         start_time: Option<i64>,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<types::SimpleEarnLockedHistorySubscriptionRecordResponse>,
         Error<types::Error>,
@@ -76909,7 +75277,7 @@ Arguments:
         let url = format!(
             "{}/sapi/v1/simple-earn/locked/history/subscriptionRecord", self.baseurl,
         );
-        let mut query = Vec::with_capacity(9usize);
+        let mut query = Vec::with_capacity(7usize);
         if let Some(v) = &asset {
             query.push(("asset", v.to_string()));
         }
@@ -76925,14 +75293,12 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &size {
             query.push(("size", v.to_string()));
         }
         if let Some(v) = &start_time {
             query.push(("startTime", v.to_string()));
         }
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -76943,7 +75309,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -77021,7 +75387,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -77049,10 +75415,8 @@ Arguments:
 - `position_id`
 - `recv_window`: The value cannot be greater than 60000
 - `redeem_id`
-- `signature`: Signature
 - `size`: Default:10 Max:100
 - `start_time`: UTC timestamp in ms
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn simple_earn_locked_history_redemption_record<'a>(
         &'a self,
@@ -77062,10 +75426,8 @@ Arguments:
         position_id: Option<&'a str>,
         recv_window: Option<i64>,
         redeem_id: Option<&'a str>,
-        signature: &'a str,
         size: Option<i32>,
         start_time: Option<i64>,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<types::SimpleEarnLockedHistoryRedemptionRecordResponse>,
         Error<types::Error>,
@@ -77073,7 +75435,7 @@ Arguments:
         let url = format!(
             "{}/sapi/v1/simple-earn/locked/history/redemptionRecord", self.baseurl,
         );
-        let mut query = Vec::with_capacity(10usize);
+        let mut query = Vec::with_capacity(8usize);
         if let Some(v) = &asset {
             query.push(("asset", v.to_string()));
         }
@@ -77092,14 +75454,12 @@ Arguments:
         if let Some(v) = &redeem_id {
             query.push(("redeemId", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &size {
             query.push(("size", v.to_string()));
         }
         if let Some(v) = &start_time {
             query.push(("startTime", v.to_string()));
         }
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -77110,7 +75470,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -77176,7 +75536,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -77202,10 +75562,8 @@ Arguments:
 - `end_time`: UTC timestamp in ms
 - `position_id`
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `size`: Default:10 Max:100
 - `start_time`: UTC timestamp in ms
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn simple_earn_locked_history_rewards_record<'a>(
         &'a self,
@@ -77213,10 +75571,8 @@ Arguments:
         end_time: Option<i64>,
         position_id: Option<&'a str>,
         recv_window: Option<i64>,
-        signature: &'a str,
         size: Option<i32>,
         start_time: Option<i64>,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<types::SimpleEarnLockedHistoryRewardsRecordResponse>,
         Error<types::Error>,
@@ -77224,7 +75580,7 @@ Arguments:
         let url = format!(
             "{}/sapi/v1/simple-earn/locked/history/rewardsRecord", self.baseurl,
         );
-        let mut query = Vec::with_capacity(8usize);
+        let mut query = Vec::with_capacity(6usize);
         if let Some(v) = &asset {
             query.push(("asset", v.to_string()));
         }
@@ -77237,14 +75593,12 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &size {
             query.push(("size", v.to_string()));
         }
         if let Some(v) = &start_time {
             query.push(("startTime", v.to_string()));
         }
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -77255,7 +75609,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -77280,16 +75634,12 @@ Arguments:
 - `auto_subscribe`: true or false
 - `product_id`
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn simple_earn_flexible_set_auto_subscribe<'a>(
         &'a self,
         auto_subscribe: bool,
         product_id: &'a str,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<types::SimpleEarnFlexibleSetAutoSubscribeResponse>,
         Error<types::Error>,
@@ -77297,14 +75647,12 @@ Arguments:
         let url = format!(
             "{}/sapi/v1/simple-earn/flexible/setAutoSubscribe", self.baseurl,
         );
-        let mut query = Vec::with_capacity(5usize);
+        let mut query = Vec::with_capacity(3usize);
         query.push(("autoSubscribe", auto_subscribe.to_string()));
         query.push(("productId", product_id.to_string()));
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -77315,7 +75663,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -77340,16 +75688,12 @@ Arguments:
 - `auto_subscribe`: true or false
 - `position_id`
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn simple_earn_locked_set_auto_subscribe<'a>(
         &'a self,
         auto_subscribe: bool,
         position_id: &'a str,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<types::SimpleEarnLockedSetAutoSubscribeResponse>,
         Error<types::Error>,
@@ -77357,14 +75701,12 @@ Arguments:
         let url = format!(
             "{}/sapi/v1/simple-earn/locked/setAutoSubscribe", self.baseurl,
         );
-        let mut query = Vec::with_capacity(5usize);
+        let mut query = Vec::with_capacity(3usize);
         query.push(("autoSubscribe", auto_subscribe.to_string()));
         query.push(("positionId", position_id.to_string()));
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -77375,7 +75717,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -77399,15 +75741,11 @@ Sends a `GET` request to `/sapi/v1/simple-earn/flexible/personalLeftQuota`
 Arguments:
 - `product_id`
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn simple_earn_flexible_personal_left_quota<'a>(
         &'a self,
         product_id: &'a str,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<types::SimpleEarnFlexiblePersonalLeftQuotaResponse>,
         Error<types::Error>,
@@ -77415,13 +75753,11 @@ Arguments:
         let url = format!(
             "{}/sapi/v1/simple-earn/flexible/personalLeftQuota", self.baseurl,
         );
-        let mut query = Vec::with_capacity(4usize);
+        let mut query = Vec::with_capacity(2usize);
         query.push(("productId", product_id.to_string()));
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -77432,7 +75768,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -77456,15 +75792,11 @@ Sends a `GET` request to `/sapi/v1/simple-earn/locked/personalLeftQuota`
 Arguments:
 - `project_id`
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn simple_earn_locked_personal_left_quota<'a>(
         &'a self,
         project_id: &'a str,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<types::SimpleEarnLockedPersonalLeftQuotaResponse>,
         Error<types::Error>,
@@ -77472,13 +75804,11 @@ Arguments:
         let url = format!(
             "{}/sapi/v1/simple-earn/locked/personalLeftQuota", self.baseurl,
         );
-        let mut query = Vec::with_capacity(4usize);
+        let mut query = Vec::with_capacity(2usize);
         query.push(("projectId", project_id.to_string()));
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -77489,7 +75819,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -77514,16 +75844,12 @@ Arguments:
 - `amount`
 - `product_id`
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn simple_earn_flexible_subscription_preview<'a>(
         &'a self,
         amount: f64,
         product_id: &'a str,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<types::SimpleEarnFlexibleSubscriptionPreviewResponse>,
         Error<types::Error>,
@@ -77531,14 +75857,12 @@ Arguments:
         let url = format!(
             "{}/sapi/v1/simple-earn/flexible/subscriptionPreview", self.baseurl,
         );
-        let mut query = Vec::with_capacity(5usize);
+        let mut query = Vec::with_capacity(3usize);
         query.push(("amount", amount.to_string()));
         query.push(("productId", product_id.to_string()));
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -77549,7 +75873,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -77575,8 +75899,6 @@ Arguments:
 - `auto_subscribe`: true or false, default true.
 - `project_id`
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn simple_earn_locked_subscription_preview<'a>(
         &'a self,
@@ -77584,8 +75906,6 @@ Arguments:
         auto_subscribe: Option<bool>,
         project_id: &'a str,
         recv_window: Option<i64>,
-        signature: &'a str,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<Vec<types::SimpleEarnLockedSubscriptionPreviewResponseItem>>,
         Error<types::Error>,
@@ -77593,7 +75913,7 @@ Arguments:
         let url = format!(
             "{}/sapi/v1/simple-earn/locked/subscriptionPreview", self.baseurl,
         );
-        let mut query = Vec::with_capacity(6usize);
+        let mut query = Vec::with_capacity(4usize);
         query.push(("amount", amount.to_string()));
         if let Some(v) = &auto_subscribe {
             query.push(("autoSubscribe", v.to_string()));
@@ -77602,8 +75922,6 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -77614,7 +75932,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -77640,10 +75958,8 @@ Arguments:
 - `end_time`: UTC timestamp in ms
 - `product_id`
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `size`: Default:10 Max:100
 - `start_time`: UTC timestamp in ms
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn simple_earn_flexible_history_rate_history<'a>(
         &'a self,
@@ -77651,10 +75967,8 @@ Arguments:
         end_time: Option<i64>,
         product_id: &'a str,
         recv_window: Option<i64>,
-        signature: &'a str,
         size: Option<i32>,
         start_time: Option<i64>,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<types::SimpleEarnFlexibleHistoryRateHistoryResponse>,
         Error<types::Error>,
@@ -77662,7 +75976,7 @@ Arguments:
         let url = format!(
             "{}/sapi/v1/simple-earn/flexible/history/rateHistory", self.baseurl,
         );
-        let mut query = Vec::with_capacity(8usize);
+        let mut query = Vec::with_capacity(6usize);
         if let Some(v) = &current {
             query.push(("current", v.to_string()));
         }
@@ -77673,14 +75987,12 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &size {
             query.push(("size", v.to_string()));
         }
         if let Some(v) = &start_time {
             query.push(("startTime", v.to_string()));
         }
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -77691,7 +76003,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;
@@ -77717,10 +76029,8 @@ Arguments:
 - `end_time`: UTC timestamp in ms
 - `product_id`
 - `recv_window`: The value cannot be greater than 60000
-- `signature`: Signature
 - `size`: Default:10 Max:100
 - `start_time`: UTC timestamp in ms
-- `timestamp`: UTC timestamp in ms
 */
     pub async fn simple_earn_flexible_history_collateral_record<'a>(
         &'a self,
@@ -77728,10 +76038,8 @@ Arguments:
         end_time: Option<i64>,
         product_id: Option<&'a str>,
         recv_window: Option<i64>,
-        signature: &'a str,
         size: Option<i32>,
         start_time: Option<i64>,
-        timestamp: i64,
     ) -> Result<
         ResponseValue<types::SimpleEarnFlexibleHistoryCollateralRecordResponse>,
         Error<types::Error>,
@@ -77739,7 +76047,7 @@ Arguments:
         let url = format!(
             "{}/sapi/v1/simple-earn/flexible/history/collateralRecord", self.baseurl,
         );
-        let mut query = Vec::with_capacity(8usize);
+        let mut query = Vec::with_capacity(6usize);
         if let Some(v) = &current {
             query.push(("current", v.to_string()));
         }
@@ -77752,14 +76060,12 @@ Arguments:
         if let Some(v) = &recv_window {
             query.push(("recvWindow", v.to_string()));
         }
-        query.push(("signature", signature.to_string()));
         if let Some(v) = &size {
             query.push(("size", v.to_string()));
         }
         if let Some(v) = &start_time {
             query.push(("startTime", v.to_string()));
         }
-        query.push(("timestamp", timestamp.to_string()));
         #[allow(unused_mut)]
         let mut request = self
             .client
@@ -77770,7 +76076,7 @@ Arguments:
             )
             .query(&query)
             .build()?;
-        (crate::pre_hook)(&self.inner, &request);
+        (crate::pre_hook_mut)(&self.inner, &mut request);
         let result = self.client.execute(request).await;
         (crate::post_hook)(&self.inner, &result);
         let response = result?;

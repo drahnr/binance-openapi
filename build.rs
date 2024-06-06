@@ -40,23 +40,15 @@ fn run_progenitor() -> std::result::Result<(), Box<dyn std::error::Error>> {
     let file = fs::File::open(api_spec_path())?;
     let de = serde_yaml::Deserializer::from_reader(file);
     let spec = serde_path_to_error::deserialize(de)?;
-    let schema_json = r#"
-	{
-		"required": ["id", "objectName" ],
-		"properties": {
-		  "id":{
-			"type": "integer"
-			},
-		  "objectName": {
-			"type": "string"
-		  }
-		},
-		"type": "object"
-	}
-	"#;
+    // let schema_json = r#"
+	// {
+    //     $ref: '#/components/parameters/timestamp'
+    //     $ref: '#/components/parameters/signature'
+	// }
+	// "#;
 
-    let _schema_universal_id_repl: schemars::schema::SchemaObject =
-        serde_json::from_str(schema_json).unwrap();
+    // let schema_universal_time_and_sign: schemars::schema::SchemaObject =
+    //     serde_json::from_str(schema_json).unwrap();
 
     let patchty = TypePatch::default();
     // patchty.with_derive("Display");
@@ -66,8 +58,8 @@ fn run_progenitor() -> std::result::Result<(), Box<dyn std::error::Error>> {
         .with_inner_type(quote! {
             crate::AuthProvider
         })
-        .with_pre_hook(quote! {
-            crate::pre_hook
+        .with_pre_hook_mut(quote! {
+            crate::pre_hook_mut
         })
         .with_post_hook(quote! {
             crate::post_hook

@@ -858,8 +858,6 @@ paths:
         - $ref: '#/components/parameters/icebergQty'
         - $ref: '#/components/parameters/newOrderRespType'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -899,8 +897,6 @@ paths:
         - $ref: '#/components/parameters/orderId'
         - $ref: '#/components/parameters/origClientOrderId'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -963,8 +959,6 @@ paths:
         - $ref: '#/components/parameters/newOrderRespType'
         - $ref: '#/components/parameters/selfTradePreventionMode'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -1007,8 +1001,6 @@ paths:
         - $ref: '#/components/parameters/newClientOrderId'
         - $ref: '#/components/parameters/cancelRestrictions'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -1088,8 +1080,6 @@ paths:
         - $ref: '#/components/parameters/newOrderRespType'
         - $ref: '#/components/parameters/selfTradePreventionMode'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -1278,8 +1268,6 @@ paths:
       parameters:
         - $ref: '#/components/parameters/optionalSymbol'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -1316,8 +1304,6 @@ paths:
       parameters:
         - $ref: '#/components/parameters/symbol'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -1364,8 +1350,6 @@ paths:
         - $ref: '#/components/parameters/endTime'
         - $ref: '#/components/parameters/limit'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -1433,8 +1417,6 @@ paths:
         - $ref: '#/components/parameters/ocoNewOrderRespType'
         - $ref: '#/components/parameters/selfTradePreventionMode'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -1616,8 +1598,6 @@ paths:
         - $ref: '#/components/parameters/orderListId'
         - $ref: '#/components/parameters/origClientOrderId'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -1712,8 +1692,6 @@ paths:
         - $ref: '#/components/parameters/listClientOrderId'
         - $ref: '#/components/parameters/newClientOrderId'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -1751,8 +1729,6 @@ paths:
         - $ref: '#/components/parameters/endTime'
         - $ref: '#/components/parameters/limit'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -1844,8 +1820,6 @@ paths:
         - Trade
       parameters:
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -1951,8 +1925,6 @@ paths:
         - $ref: '#/components/parameters/newOrderRespType'
         - $ref: '#/components/parameters/selfTradePreventionMode'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -2113,8 +2085,6 @@ paths:
         - $ref: '#/components/parameters/newOrderRespType'
         - $ref: '#/components/parameters/selfTradePreventionMode'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -2148,8 +2118,6 @@ paths:
         - Trade
       parameters:
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -2213,8 +2181,6 @@ paths:
         - $ref: '#/components/parameters/fromId'
         - $ref: '#/components/parameters/limit'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -2250,8 +2216,6 @@ paths:
         - Trade
       parameters:
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -2343,8 +2307,6 @@ paths:
             example: 1
         - $ref: '#/components/parameters/limit'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -2446,8 +2408,6 @@ paths:
         - $ref: '#/components/parameters/limit'
         - $ref: '#/components/parameters/orderId'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -2559,8 +2519,6 @@ paths:
             minimum: 1
             maximum: 2
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -2602,8 +2560,6 @@ paths:
         - $ref: '#/components/parameters/size'
         - $ref: '#/components/parameters/archived'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -2688,8 +2644,6 @@ paths:
         - $ref: '#/components/parameters/optionalSymbol'
         - $ref: '#/components/parameters/amount'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -2739,8 +2693,6 @@ paths:
         - $ref: '#/components/parameters/size'
         - $ref: '#/components/parameters/archived'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -2824,8 +2776,6 @@ paths:
         - $ref: '#/components/parameters/optionalSymbol'
         - $ref: '#/components/parameters/amount'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -2875,8 +2825,6 @@ paths:
         - $ref: '#/components/parameters/size'
         - $ref: '#/components/parameters/archived'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -3208,8 +3156,6 @@ paths:
         - $ref: '#/components/parameters/orderId'
         - $ref: '#/components/parameters/origClientOrderId'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -3262,8 +3208,6 @@ paths:
             example: true
         - $ref: '#/components/parameters/selfTradePreventionMode'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -3306,8 +3250,6 @@ paths:
         - $ref: '#/components/parameters/origClientOrderId'
         - $ref: '#/components/parameters/newClientOrderId'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -3355,8 +3297,6 @@ paths:
         - $ref: '#/components/parameters/size'
         - $ref: '#/components/parameters/archived'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -3438,8 +3378,6 @@ paths:
         - $ref: '#/components/parameters/current'
         - $ref: '#/components/parameters/size'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -3530,8 +3468,6 @@ paths:
         - Margin
       parameters:
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -3627,8 +3563,6 @@ paths:
         - $ref: '#/components/parameters/optionalSymbol'
         - $ref: '#/components/parameters/isIsolatedMargin'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -3666,8 +3600,6 @@ paths:
         - $ref: '#/components/parameters/symbol'
         - $ref: "#/components/parameters/isIsolatedMargin"
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -3714,8 +3646,6 @@ paths:
         - $ref: '#/components/parameters/endTime'
         - $ref: '#/components/parameters/limit'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -3776,8 +3706,6 @@ paths:
         - $ref: '#/components/parameters/sideEffectType'
         - $ref: '#/components/parameters/selfTradePreventionMode'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -3971,8 +3899,6 @@ paths:
         - $ref: '#/components/parameters/orderListId'
         - $ref: '#/components/parameters/origClientOrderId'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -4073,8 +3999,6 @@ paths:
         - $ref: '#/components/parameters/listClientOrderId'
         - $ref: '#/components/parameters/newClientOrderId'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -4127,8 +4051,6 @@ paths:
             type: integer
             format: int32
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -4226,8 +4148,6 @@ paths:
           schema:
             type: string
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -4330,8 +4250,6 @@ paths:
         - $ref: '#/components/parameters/fromId'
         - $ref: '#/components/parameters/limit'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -4370,8 +4288,6 @@ paths:
         - $ref: '#/components/parameters/asset'
         - $ref: '#/components/parameters/isolatedSymbol'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -4419,8 +4335,6 @@ paths:
         - $ref: '#/components/parameters/asset'
         - $ref: '#/components/parameters/isolatedSymbol'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -4474,8 +4388,6 @@ paths:
             type: string
             example: 'me@email.com'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -4529,8 +4441,6 @@ paths:
         - $ref: '#/components/parameters/current'
         - $ref: '#/components/parameters/size'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -4565,8 +4475,6 @@ paths:
         - $ref: '#/components/parameters/transTo'
         - $ref: '#/components/parameters/amount'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -4604,8 +4512,6 @@ paths:
       parameters:
         - $ref: '#/components/parameters/symbols'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -4639,8 +4545,6 @@ paths:
       parameters:
         - $ref: '#/components/parameters/symbol'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -4683,8 +4587,6 @@ paths:
       parameters:
         - $ref: '#/components/parameters/symbol'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -4727,8 +4629,6 @@ paths:
         - Margin
       parameters:
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -4772,8 +4672,6 @@ paths:
       parameters:
         - $ref: '#/components/parameters/symbol'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -4827,8 +4725,6 @@ paths:
         - Margin
       parameters:
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -4901,8 +4797,6 @@ paths:
             enum: ['true','false']
             example: 'false'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -4932,8 +4826,6 @@ paths:
         - Margin
       parameters:
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -4971,8 +4863,6 @@ paths:
         - $ref: '#/components/parameters/startTime'
         - $ref: '#/components/parameters/endTime'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -5030,8 +4920,6 @@ paths:
         - $ref: '#/components/parameters/vipLevel'
         - $ref: '#/components/parameters/optionalCoin'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -5108,8 +4996,6 @@ paths:
         - $ref: '#/components/parameters/vipLevel'
         - $ref: '#/components/parameters/optionalSymbol'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -5181,8 +5067,6 @@ paths:
             type: string
             example: 1
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -5247,8 +5131,6 @@ paths:
           schema:
             type: string
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -5311,8 +5193,6 @@ paths:
         - $ref: '#/components/parameters/startTime'
         - $ref: '#/components/parameters/endTime'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -5464,8 +5344,6 @@ paths:
         - Margin
       parameters:
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -5528,8 +5406,6 @@ paths:
         - $ref: '#/components/parameters/startTime'
         - $ref: '#/components/parameters/endTime'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -5614,8 +5490,6 @@ paths:
             enum: ['TRUE','FALSE']
             example: "TRUE"
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -5692,8 +5566,6 @@ paths:
             type: integer
             format: int64
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -5762,8 +5634,6 @@ paths:
         - Margin
       parameters:
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -5819,8 +5689,6 @@ paths:
           schema:
             type: string
             enum: [MARGIN, ISOLATED]
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -5892,8 +5760,6 @@ paths:
           schema:
             type: string
             example: "BTCUSDT"
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -5952,8 +5818,6 @@ paths:
         - Margin
       parameters:
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -6036,8 +5900,6 @@ paths:
       parameters:
         - $ref: '#/components/parameters/asset'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -6122,8 +5984,6 @@ paths:
             type: integer
             example: 3
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -6263,8 +6123,6 @@ paths:
         - Wallet
       parameters:
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -6457,8 +6315,6 @@ paths:
             minimum: 7
             maximum: 30
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -6496,8 +6352,6 @@ paths:
         - Wallet
       parameters:
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -6532,8 +6386,6 @@ paths:
         - Wallet
       parameters:
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -6607,8 +6459,6 @@ paths:
             type: integer
             format: int32
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -6638,7 +6488,7 @@ paths:
                 $ref: '#/components/schemas/error'
   /sapi/v1/capital/deposit/hisrec:
     get:
-      operationId: capital/deposit/hisrec
+      operationId: capital_deposit_history_rec
       summary: Deposit History(supporting network) (USER_DATA)
       description: |-
         Fetch deposit history.
@@ -6665,8 +6515,6 @@ paths:
         - $ref: '#/components/parameters/offset'
         - $ref: '#/components/parameters/limit'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -6785,8 +6633,6 @@ paths:
         - $ref: '#/components/parameters/offset'
         - $ref: '#/components/parameters/limit'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -6850,7 +6696,6 @@ paths:
                     - applyTime
                     - coin
                     - id
-                    - withdrawOrderId
                     - network
                     - transferType
                     - status
@@ -6885,8 +6730,6 @@ paths:
         - $ref: '#/components/parameters/coin'
         - $ref: '#/components/parameters/network'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -6938,8 +6781,6 @@ paths:
         - Wallet
       parameters:
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -6979,8 +6820,6 @@ paths:
         - Wallet
       parameters:
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -7095,8 +6934,6 @@ paths:
         - $ref: '#/components/parameters/startTime'
         - $ref: '#/components/parameters/endTime'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -7195,8 +7032,6 @@ paths:
         - Wallet
       parameters:
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -7381,8 +7216,6 @@ paths:
             default: 20
             maximum: 500
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -7460,8 +7293,6 @@ paths:
       parameters:
         - $ref: '#/components/parameters/optionalAsset'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -7525,8 +7356,6 @@ paths:
       parameters:
         - $ref: '#/components/parameters/optionalSymbol'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -7566,7 +7395,7 @@ paths:
                 $ref: '#/components/schemas/error'
   /sapi/v1/asset/transfer:
     get:
-      operationId: asset/transfer
+      operationId: asset_transfer
       summary: Query User Universal Transfer History (USER_DATA)
       description: |-
         - `fromSymbol` must be sent when type are ISOLATEDMARGIN_MARGIN and ISOLATEDMARGIN_ISOLATEDMARGIN
@@ -7586,8 +7415,6 @@ paths:
         - $ref: '#/components/parameters/fromSymbol'
         - $ref: '#/components/parameters/toSymbol'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -7703,8 +7530,6 @@ paths:
         - $ref: '#/components/parameters/fromSymbol'
         - $ref: '#/components/parameters/toSymbol'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -7747,8 +7572,6 @@ paths:
         - $ref: '#/components/parameters/optionalAsset'
         - $ref: '#/components/parameters/needBtcValuation'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -7812,8 +7635,6 @@ paths:
         - $ref: '#/components/parameters/optionalAsset'
         - $ref: '#/components/parameters/needBtcValuation'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -7869,7 +7690,7 @@ paths:
                 $ref: '#/components/schemas/error'
   /sapi/v1/asset/convert-transfer:
     post:
-      operationId: asset/convert-transfer
+      operationId: asset_convert_transfer
       summary: Convert Transfer (USER_DATA)
       description: |-
         Convert transfer, convert between BUSD and stablecoins.
@@ -7895,8 +7716,6 @@ paths:
             type: string
             example: "BNB"
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -7931,7 +7750,7 @@ paths:
                 $ref: '#/components/schemas/error'
   /sapi/v1/asset/convert-transfer/queryByPage:
     get:
-      operationId: asset/convert-transfer/queryByPage
+      operationId: asset_convert_transfer_paged
       summary: Query Convert Transfer (USER_DATA)
       description: |-
         Weight(UID): 5
@@ -7976,8 +7795,6 @@ paths:
         - $ref: '#/components/parameters/current'
         - $ref: '#/components/parameters/size'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -8101,8 +7918,6 @@ paths:
         - $ref: '#/components/parameters/current'
         - $ref: '#/components/parameters/size'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -8174,8 +7989,6 @@ paths:
         - Wallet
       parameters:
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -8375,8 +8188,6 @@ paths:
           schema:
             type: string
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -8427,8 +8238,6 @@ paths:
             format: int32
             example: 1
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -8505,8 +8314,6 @@ paths:
             format: int32
             example: 1
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -8589,8 +8396,6 @@ paths:
             type: integer
             format: int32
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -8678,8 +8483,6 @@ paths:
         - $ref: '#/components/parameters/asset'
         - $ref: '#/components/parameters/amount'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -8723,8 +8526,6 @@ paths:
       parameters:
         - $ref: '#/components/parameters/subAccountEmail'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -8789,8 +8590,6 @@ paths:
             type: integer
             format: int32
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -8853,8 +8652,6 @@ paths:
         - $ref: '#/components/parameters/coin'
         - $ref: '#/components/parameters/network'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -8922,8 +8719,6 @@ paths:
             format: int64
         - $ref: '#/components/parameters/offset'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -9025,8 +8820,6 @@ paths:
             type: integer
             format: int64
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -9078,8 +8871,6 @@ paths:
         - Wallet
       parameters:
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -9157,8 +8948,6 @@ paths:
         - $ref: '#/components/parameters/current'
         - $ref: '#/components/parameters/size'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -9237,8 +9026,6 @@ paths:
             type: string
             example: "BTC"
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -9290,8 +9077,6 @@ paths:
       parameters:
         - $ref: '#/components/parameters/optionalSubAccountEmail'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -9355,8 +9140,6 @@ paths:
       parameters:
         - $ref: '#/components/parameters/subAccountEmail'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -9397,8 +9180,6 @@ paths:
       parameters:
         - $ref: '#/components/parameters/subAccountEmail'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -9502,8 +9283,6 @@ paths:
         - Sub-Account
       parameters:
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -9572,8 +9351,6 @@ paths:
       parameters:
         - $ref: '#/components/parameters/subAccountEmail'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -9619,8 +9396,6 @@ paths:
             type: string
             example: alice@test.com
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -9755,8 +9530,6 @@ paths:
         - Sub-Account
       parameters:
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -9865,8 +9638,6 @@ paths:
       parameters:
         - $ref: '#/components/parameters/subAccountEmail'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -9951,8 +9722,6 @@ paths:
             minimum: 1
             maximum: 4
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -10003,8 +9772,6 @@ paths:
             minimum: 1
             maximum: 2
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -10044,8 +9811,6 @@ paths:
         - $ref: '#/components/parameters/asset'
         - $ref: '#/components/parameters/amount'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -10084,8 +9849,6 @@ paths:
         - $ref: '#/components/parameters/asset'
         - $ref: '#/components/parameters/amount'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -10138,8 +9901,6 @@ paths:
         - $ref: '#/components/parameters/endTime'
         - $ref: '#/components/parameters/limit'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -10236,8 +9997,6 @@ paths:
             type: integer
             format: int32
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -10345,8 +10104,6 @@ paths:
         - $ref: '#/components/parameters/asset'
         - $ref: '#/components/parameters/amount'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -10399,8 +10156,6 @@ paths:
             format: int32
             example: 1
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -10450,8 +10205,6 @@ paths:
             type: integer
             format: int32
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -10495,8 +10248,6 @@ paths:
             format: int32
             example: 1
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -10536,8 +10287,6 @@ paths:
           schema:
             type: boolean
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -10580,8 +10329,6 @@ paths:
         - $ref: '#/components/parameters/asset'
         - $ref: '#/components/parameters/amount'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -10620,8 +10367,6 @@ paths:
       parameters:
         - $ref: '#/components/parameters/subAccountEmail'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -10689,8 +10434,6 @@ paths:
             type: integer
             format: int64
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -10749,8 +10492,6 @@ paths:
             type: integer
             format: int32
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       responses:
         '200':
           description: Sub-account spot snapshot
@@ -10856,8 +10597,6 @@ paths:
             type: string
             example: 'SPOT'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -10966,8 +10705,6 @@ paths:
             type: string
             example: 'SPOT'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -11056,8 +10793,6 @@ paths:
       parameters:
         - $ref: '#/components/parameters/email'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -11169,8 +10904,6 @@ paths:
       parameters:
         - $ref: '#/components/parameters/email'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -11256,8 +10989,6 @@ paths:
         - $ref: '#/components/parameters/page'
         - $ref: '#/components/parameters/limit'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -11354,8 +11085,6 @@ paths:
         - $ref: '#/components/parameters/coin'
         - $ref: '#/components/parameters/network'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -11425,8 +11154,6 @@ paths:
             type: string
             enum: [SPOT, MARGIN, ISOLATED_MARGIN, USDT_FUTURE, COIN_FUTURE]
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -11515,8 +11242,6 @@ paths:
         - $ref: '#/components/parameters/subAccountEmail'
         - $ref: '#/components/parameters/subAccountApiKey'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -11574,8 +11299,6 @@ paths:
         - $ref: '#/components/parameters/optionalIpAddress'
         - $ref: '#/components/parameters/thirdPartyName'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -11634,8 +11357,6 @@ paths:
       parameters:
         - $ref: '#/components/parameters/email'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -11734,8 +11455,6 @@ paths:
       parameters:
         - $ref: '#/components/parameters/email'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -11789,8 +11508,6 @@ paths:
             example: "1"
         - $ref: '#/components/parameters/thirdPartyName'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -11849,8 +11566,6 @@ paths:
       parameters:
         - $ref: '#/components/parameters/email'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -12144,8 +11859,6 @@ paths:
         - $ref: '#/components/parameters/page'
         - $ref: '#/components/parameters/rows'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -12248,8 +11961,6 @@ paths:
         - $ref: '#/components/parameters/page'
         - $ref: '#/components/parameters/rows'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -12360,8 +12071,6 @@ paths:
         - $ref: '#/components/parameters/current'
         - $ref: '#/components/parameters/size'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -12466,8 +12175,6 @@ paths:
         - $ref: '#/components/parameters/projectId'
         - $ref: '#/components/parameters/lot'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -12507,8 +12214,6 @@ paths:
         - $ref: '#/components/parameters/fixedAndActivityProjectId'
         - $ref: '#/components/parameters/optionalFixedAndActivityProductStatus'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -12624,8 +12329,6 @@ paths:
         - $ref: '#/components/parameters/lot'
         - $ref: '#/components/parameters/optionalPositionId'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -12678,8 +12381,6 @@ paths:
         - $ref: '#/components/parameters/current'
         - $ref: '#/components/parameters/size'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -12765,8 +12466,6 @@ paths:
           schema:
             type: string
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -12823,8 +12522,6 @@ paths:
             type: number
             format: double
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -12869,8 +12566,6 @@ paths:
         - $ref: '#/components/parameters/current'
         - $ref: '#/components/parameters/size'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -13021,8 +12716,6 @@ paths:
         - $ref: '#/components/parameters/current'
         - $ref: '#/components/parameters/size'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -13116,8 +12809,6 @@ paths:
           schema:
             type: string
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -13156,8 +12847,6 @@ paths:
         - $ref: '#/components/parameters/product'
         - $ref: '#/components/parameters/productId'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -13320,8 +13009,6 @@ paths:
         - $ref: '#/components/parameters/userName'
         - $ref: '#/components/parameters/workerName'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -13408,8 +13095,6 @@ paths:
         - $ref: '#/components/parameters/sortColumn'
         - $ref: '#/components/parameters/workerStatus'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -13518,8 +13203,6 @@ paths:
         - $ref: '#/components/parameters/pageIndex'
         - $ref: '#/components/parameters/pageSize'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -13639,8 +13322,6 @@ paths:
         - $ref: '#/components/parameters/pageIndex'
         - $ref: '#/components/parameters/pageSize'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -13736,8 +13417,6 @@ paths:
         - $ref: '#/components/parameters/pageIndex'
         - $ref: '#/components/parameters/pageSize'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -13850,8 +13529,6 @@ paths:
         - $ref: '#/components/parameters/pageIndex'
         - $ref: '#/components/parameters/pageSize'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -13958,8 +13635,6 @@ paths:
         - $ref: '#/components/parameters/toPoolUser'
         - $ref: '#/components/parameters/hashRate'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -14009,8 +13684,6 @@ paths:
         - $ref: '#/components/parameters/configId'
         - $ref: '#/components/parameters/userName'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -14057,8 +13730,6 @@ paths:
         - $ref: '#/components/parameters/algo'
         - $ref: '#/components/parameters/userName'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -14171,8 +13842,6 @@ paths:
         - $ref: '#/components/parameters/algo'
         - $ref: '#/components/parameters/userName'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -14254,8 +13923,6 @@ paths:
         - $ref: '#/components/parameters/pageIndex'
         - $ref: '#/components/parameters/pageSize'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -14361,8 +14028,6 @@ paths:
             type: integer
             format: int64
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -14405,8 +14070,6 @@ paths:
         - $ref: '#/components/parameters/current'
         - $ref: '#/components/parameters/size'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -14494,8 +14157,6 @@ paths:
         - $ref: '#/components/parameters/startTime'
         - $ref: '#/components/parameters/endTime'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -14588,8 +14249,6 @@ paths:
             type: number
             format: double
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -14687,8 +14346,6 @@ paths:
             type: number
             format: double
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -14750,8 +14407,6 @@ paths:
             type: integer
             format: int64
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -14806,8 +14461,6 @@ paths:
         - Futures Algo
       parameters:
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -14924,8 +14577,6 @@ paths:
           schema:
             type: string
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -15045,8 +14696,6 @@ paths:
           schema:
             type: string
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -15180,8 +14829,6 @@ paths:
             type: number
             format: float
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -15240,8 +14887,6 @@ paths:
             format: int64
             example: 1
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -15294,8 +14939,6 @@ paths:
         - Spot Algo
       parameters:
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -15403,8 +15046,6 @@ paths:
         - $ref: '#/components/parameters/page'
         - $ref: '#/components/parameters/pageSize'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -15514,8 +15155,6 @@ paths:
         - $ref: '#/components/parameters/page'
         - $ref: '#/components/parameters/pageSize'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -15629,8 +15268,6 @@ paths:
         - Portfolio Margin
       parameters:
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -15733,8 +15370,6 @@ paths:
         - Portfolio Margin
       parameters:
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -15783,8 +15418,6 @@ paths:
             type: string
             example: "SPOT"
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -15829,8 +15462,6 @@ paths:
         - $ref: '#/components/parameters/endTime'
         - $ref: '#/components/parameters/size'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -15940,8 +15571,6 @@ paths:
         - Portfolio Margin
       parameters:
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -15989,8 +15618,6 @@ paths:
             example: 'TO_UM'
         - $ref: '#/components/parameters/amount'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -16032,8 +15659,6 @@ paths:
       parameters:
         - $ref: '#/components/parameters/autoRepay'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -16072,8 +15697,6 @@ paths:
         - Portfolio Margin
       parameters:
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -16113,8 +15736,6 @@ paths:
         - Portfolio Margin
       parameters:
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -16192,8 +15813,6 @@ paths:
       parameters:
         - $ref: '#/components/parameters/asset'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -16342,8 +15961,6 @@ paths:
             type: number
             format: double
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -16417,8 +16034,6 @@ paths:
         - $ref: '#/components/parameters/endTime'
         - $ref: '#/components/parameters/limit'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -16487,8 +16102,6 @@ paths:
         - $ref: '#/components/parameters/blvtTokenName'
         - $ref: '#/components/parameters/amount'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -16567,8 +16180,6 @@ paths:
             format: int32
           description: 'default 1000, max 1000'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -16638,8 +16249,6 @@ paths:
       parameters:
         - $ref: '#/components/parameters/optionalBlvtTokenName'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -16742,8 +16351,6 @@ paths:
       parameters:
         - $ref: '#/components/parameters/optionalPoolId'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -16852,8 +16459,6 @@ paths:
         - $ref: '#/components/parameters/asset'
         - $ref: '#/components/parameters/quantity'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -16917,8 +16522,6 @@ paths:
             type: number
             format: double
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -16973,8 +16576,6 @@ paths:
         - $ref: '#/components/parameters/endTime'
         - $ref: '#/components/parameters/limit'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -17053,8 +16654,6 @@ paths:
         - $ref: '#/components/parameters/baseAsset'
         - $ref: '#/components/parameters/quoteQty'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -17126,8 +16725,6 @@ paths:
         - $ref: '#/components/parameters/baseAsset'
         - $ref: '#/components/parameters/quoteQty'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -17200,8 +16797,6 @@ paths:
             format: int32
           description: 'default 3, max 100'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -17286,8 +16881,6 @@ paths:
             format: int64
             example: 2
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -17435,8 +17028,6 @@ paths:
         - $ref: '#/components/parameters/quoteAsset'
         - $ref: '#/components/parameters/quoteQty'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -17496,8 +17087,6 @@ paths:
             type: number
             format: double
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -17534,8 +17123,6 @@ paths:
       parameters:
         - $ref: '#/components/parameters/bswapClaimType'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -17622,8 +17209,6 @@ paths:
       parameters:
         - $ref: '#/components/parameters/bswapClaimType'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -17680,8 +17265,6 @@ paths:
             type: integer
             format: int32
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -17774,8 +17357,6 @@ paths:
             type: integer
             format: int32
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -17912,8 +17493,6 @@ paths:
             format: int32
             example: 10
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -18020,8 +17599,6 @@ paths:
         - $ref: '#/components/parameters/orderId'
         - $ref: '#/components/parameters/amount'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -18098,8 +17675,6 @@ paths:
             format: int32
             example: 10
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -18179,8 +17754,6 @@ paths:
             type: integer
             format: int64
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -18275,8 +17848,6 @@ paths:
           schema:
             type: integer
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -18345,8 +17916,6 @@ paths:
         - $ref: '#/components/parameters/loanCoin'
         - $ref: '#/components/parameters/vipLevel'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -18434,8 +18003,6 @@ paths:
       parameters:
         - $ref: '#/components/parameters/collateralCoin'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -18522,8 +18089,6 @@ paths:
         - $ref: '#/components/parameters/current'
         - $ref: '#/components/parameters/limit'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -18612,8 +18177,6 @@ paths:
             type: string
             example: "BUSD"
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -18674,8 +18237,6 @@ paths:
             type: integer
             example: 30
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -18760,8 +18321,6 @@ paths:
             format: int32
             example: 20
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -18830,8 +18389,6 @@ paths:
             format: int32
             example: 30
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -18911,8 +18468,6 @@ paths:
             format: int64
             example: 10
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -19019,8 +18574,6 @@ paths:
             format: int64
             example: 10
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -19129,8 +18682,6 @@ paths:
             type: boolean
             example: True
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -19186,8 +18737,6 @@ paths:
             format: int64
             example: 10
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -19296,8 +18845,6 @@ paths:
             enum: ['ADDITIONAL', 'REDUCED']
             example: "ADDITIONAL"
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -19373,8 +18920,6 @@ paths:
             format: int64
             example: 10
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -19458,8 +19003,6 @@ paths:
         - $ref: '#/components/parameters/loanCoin'
         - $ref: '#/components/parameters/vipLevel'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -19566,8 +19109,6 @@ paths:
         - $ref: '#/components/parameters/collateralCoin'
         - $ref: '#/components/parameters/vipLevel'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -19649,8 +19190,6 @@ paths:
             type: number
             format: float
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -19717,8 +19256,6 @@ paths:
             type: number
             format: float
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -19790,8 +19327,6 @@ paths:
         - $ref: '#/components/parameters/collateralCoin'
         - $ref: '#/components/parameters/collateralAmount'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -19849,8 +19384,6 @@ paths:
         - $ref: '#/components/parameters/current'
         - $ref: '#/components/parameters/limit'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -19923,8 +19456,6 @@ paths:
         - $ref: '#/components/parameters/current'
         - $ref: '#/components/parameters/limit'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -20014,8 +19545,6 @@ paths:
             type: boolean
             example: TRUE
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -20084,8 +19613,6 @@ paths:
         - $ref: '#/components/parameters/current'
         - $ref: '#/components/parameters/limit'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -20171,8 +19698,6 @@ paths:
             type: string
             enum: ["ADDITIONAL", "REDUCED"]
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -20237,8 +19762,6 @@ paths:
         - $ref: '#/components/parameters/current'
         - $ref: '#/components/parameters/limit'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -20316,8 +19839,6 @@ paths:
       parameters:
         - $ref: '#/components/parameters/loanCoin'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -20382,8 +19903,6 @@ paths:
       parameters:
         - $ref: '#/components/parameters/collateralCoin'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -20462,8 +19981,6 @@ paths:
             format: int32
             example: 100
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -20712,8 +20229,6 @@ paths:
         - Convert
       parameters:
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -20802,8 +20317,6 @@ paths:
             type: string
             example: SPOT
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -20870,8 +20383,6 @@ paths:
             type: string
             example: 1000
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -20932,8 +20443,6 @@ paths:
             type: string
             example: 1000
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -21031,8 +20540,6 @@ paths:
             format: int32
             example: 100
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -21159,8 +20666,6 @@ paths:
             format: int32
             example: 1
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -21267,8 +20772,6 @@ paths:
         - $ref: '#/components/parameters/limit50'
         - $ref: '#/components/parameters/page'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -21358,8 +20861,6 @@ paths:
         - $ref: '#/components/parameters/limit50'
         - $ref: '#/components/parameters/page'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -21434,8 +20935,6 @@ paths:
         - $ref: '#/components/parameters/limit50'
         - $ref: '#/components/parameters/page'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -21511,8 +21010,6 @@ paths:
         - $ref: '#/components/parameters/limit50'
         - $ref: '#/components/parameters/page'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -21592,8 +21089,6 @@ paths:
             type: number
             format: double
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -21666,8 +21161,6 @@ paths:
           schema:
             type: string
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -21743,8 +21236,6 @@ paths:
           schema:
             type: string
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -21809,8 +21300,6 @@ paths:
         - Gift Card
       parameters:
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -21892,8 +21381,6 @@ paths:
             type: number
             format: double
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -21959,8 +21446,6 @@ paths:
           schema:
             type: string
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -22027,8 +21512,6 @@ paths:
         - $ref: '#/components/parameters/size'
         - $ref: '#/components/parameters/current'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -22102,8 +21585,6 @@ paths:
             type: string
             example: FIVE_YEAR
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -22149,8 +21630,6 @@ paths:
         - Auto-Invest
       parameters:
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -22221,8 +21700,6 @@ paths:
             type: boolean
             example: true
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -23680,8 +23157,6 @@ paths:
         - $ref: '#/components/parameters/current'
         - $ref: '#/components/parameters/size'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -23793,8 +23268,6 @@ paths:
         - $ref: '#/components/parameters/current'
         - $ref: '#/components/parameters/size'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -23926,8 +23399,6 @@ paths:
           schema:
             type: string
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -23993,8 +23464,6 @@ paths:
           schema:
             type: string
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -24064,8 +23533,6 @@ paths:
           schema:
             type: string
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -24116,8 +23583,6 @@ paths:
           schema:
             type: string
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -24170,8 +23635,6 @@ paths:
         - $ref: '#/components/parameters/current'
         - $ref: '#/components/parameters/size'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -24298,8 +23761,6 @@ paths:
         - $ref: '#/components/parameters/current'
         - $ref: '#/components/parameters/size'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -24393,8 +23854,6 @@ paths:
         - Simple Earn
       parameters:
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -24468,8 +23927,6 @@ paths:
         - $ref: '#/components/parameters/current'
         - $ref: '#/components/parameters/size'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -24570,8 +24027,6 @@ paths:
         - $ref: '#/components/parameters/current'
         - $ref: '#/components/parameters/size'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -24775,8 +24230,6 @@ paths:
         - $ref: '#/components/parameters/current'
         - $ref: '#/components/parameters/size'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -24953,8 +24406,6 @@ paths:
         - $ref: '#/components/parameters/endTime'
         - $ref: '#/components/parameters/size'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -25032,8 +24483,6 @@ paths:
           schema:
             type: boolean
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -25082,8 +24531,6 @@ paths:
           schema:
             type: boolean
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -25126,8 +24573,6 @@ paths:
           schema:
             type: string
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -25170,8 +24615,6 @@ paths:
           schema:
             type: string
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -25220,8 +24663,6 @@ paths:
             type: number
             format: double
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -25295,8 +24736,6 @@ paths:
           schema:
             type: boolean
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -25381,8 +24820,6 @@ paths:
         - $ref: '#/components/parameters/current'
         - $ref: '#/components/parameters/size'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
@@ -25453,8 +24890,6 @@ paths:
         - $ref: '#/components/parameters/current'
         - $ref: '#/components/parameters/size'
         - $ref: '#/components/parameters/recvWindow'
-        - $ref: '#/components/parameters/timestamp'
-        - $ref: '#/components/parameters/signature'
       security:
         - ApiKeyAuth: []
       responses:
